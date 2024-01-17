@@ -1,5 +1,6 @@
 # Algorithm for AVR systems
 
+Configuration files for AVR systems connected to intelligent relays (Zelio, Owen, Logo8!, Oni, ...)
 
 ## Install and Setup package "poetry"
 
@@ -9,4 +10,3 @@
     ```
 <hr>
 
-Configuration files for AVR systems connected to intelligent relays
