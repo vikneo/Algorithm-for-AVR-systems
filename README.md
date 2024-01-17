@@ -1,26 +1,27 @@
-# Algorithm for AVR systems
+# Алгоритмы для систем АВР
 
-## Description
+## Описание
 
-Configuration files for AVR systems connected to intelligent relays (Zelio, Owen, Logo8!, Oni, ...)
+Файлы конфигурации (как готовое решение) для систем АВР на ПЛК (программируемые логические контроллеры):
+* Zelio
+* Owen
+* Logo8!
+* Oni ...
 
-## Install and Setup package "poetry"
+### Типы АВР
+2 ввода с секционированием <br>
+2 ввода с секционированием + генератор<br>
+2 ввода без секционирования<br>
+2 ввода без секционирования + генератор<br>
 
+### Передача данный по сети **Modbus** (RTU, TCP):
+* Возможность дистанцинной блокировки АВР
+* Управление автоматическими выключателями
+* Система мониторинга в реальном времени
 
-### Install
+### Панели оператора:
+* Ведение журнала событий
+* Уровень доступа к данным
+* Мнемосхема и состояние работы
 
-* for install  ***poetry***  with command:
-    ```html
-    pip install poetry
-    ```
-
-### Settings
-
-* init
-    * This command will help you create a **pyproject.toml** file interactively by prompting you to provide basic information about your package.
-        ```html
-        poetry init
-        ```
-    
-<hr>
-
+[Запуск и настройка проекта](SEttings.md)
