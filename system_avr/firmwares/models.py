@@ -59,7 +59,7 @@ class Product(models.Model):
     """
     class Status(models.IntegerChoices):
         """
-        Модель вариантов статуса готовности
+        Модель вариантов статуса готовности изделия
         """
         READY = 1, 'Готов'
         CHEK = 2, 'Проверка'
@@ -67,7 +67,7 @@ class Product(models.Model):
     
     class Author(models.IntegerChoices):
         """
-        Модкль выбора авторов
+        Модель выбора авторов изделия
         """
         MBB = 1, 'Мартынов В.'
 
