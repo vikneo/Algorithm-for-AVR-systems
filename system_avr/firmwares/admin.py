@@ -5,6 +5,8 @@ from firmwares.models import Client, Product, Image, SmartRelay
 
 class ImageProduct(admin.TabularInline):
     model = Image
+    verbose_name = 'картинку'
+    verbose_name_plural = 'картинки'
     extra = 0
 
 
@@ -34,7 +36,7 @@ class AdminSmartRelay(admin.ModelAdmin):
     Регистрация модели "SmartRelay".
     """
     list_display = ['brend', 'name', 'slug']
-    prepopulated_fields = {'slug': ('brend',)}
+    prepopulated_fields = {'slug': ('name',)}
 
 
 admin.site.register(Product, AdminProduct)

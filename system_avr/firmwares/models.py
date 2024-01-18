@@ -49,7 +49,7 @@ class SmartRelay(models.Model):
         ONI = ('Oni', 'Oni')
 
     brend = models.CharField(max_length=100, verbose_name='Бренд')
-    slug = models.SlugField(max_length=100, verbose_name='URL')
+    slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
     name = models.CharField(max_length=20, choices=TypeRelay, verbose_name='Модель')
 
     def __str__(self) -> str:
