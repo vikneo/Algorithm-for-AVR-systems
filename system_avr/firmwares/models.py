@@ -23,6 +23,9 @@ class Client(models.Model):
     name = models.CharField(max_length=100, verbose_name='Клиент')
     slug = models.SlugField(max_length=100, verbose_name='URL')
 
+    def __str__(self) -> str:
+        return f'{self.name}'
+
     class Meta:
         db_table = 'clients'
         verbose_name = 'client'
@@ -33,19 +36,24 @@ class SmartRelay(models.Model):
     """
     Класс описывает модель логических контроллеров
     """
-    class TypeRelay(models.IntegerChoices):
-        PR200 = 1, 'ПР200'
-        PR205 = 2, 'ПР205'
-        PR103 = 3, 'ПР103'
-        SR3B261BD = 4, 'SR3B261BD'
-        SR2B201FU = 5, 'SR2B201FU'
-        SR2B121FU = 6, 'SR2B121FU'
-        ONI = 7, 'Oni'
-
+    class TypeRelay(models.TextChoices):
+        """
+        Класс с выбором логичческих контроллеров.
+        """
+        PR200 = ('ПР200', 'ПР200')
+        PR205 = ('ПР205', 'ПР205')
+        PR103 = ('ПР103', 'ПР103')
+        SR3B261BD = ('SR3B261BD', 'SR3B261BD')
+        SR2B201FU = ('SR2B201FU', 'SR2B201FU')
+        SR2B121FU = ('SR2B121FU', 'SR2B121FU')
+        ONI = ('Oni', 'Oni')
 
     brend = models.CharField(max_length=100, verbose_name='Бренд')
     slug = models.SlugField(max_length=100, verbose_name='URL')
-    name = models.IntegerField(choices=TypeRelay.choices, verbose_name='Модель')
+    name = models.CharField(max_length=20, choices=TypeRelay, verbose_name='Модель')
+
+    def __str__(self) -> str:
+        return f'{self.name}'
     
     class Meta:
         db_table = 'smartrelay'
@@ -75,8 +83,8 @@ class Product(models.Model):
     slug = models.SlugField(max_length=100, verbose_name='URL')
     descriiption = models.TextField(verbose_name='Описание файла')
     date_order = models.DateField(verbose_name='Дата заказа')
-    date_ready = models.DateField(verbose_name='Дата готовности')
-    date_check = models.DateField(verbose_name='Дата Проверки')
+    date_ready = models.DateField(verbose_name='Дата готовности', blank=True)
+    date_check = models.DateField(verbose_name='Дата Проверки', blank=True)
     status = models.IntegerField(choices=Status.choices, verbose_name='Статус')
     author = models.IntegerField(choices=Author.choices, verbose_name='Автор')
     relay = models.OneToOneField(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК')
@@ -86,6 +94,16 @@ class Product(models.Model):
         options={'quantity': 90},
         processors=[ResizeToFill(300, 300)]
     )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+
+    class Meta:
+        db_table = 'products'
+        verbose_name = 'product'
+        verbose_name_plural = 'products'
 
 
 class Image(models.Model):
