@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %}<title>Base</title>{% endblock %}
-</head>
-<body>
-    {% block content %}
-    {% endblock %}
-</body>
-</html>
+{% include 'base/header.html' %}
+{% load i18n static %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'base/footer.html' %}
