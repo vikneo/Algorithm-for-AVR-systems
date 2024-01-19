@@ -1,0 +1,15 @@
+{% load static i18n %}
+
+{% if clients %}
+    <div>
+        {% for client in clients %}
+        <div>
+            {{ client.name }}
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div>
+        <strong>База клиентов пока пуста</strong>
+    </div>
+{% endif %}
