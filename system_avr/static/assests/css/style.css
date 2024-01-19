@@ -1,0 +1,49 @@
+body {
+    margin: 0 auto;
+    padding-top: 20px;
+    max-width: 1200px;
+    flex-direction: column;
+    background-color: #363434;
+    color: #adbacb;
+}
+
+a {
+    color: #adbacb;
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+}
+
+/* Header */
+
+.nav {
+    outline: 3px solid #494956;
+    justify-content: center;
+}
+
+/* sidebar */
+
+.sidebar-block {
+    width: 340px;
+    flex-direction: column;
+}
+
+.position {
+    justify-content: space-between;
+}
+
+.clients-header {
+    align-items: center;
+    flex-direction: column;
+}
+
+.client {
+    padding-top: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 10px;
+    align-items: flex-start;
+    outline: 3px solid #494956;
+}

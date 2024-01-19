@@ -1,5 +1,17 @@
 {% include 'base/header.html' %}
+{% load clent_tags %}
 {% load i18n static %}
+
+{% block client %}
+<div class=" flex sidebar-block">
+    <div class="flex clients-header">
+        <h2>КЛИЕНТЫ</h2>
+    </div>
+    <div class="client">
+        {% client_main %}
+    </div>
+    {% endblock %}
+</div>
 
 {% block content %}
 {% endblock %}

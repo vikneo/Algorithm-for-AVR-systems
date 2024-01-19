@@ -3,8 +3,10 @@
 {% if clients %}
     <div>
         {% for client in clients %}
-        <div>
-            {{ client.name }}
+        <div class="flex position">
+            <a href="#">
+                {{ client.name }}
+            </a>
         </div>
         {% endfor %}
     </div>

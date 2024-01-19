@@ -1,8 +1,14 @@
+{% load static i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block title %}<title>Base</title>{% endblock %}
+    <link rel="stylesheet" href="{% static 'assests/css/style.css' %}">
+    {% block title %}{% endblock %}
 </head>
 <body>
+    <div class="flex nav">
+        <h1>Автоматизация систем АВР</h1>
+    </div>
