@@ -21,7 +21,7 @@ class Client(models.Model):
     Класс описывает модель клиента
     """
     name = models.CharField(max_length=100, verbose_name='Клиент')
-    slug = models.SlugField(max_length=100, verbose_name='URL')
+    slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -80,7 +80,7 @@ class Product(models.Model):
         MBB = 1, 'Мартынов В.'
 
     name = models.CharField(max_length=100, verbose_name='Объект')
-    slug = models.SlugField(max_length=100, verbose_name='URL')
+    slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
     descriiption = models.TextField(verbose_name='Описание файла')
     date_order = models.DateField(verbose_name='Дата заказа')
     date_ready = models.DateField(verbose_name='Дата готовности', blank=True)
@@ -96,6 +96,7 @@ class Product(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
+    availability = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
