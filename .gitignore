@@ -167,3 +167,6 @@ media/
 
 Makefile
 ./Makefile
+
+cache
+cache/
