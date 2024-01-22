@@ -10,7 +10,6 @@ def check_form_csv(request: HttpRequest, form) -> HttpResponse:
         context = {
             'form': form,
         }
-        print('Возвращаем на страницу "admin/csv_form.html"')
         return render(request, 'admin/csv_form.html', context)
-    print('Форма валидна и загружаем файл')
+    
     return True
