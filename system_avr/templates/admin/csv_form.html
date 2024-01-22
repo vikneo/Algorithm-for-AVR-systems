@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div>
+    <div class="upload-file">
         <form action="." method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}

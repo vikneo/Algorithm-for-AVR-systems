@@ -1,0 +1,16 @@
+
+/* admin panel */
+
+.button-import {
+    padding: 4px 14px;
+    border-radius: 15px;
+    background-color: #333333;
+    /* background: url(./img/icon-addlink.svg) 0 1px no-repeat; */
+    color: aliceblue;
+}
+
+.upload-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

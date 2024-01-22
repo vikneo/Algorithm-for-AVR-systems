@@ -1,4 +1,3 @@
-var childWindowHandles = new Array();
 
 function winImportCSV(url, title, width, height) {
     let pos_left = window.screenLeft ? window.screenLeft : window.screenX;
@@ -7,18 +6,6 @@ function winImportCSV(url, title, width, height) {
     let left = pos_left + (window.innerWidth / 2) - (width / 2);
     let top = pos_top + (window.innerHeight / 2) - (height / 2);
     console.log(`left - ${left}; top - ${top}`)
-    childWindowHandles[childWindowHandles.length] = window.open(url, title, 'toolbar=no, location=no, directories=no, status=yes, menubar=no,scrollbars=yes, resizable=yes, copyhistory=no, width=500, height=600, top=' + top + ', left=' + left);
     
-    return childWindowHandles
+    childWindowHandles = window.open(url, title, 'toolbar=no, location=no, directories=no, status=yes, menubar=no,scrollbars=yes, resizable=yes, copyhistory=no, width=500, height=600, top=' + top + ', left=' + left);
 }
-
-function closeChildWindows() {
-    for (var loop=0; loop<childWindowHandles.length; loop++) 
-    {
-        if (!childWindowHandles[loop].closed)
-        {
-            childWindowHandles[loop].close();
-        }
-    }
-}
-
