@@ -1,4 +1,5 @@
 {% extends 'admin/base.html' %}
+{% load static %}
 
 {% block content %}
     <div>
@@ -6,7 +7,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <div class="submit-row">
-                <input type="submit" value="Загрузить">
+                <input type="submit"  value="Загрузить">
             </div>
         </form>
     </div>

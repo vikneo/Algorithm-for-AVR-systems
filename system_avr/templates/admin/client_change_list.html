@@ -3,10 +3,13 @@
 
 {% block object-tools-items %}
 {% load admin_urls %}
+    <script src="{% static 'assests/js/win_upload_csv_client.js' %}"></script>
     <li>
-        <a href="{% url 'admin:import_client_csv' %}" class="addlink">
+        <button class="button-import" type="submit" onclick="winImportCSV('./import-client-csv', 'Upload', 300, 300)">
             Import CSV
-        </a>
+            <!-- <a href="{% url 'admin:import_client_csv' %}" class="addlink">
+            </a> -->
+        </button>
     </li>
     {{ block.super }}
 {% endblock %}

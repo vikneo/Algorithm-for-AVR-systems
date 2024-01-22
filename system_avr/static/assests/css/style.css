@@ -47,3 +47,11 @@ a {
     align-items: flex-start;
     outline: 3px solid #494956;
 }
+
+/* admin panel */
+
+.button-import {
+    background: #333333;
+    padding: 3px;
+    border-radius: 15px;
+}

@@ -6,6 +6,7 @@ from django.urls import path
 
 from .models import Client, Product, Image, SmartRelay
 from .forms import CSVImportForm
+from .mixins import ChangeListMixin
 from utils.slugify import slugify
 from utils.import_csv import import_file
 from utils.check_form_csv import check_form_csv
@@ -22,7 +23,7 @@ class ImageProduct(admin.TabularInline):
 
 
 @admin.register(Client)
-class AdminClient(admin.ModelAdmin):
+class AdminClient(ChangeListMixin, admin.ModelAdmin):
     """
     Регистрация модели "Клиент".
     """
