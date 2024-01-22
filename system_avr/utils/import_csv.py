@@ -5,8 +5,13 @@ from csv import DictReader
 from io import TextIOWrapper
 
 class ImportFile():
-    
+    """
+    Загрузка файла "csv" в базу данных.
+    """
     def reader_csv(self, file, encoding):
+        """
+        Чтение csv файла и преобразование в список словарей.
+        """
         csv_file = TextIOWrapper(
             file,
             encoding=encoding
@@ -15,6 +20,9 @@ class ImportFile():
         return reader
     
     def upload_client_csv(self, file, encoding):
+        """
+        Итерация по словарю и занесение занных клююча 'clent' в БД.
+        """
         reader = self.reader_csv(file, encoding)
         for row in reader:
             try:
