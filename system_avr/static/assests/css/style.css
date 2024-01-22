@@ -5,11 +5,17 @@ body {
     flex-direction: column;
     background-color: #363434;
     color: #adbacb;
+    background-image: url('../img/programming.jpg');
 }
 
 a {
-    color: #adbacb;
+    color: #ffffff;
     text-decoration: none;
+}
+
+p {
+    padding: 10px;
+    margin: 0;
 }
 
 .flex {
