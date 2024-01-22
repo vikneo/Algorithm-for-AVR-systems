@@ -7,7 +7,7 @@ from django.urls import path
 from .models import Client, Product, Image, SmartRelay
 from .forms import CSVImportForm
 from utils.slugify import slugify
-from utils.import_csv import upload_client_csv
+from utils.import_csv import import_file
 from utils.check_form_csv import check_form_csv
 
 import csv
@@ -44,9 +44,9 @@ class AdminClient(admin.ModelAdmin):
         
         form = CSVImportForm(request.POST, request.FILES)
         if check_form_csv(request, form):
-            upload_client_csv(
+            import_file.upload_client_csv(
                 form.files["csv_file"].file,
-                encoding="utf8"
+                encoding="cp1251"
             )
         self.message_user(request, "Данные по клиентам полностью загружены!")
         return redirect('..')
