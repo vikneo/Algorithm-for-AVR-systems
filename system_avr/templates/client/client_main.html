@@ -2,8 +2,8 @@
 
 {% if clients %}
     <div class="flex">
-        <select name="client" id="element">
-            <option value="{{ client.id }}">Показать все</option>
+        <select class="select-client" name="client" id="element">
+            <option value="0">Показать все</option>
             {% for client in clients %}
             <div class="flex position">
                 <a href="#">
@@ -12,7 +12,7 @@
             </div>
             {% endfor %}
         </select>
-        <button style="width: 100%" type="submit">Показать</button>
+        <button style="width: 100px" type="submit">Показать</button>
     </div>
 {% else %}
     <div>
