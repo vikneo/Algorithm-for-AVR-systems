@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from mptt.models import MPTTModel, TreeForeignKey
 
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
@@ -16,20 +18,27 @@ def product_images_directory_path(instance: 'Image', filename: str) -> str:
     return f'products/product_{instance.product_id}/{filename}'
 
 
-class Client(models.Model):
+class Client(MPTTModel):
     """
     Класс описывает модель клиента
     """
     name = models.CharField(max_length=100, verbose_name='Клиент')
+    parent = TreeForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='child', verbose_name='Родитель', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
 
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    # def get_absolute_url(self):
+    #     return reverse('client', args=[self.slug])
 
     class Meta:
         db_table = 'clients'
         verbose_name = 'client'
         verbose_name_plural = 'clients'
+    
+    class MPTTMeta:
+        order_insertion_by = ['name']
 
 
 class SmartRelay(models.Model):
@@ -81,7 +90,7 @@ class Product(models.Model):
 
     name = models.CharField(max_length=100, verbose_name='Объект')
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
-    descriiption = models.TextField(verbose_name='Описание файла')
+    descriiption = models.TextField(verbose_name='Описание файла', default='')
     date_order = models.DateField(verbose_name='Дата заказа')
     date_ready = models.DateField(verbose_name='Дата готовности', blank=True)
     date_check = models.DateField(verbose_name='Дата Проверки', blank=True)
@@ -90,6 +99,7 @@ class Product(models.Model):
     relay = models.OneToOneField(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК')
     images = ProcessedImageField(
         verbose_name='Основное фото',
+        blank=True,
         upload_to='images/product/%y/%m/%d',
         options={'quantity': 90},
         processors=[ResizeToFill(300, 300)]
