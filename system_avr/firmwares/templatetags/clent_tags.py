@@ -13,7 +13,7 @@ def client_main() -> dict:
     Кэширование queryset с клиентами.
     """
     try:
-        clients = cache.get_or_set('clients', Client.objects.all(), 600)
+        clients = cache.get_or_set('clients', Client.objects.filter(archive=True), 600)
         return {'clients': clients}
     except Exception as err:
         HttpResponse(f"Клиентов пока нет. Описание ощибки: {err}") # TODO заменитьна логи
