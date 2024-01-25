@@ -25,7 +25,7 @@ class AdminClient(ImportExportModelAdmin, admin.ModelAdmin):
     Регистрация модели "Клиент".
     """
 
-    list_display = ['name', 'slug']
+    list_display = ['id', 'name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ['name',]
     search_fields = ['name',]
@@ -36,10 +36,19 @@ class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
     """
     
     """
-    list_display = ['name', 'slug']
+    list_per_page = 20
+    list_display = ['id', 'name', 'get_client', 'slug']
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ['name',]
+    list_display_links = ['name']
     search_fields = ['name',]
+    ordering = ('id',)
+
+    def get_client(self, obj):
+        client = obj.client.name
+        return client
+    
+    get_client.short_description = 'Клиент'
 
 
 class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):

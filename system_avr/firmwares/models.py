@@ -38,9 +38,9 @@ class Client(models.Model):
 
 class Subjects(models.Model):
     """
-    
+    Класс описывает модель объекта
     """
-    client = models.ForeignKey("Subjects", on_delete=models.CASCADE, verbose_name='Объект')
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Клиент')
     name = models.CharField(max_length=120, verbose_name='Объект', db_index=True)
     slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
 
