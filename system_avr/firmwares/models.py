@@ -14,7 +14,6 @@ def product_images_directory_path(instance: 'Image', filename: str) -> str:
     :param filename: имя файла
     :return: str - путь для сохранения
     """
-
     return f'products/product_{instance.product_id}/{filename}'
 
 
@@ -22,8 +21,10 @@ class Client(MPTTModel):
     """
     Класс описывает модель клиента
     """
-    name = models.CharField(max_length=100, verbose_name='Клиент')
-    parent = TreeForeignKey('self', on_delete=models.PROTECT, blank=True, null=True, related_name='child', verbose_name='Родитель', db_index=True)
+    name = models.CharField(max_length=100, verbose_name='Объект')
+    parent = TreeForeignKey('self', on_delete=models.PROTECT, 
+                              null=True, blank=True, related_name='children',
+                              verbose_name='Клиент', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
 
     def __str__(self) -> str:
@@ -34,8 +35,8 @@ class Client(MPTTModel):
 
     class Meta:
         db_table = 'clients'
-        verbose_name = 'client'
-        verbose_name_plural = 'clients'
+        verbose_name = 'клиент(а)'
+        verbose_name_plural = 'клиенты'
     
     class MPTTMeta:
         order_insertion_by = ['name']
@@ -66,8 +67,8 @@ class SmartRelay(models.Model):
     
     class Meta:
         db_table = 'smartrelay'
-        verbose_name = 'relay'
-        verbose_name_plural = 'relays'
+        verbose_name = 'реле'
+        verbose_name_plural = 'реле'
 
 
 class Product(models.Model):
@@ -88,7 +89,8 @@ class Product(models.Model):
         """
         MBB = 1, 'Мартынов В.'
 
-    name = models.CharField(max_length=100, verbose_name='Объект')
+    subject = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Объект')
+    name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
     descriiption = models.TextField(verbose_name='Описание файла', default='')
     date_order = models.DateField(verbose_name='Дата заказа')
@@ -113,8 +115,8 @@ class Product(models.Model):
 
     class Meta:
         db_table = 'products'
-        verbose_name = 'product'
-        verbose_name_plural = 'products'
+        verbose_name = 'продукт'
+        verbose_name_plural = 'продукты'
 
 
 class Image(models.Model):
@@ -131,5 +133,5 @@ class Image(models.Model):
 
     class Meta:
         db_table = 'images'
-        verbose_name = 'image'
-        verbose_name_plural = 'images'
+        verbose_name = 'изображение'
+        verbose_name_plural = 'изображения'
