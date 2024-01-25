@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.http import HttpRequest
+from django.db.models import QuerySet
 
 from .models import (
     Client, 
@@ -9,6 +11,17 @@ from .models import (
     )
 
 from import_export.admin import ImportExportModelAdmin
+
+
+@admin.action(description='Закрыть доступ')
+def close_access(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: QuerySet):
+    queryset.update(archive=False)
+
+
+@admin.action(description='Открыть доступ')
+def open_access(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: QuerySet):
+    queryset.update(archive=True)
+
 
 
 class ImageProduct(admin.TabularInline):
@@ -23,11 +36,16 @@ class AdminClient(ImportExportModelAdmin, admin.ModelAdmin):
     """
     Регистрация модели "Клиент".
     """
-
-    list_display = ['id', 'name', 'slug']
+    actions = [
+        close_access,
+        open_access
+    ]
+    list_per_page = 15
+    list_display = ['id', 'name', 'slug', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ['name',]
     search_fields = ['name',]
+    ordering = ('id',)
 
 
 @admin.register(Subjects)
@@ -35,8 +53,12 @@ class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
     """
     
     """
+    actions = [
+        close_access,
+        open_access
+    ]
     list_per_page = 15
-    list_display = ['id', 'name', 'get_client', 'slug']
+    list_display = ['id', 'name', 'get_client', 'slug', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ['client',]
     list_display_links = ['name']
@@ -57,8 +79,11 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
     inlines = [
         ImageProduct,
     ]
-
-    list_display = ['name', 'author', 'status', 'images', 'relay', 'created_at']
+    actions = [
+        close_access,
+        open_access
+    ]
+    list_display = ['name', 'author', 'status', 'images', 'relay', 'created_at', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name',]
     save_on_top = True
