@@ -35,10 +35,10 @@ class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
     """
     
     """
-    list_per_page = 20
+    list_per_page = 15
     list_display = ['id', 'name', 'get_client', 'slug']
     prepopulated_fields = {'slug': ('name',)}
-    list_filter = ['name',]
+    list_filter = ['client',]
     list_display_links = ['name']
     search_fields = ['name',]
     ordering = ('id',)

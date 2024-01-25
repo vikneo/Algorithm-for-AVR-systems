@@ -23,6 +23,7 @@ class Client(models.Model):
     """
     name = models.CharField(max_length=100, verbose_name='Клиент', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
+    archive = models.BooleanField(default=True, verbose_name='Архив')
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -43,6 +44,8 @@ class Subjects(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Клиент')
     name = models.CharField(max_length=120, verbose_name='Объект', db_index=True)
     slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
+    archive = models.BooleanField(default=True, verbose_name='Архив')
+
 
     def __str__(self) -> str:
         return f'{self.name}'
@@ -119,7 +122,8 @@ class Product(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
-    availability = models.BooleanField(default=True)
+    archive = models.BooleanField(default=True, verbose_name='Архив')
+
 
     def __str__(self) -> str:
         return f'{self.name}'
