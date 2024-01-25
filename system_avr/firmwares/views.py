@@ -25,6 +25,11 @@ class SubjectListView(ListView):
     """
     
     """
-    model = Subjects
     template_name = 'product/product_list.html'
     context_object_name = 'subjects'
+
+    def get_queryset(self) -> QuerySet[Any]:
+        """
+        Возвращает queryset отфильтрованный по полю archive.
+        """
+        return Subjects.objects.filter(archive=True)
