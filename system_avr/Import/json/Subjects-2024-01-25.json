@@ -1,0 +1,530 @@
+[
+    {
+        "id": 1,
+        "client": 1,
+        "name": "Ханевел_НКУ_24",
+        "slug": "hanevel_nku_24"
+    },
+    {
+        "id": 2,
+        "client": 1,
+        "name": "Ханевел_НКУ_8",
+        "slug": "hanevel_nku_8"
+    },
+    {
+        "id": 3,
+        "client": 2,
+        "name": "ИЗП_1200_щиты_управления_вентиляции",
+        "slug": "izp_1200_shity_upravleniya_ventilyacii"
+    },
+    {
+        "id": 4,
+        "client": 4,
+        "name": "ТП-41 (АНОФ-3)",
+        "slug": "tp-41-anof-3"
+    },
+    {
+        "id": 5,
+        "client": 3,
+        "name": "Запрос2020-142_УГОК_ГАЗКОЛ",
+        "slug": "zapros2020-142_ugok_gazkol"
+    },
+    {
+        "id": 6,
+        "client": 11,
+        "name": "Площадка_ЦПСН_Марковского_НГКМ",
+        "slug": "ploshadka_cpsn_markovskogo_ngkm"
+    },
+    {
+        "id": 7,
+        "client": 12,
+        "name": "Реконструкция_освещения",
+        "slug": "rekonstrukciya_osvesheniya"
+    },
+    {
+        "id": 8,
+        "client": 6,
+        "name": "Биотехпрогресс  (ХОВ_ОЗХ) тит. 7822",
+        "slug": "biotehprogress-hov_ozh-tit-7822"
+    },
+    {
+        "id": 9,
+        "client": 6,
+        "name": "КС-локальная_очистка_стоков",
+        "slug": "ks-lokalnaya_ochistka_stokov"
+    },
+    {
+        "id": 10,
+        "client": 6,
+        "name": "лот-1713",
+        "slug": "lot-1713"
+    },
+    {
+        "id": 11,
+        "client": 6,
+        "name": "Поставка_щита ШР_ХПН-1_РЭ",
+        "slug": "postavka_shita-shr_hpn-1_re"
+    },
+    {
+        "id": 12,
+        "client": 6,
+        "name": "НКУ_КПАП_СВП",
+        "slug": "nku_kpap_svp"
+    },
+    {
+        "id": 13,
+        "client": 8,
+        "name": "597_ЭОМ_ВРУ_ПЭСПЗ",
+        "slug": "597_eom_vru_pespz"
+    },
+    {
+        "id": 14,
+        "client": 8,
+        "name": "613_ЭОМ_ВРУ",
+        "slug": "613_eom_vru"
+    },
+    {
+        "id": 15,
+        "client": 7,
+        "name": "ЦКРИ_237_ТП333_КТП2500",
+        "slug": "ckri_237_tp333_ktp2500"
+    },
+    {
+        "id": 16,
+        "client": 10,
+        "name": "БКТП_Очистные",
+        "slug": "bktp_ochistnye"
+    },
+    {
+        "id": 17,
+        "client": 10,
+        "name": "СРК4_31100_31600",
+        "slug": "srk4_31100_31600"
+    },
+    {
+        "id": 18,
+        "client": 10,
+        "name": "Адм_корпус_7",
+        "slug": "adm_korpus_7"
+    },
+    {
+        "id": 19,
+        "client": 10,
+        "name": "ДПЦ4_12500-OL-006",
+        "slug": "dpc4_12500-ol-006"
+    },
+    {
+        "id": 20,
+        "client": 10,
+        "name": "КРУ_ЦКК_БМЗ_ПГВ",
+        "slug": "kru_ckk_bmz_pgv"
+    },
+    {
+        "id": 21,
+        "client": 9,
+        "name": "К-31_-21_2КТП630_УКПГ",
+        "slug": "k-31_-21_2ktp630_ukpg"
+    },
+    {
+        "id": 22,
+        "client": 9,
+        "name": "Toyo_ИЗП_Этилен_шкафы_управления_освещением_конкурс",
+        "slug": "toyo_izp_etilen_shkafy_upravleniya_osvesheniem_konkurs"
+    },
+    {
+        "id": 23,
+        "client": 9,
+        "name": "НКУ_для_зданий",
+        "slug": "nku_dlya_zdanij"
+    },
+    {
+        "id": 24,
+        "client": 9,
+        "name": "К-534_4200_Котельная",
+        "slug": "k-534_4200_kotelnaya"
+    },
+    {
+        "id": 25,
+        "client": 9,
+        "name": "ИЗП_ОЗХ_Водозабор_РТП_5100",
+        "slug": "izp_ozh_vodozabor_rtp_5100"
+    },
+    {
+        "id": 26,
+        "client": 9,
+        "name": "К-270_-21_ИЗП_2440_РУНН_+_Тран",
+        "slug": "k-270_-21_izp_2440_runn__tran"
+    },
+    {
+        "id": 27,
+        "client": 9,
+        "name": "К-302_9_щитов_2440",
+        "slug": "k-302_9_shitov_2440"
+    },
+    {
+        "id": 28,
+        "client": 45,
+        "name": "ЩСН_КПП_1_2",
+        "slug": "shsn_kpp_1_2"
+    },
+    {
+        "id": 29,
+        "client": 45,
+        "name": "ИСО_Саяногорск",
+        "slug": "iso_sayanogorsk"
+    },
+    {
+        "id": 30,
+        "client": 31,
+        "name": "СГК_МКУ_СИБИРЬ_12.9",
+        "slug": "sgk_mku_sibir_129"
+    },
+    {
+        "id": 31,
+        "client": 31,
+        "name": "СГК",
+        "slug": "sgk"
+    },
+    {
+        "id": 32,
+        "client": 26,
+        "name": "ПС_35-6__Северная",
+        "slug": "ps_35-6__severnaya"
+    },
+    {
+        "id": 33,
+        "client": 39,
+        "name": "Корп_Дооб_Конц_ТП-№1_2_3",
+        "slug": "korp_doob_konc_tp-1_2_3"
+    },
+    {
+        "id": 34,
+        "client": 39,
+        "name": "РП_136_вспомогательные_системы",
+        "slug": "rp_136_vspomogatelnye_sistemy"
+    },
+    {
+        "id": 35,
+        "client": 16,
+        "name": "КТП_параформ",
+        "slug": "ktp_paraform"
+    },
+    {
+        "id": 36,
+        "client": 23,
+        "name": "Шкафы_ШСВ",
+        "slug": "shkafy_shsv"
+    },
+    {
+        "id": 37,
+        "client": 23,
+        "name": "ЗФ_НКУ_ЛОТ2969411_ID2781",
+        "slug": "zf_nku_lot2969411_id2781"
+    },
+    {
+        "id": 38,
+        "client": 23,
+        "name": "НМЗ_НКУ_3008091",
+        "slug": "nmz_nku_3008091"
+    },
+    {
+        "id": 39,
+        "client": 18,
+        "name": "МК_Вспомогательное_здание",
+        "slug": "mk_vspomogatelnoe_zdanie"
+    },
+    {
+        "id": 40,
+        "client": 18,
+        "name": "МК_ТП1_ТП3_ТП4_ТП_5",
+        "slug": "mk_tp1_tp3_tp4_tp_5"
+    },
+    {
+        "id": 41,
+        "client": 20,
+        "name": "ГОК_Кубака_ЩСУ",
+        "slug": "gok_kubaka_shsu"
+    },
+    {
+        "id": 42,
+        "client": 20,
+        "name": "Нежданинское_mini",
+        "slug": "nezhdaninskoe_mini"
+    },
+    {
+        "id": 43,
+        "client": 20,
+        "name": "ГОК_Кубака_КТП1250",
+        "slug": "gok_kubaka_ktp1250"
+    },
+    {
+        "id": 44,
+        "client": 20,
+        "name": "АГМК_ETS-120-E02",
+        "slug": "agmk_ets-120-e02"
+    },
+    {
+        "id": 45,
+        "client": 20,
+        "name": "Нежданинское_mini_ETS-070",
+        "slug": "nezhdaninskoe_mini_ets-070"
+    },
+    {
+        "id": 46,
+        "client": 20,
+        "name": "Амикан_ШУ",
+        "slug": "amikan_shu"
+    },
+    {
+        "id": 47,
+        "client": 20,
+        "name": "УФ_МСС_Корпус_фильтрации",
+        "slug": "uf_mss_korpus_filtracii"
+    },
+    {
+        "id": 48,
+        "client": 40,
+        "name": "Корпус флотации. АБК. Энергоблок» ШСАУ",
+        "slug": "korpus-flotacii-abk-energoblok-shsau"
+    },
+    {
+        "id": 49,
+        "client": 44,
+        "name": "2КТП1600_насосная",
+        "slug": "2ktp1600_nasosnaya"
+    },
+    {
+        "id": 50,
+        "client": 44,
+        "name": "ГТС_НКУ_ID3339",
+        "slug": "gts_nku_id3339"
+    },
+    {
+        "id": 51,
+        "client": 44,
+        "name": "Алдан_Регенерация_1Щ_ЩВ_2Щ",
+        "slug": "aldan_regeneraciya_1sh_shv_2sh"
+    },
+    {
+        "id": 52,
+        "client": 41,
+        "name": "НКУ_Лесосибриск_03_22",
+        "slug": "nku_lesosibrisk_03_22"
+    },
+    {
+        "id": 53,
+        "client": 41,
+        "name": "ЗИФ5_Флот_ВРУ_ЩСУ",
+        "slug": "zif5_flot_vru_shsu"
+    },
+    {
+        "id": 54,
+        "client": 15,
+        "name": "Вернинское_ШУГ",
+        "slug": "verninskoe_shug"
+    },
+    {
+        "id": 55,
+        "client": 33,
+        "name": "Запрос2020-127_КНС-24_2-630",
+        "slug": "zapros2020-127_kns-24_2-630"
+    },
+    {
+        "id": 56,
+        "client": 30,
+        "name": "Станция_газорефикации",
+        "slug": "stanciya_gazorefikacii"
+    },
+    {
+        "id": 57,
+        "client": 48,
+        "name": "Запрос2019-091_РУ04-LVS-B",
+        "slug": "zapros2019-091_ru04-lvs-b"
+    },
+    {
+        "id": 58,
+        "client": 43,
+        "name": "2013657_ИБП",
+        "slug": "2013657_ibp"
+    },
+    {
+        "id": 59,
+        "client": 43,
+        "name": "РУНН_в_КТП8661",
+        "slug": "runn_v_ktp8661"
+    },
+    {
+        "id": 60,
+        "client": 43,
+        "name": "2012407_РУНН",
+        "slug": "2012407_runn"
+    },
+    {
+        "id": 61,
+        "client": 43,
+        "name": "2020360_ЩСН_ГПП",
+        "slug": "2020360_shsn_gpp"
+    },
+    {
+        "id": 62,
+        "client": 24,
+        "name": "2015672_ЗСНХ_НКУ",
+        "slug": "2015672_zsnh_nku"
+    },
+    {
+        "id": 63,
+        "client": 42,
+        "name": "2009543_НКУ",
+        "slug": "2009543_nku"
+    },
+    {
+        "id": 64,
+        "client": 46,
+        "name": "СХП",
+        "slug": "shp"
+    },
+    {
+        "id": 65,
+        "client": 49,
+        "name": "Air_Liquid_Северсталь",
+        "slug": "air_liquid_severstal"
+    },
+    {
+        "id": 66,
+        "client": 37,
+        "name": "2032093_НКУ",
+        "slug": "2032093_nku"
+    },
+    {
+        "id": 67,
+        "client": 27,
+        "name": "003_Цех 160.1_Перв-й об-ки стали_ТП-68",
+        "slug": "003_ceh-1601_perv-j-ob-ki-stali_tp-68"
+    },
+    {
+        "id": 68,
+        "client": 27,
+        "name": "020_163_Цех_Щиты_распределения",
+        "slug": "020_163_ceh_shity_raspredeleniya"
+    },
+    {
+        "id": 69,
+        "client": 29,
+        "name": "Реконструкция_ПНС_4",
+        "slug": "rekonstrukciya_pns_4"
+    },
+    {
+        "id": 70,
+        "client": 29,
+        "name": "томские_РТС",
+        "slug": "tomskie_rts"
+    },
+    {
+        "id": 72,
+        "client": 27,
+        "name": "033_ЦЕХ_320_ТП-24",
+        "slug": "033_ceh_320_tp-24"
+    },
+    {
+        "id": 73,
+        "client": 27,
+        "name": "036_ЦПП_ТП_2х2000",
+        "slug": "036_cpp_tp_2h2000"
+    },
+    {
+        "id": 74,
+        "client": 25,
+        "name": "Насосная_станция",
+        "slug": "nasosnaya_stanciya"
+    },
+    {
+        "id": 75,
+        "client": 32,
+        "name": "Губаха_РУНН",
+        "slug": "gubaha_runn"
+    },
+    {
+        "id": 76,
+        "client": 17,
+        "name": "РП8_ГРЩ_ВРУ",
+        "slug": "rp8_grsh_vru"
+    },
+    {
+        "id": 77,
+        "client": 17,
+        "name": "Кирова_РП+НКУ",
+        "slug": "kirova_rpnku"
+    },
+    {
+        "id": 78,
+        "client": 47,
+        "name": "ТП_Центральная",
+        "slug": "tp_centralnaya"
+    },
+    {
+        "id": 79,
+        "client": 22,
+        "name": "2009078_ТП125_под_ключ",
+        "slug": "2009078_tp125_pod_klyuch"
+    },
+    {
+        "id": 80,
+        "client": 14,
+        "name": "Кинотеатр г.Ленинский",
+        "slug": "kinoteatr-gleninskij"
+    },
+    {
+        "id": 81,
+        "client": 22,
+        "name": "2459766_УМИ4",
+        "slug": "2459766_umi4"
+    },
+    {
+        "id": 82,
+        "client": 35,
+        "name": "10КТП",
+        "slug": "10ktp"
+    },
+    {
+        "id": 83,
+        "client": 35,
+        "name": "КТП_ТП12",
+        "slug": "ktp_tp12"
+    },
+    {
+        "id": 84,
+        "client": 22,
+        "name": "ТП-135",
+        "slug": "tp-135"
+    },
+    {
+        "id": 85,
+        "client": 19,
+        "name": "ШРиУ_на_техперевооружение_ИБП",
+        "slug": "shriu_na_tehperevooruzhenie_ibp"
+    },
+    {
+        "id": 86,
+        "client": 38,
+        "name": "ИБП_2х20_кВА_(Балаково)",
+        "slug": "ibp_2h20_kva_balakovo"
+    },
+    {
+        "id": 87,
+        "client": 38,
+        "name": "ТП-13-1_(АНОФ-3_КФ)",
+        "slug": "tp-13-1_anof-3_kf"
+    },
+    {
+        "id": 88,
+        "client": 28,
+        "name": "СУЭК_Кузбасс_Разрез_Заречный",
+        "slug": "suek_kuzbass_razrez_zarechnyj"
+    },
+    {
+        "id": 89,
+        "client": 36,
+        "name": "ЛЕДОВАЯ_АРЕНА_НСК",
+        "slug": "ledovaya_arena_nsk"
+    }
+]
