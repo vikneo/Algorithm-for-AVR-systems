@@ -1,0 +1,247 @@
+[
+    {
+        "id": 49,
+        "name": "СИНТЕК",
+        "slug": "sintek"
+    },
+    {
+        "id": 48,
+        "name": "Саянскхимпласт_АО",
+        "slug": "sayanskhimplast_ao"
+    },
+    {
+        "id": 47,
+        "name": "СУЭК_Хакасия",
+        "slug": "suek_hakasiya"
+    },
+    {
+        "id": 46,
+        "name": "Сибур_Тобольск",
+        "slug": "sibur_tobolsk"
+    },
+    {
+        "id": 45,
+        "name": "ИСО_Саяногорск",
+        "slug": "iso_sayanogorsk"
+    },
+    {
+        "id": 44,
+        "name": "Полюс_Алдан",
+        "slug": "polyus_aldan"
+    },
+    {
+        "id": 43,
+        "name": "Сибур_АГХК",
+        "slug": "sibur_aghk"
+    },
+    {
+        "id": 42,
+        "name": "Сибур_Кстово",
+        "slug": "sibur_kstovo"
+    },
+    {
+        "id": 41,
+        "name": "Полюс_Красноярск",
+        "slug": "polyus_krasnoyarsk"
+    },
+    {
+        "id": 40,
+        "name": "Полюс Магадан",
+        "slug": "polyus-magadan"
+    },
+    {
+        "id": 39,
+        "name": "Металлоинвест",
+        "slug": "metalloinvest"
+    },
+    {
+        "id": 38,
+        "name": "Фосагро",
+        "slug": "fosagro"
+    },
+    {
+        "id": 37,
+        "name": "Сибур_Химпром",
+        "slug": "sibur_himprom"
+    },
+    {
+        "id": 36,
+        "name": "Элин-Альфа",
+        "slug": "elinalfa"
+    },
+    {
+        "id": 35,
+        "name": "СХК",
+        "slug": "shk"
+    },
+    {
+        "id": 34,
+        "name": "Сибур_Запсибнефтехим",
+        "slug": "sibur_zapsibneftehim"
+    },
+    {
+        "id": 33,
+        "name": "ПТВС",
+        "slug": "ptvs"
+    },
+    {
+        "id": 32,
+        "name": "Стройсервис",
+        "slug": "strojservis"
+    },
+    {
+        "id": 31,
+        "name": "Катэн",
+        "slug": "katen"
+    },
+    {
+        "id": 30,
+        "name": "РУСАЛ_ТАЗ_ИСК",
+        "slug": "rusal_taz_isk"
+    },
+    {
+        "id": 29,
+        "name": "СК_Опора",
+        "slug": "sk_opora"
+    },
+    {
+        "id": 28,
+        "name": "ЭлТех",
+        "slug": "elteh"
+    },
+    {
+        "id": 27,
+        "name": "ССК_Звезда",
+        "slug": "ssk_zvezda"
+    },
+    {
+        "id": 26,
+        "name": "КОЛМАР",
+        "slug": "kolmar"
+    },
+    {
+        "id": 25,
+        "name": "СтройКонсалтинг",
+        "slug": "strojkonsalting"
+    },
+    {
+        "id": 24,
+        "name": "Сибур_Воронежсинтезкаучук",
+        "slug": "sibur_voronezhsintezkauchuk"
+    },
+    {
+        "id": 23,
+        "name": "Норильский_Никель",
+        "slug": "norilskij_nikel"
+    },
+    {
+        "id": 22,
+        "name": "Томскнефтехим",
+        "slug": "tomskneftehim"
+    },
+    {
+        "id": 21,
+        "name": "Прораб_ООО",
+        "slug": "prorab_ooo"
+    },
+    {
+        "id": 20,
+        "name": "Полиметалл",
+        "slug": "polimetall"
+    },
+    {
+        "id": 19,
+        "name": "УралХим",
+        "slug": "uralhim"
+    },
+    {
+        "id": 18,
+        "name": "ООО_РУСАГРО-ПРИМОРЬЕ",
+        "slug": "ooo_rusagroprimore"
+    },
+    {
+        "id": 17,
+        "name": "СУЭК_Кузбасс",
+        "slug": "suek_kuzbass"
+    },
+    {
+        "id": 16,
+        "name": "Метафракс",
+        "slug": "metafraks"
+    },
+    {
+        "id": 15,
+        "name": "Полюс_Проект",
+        "slug": "polyus_proekt"
+    },
+    {
+        "id": 14,
+        "name": "Теплый свет",
+        "slug": "teplyj-svet"
+    },
+    {
+        "id": 13,
+        "name": "Илим_Братск",
+        "slug": "ilim_bratsk"
+    },
+    {
+        "id": 12,
+        "name": "Восточный_порт",
+        "slug": "vostochnyj_port"
+    },
+    {
+        "id": 11,
+        "name": "БайкалИмпульсСтрой_ООО",
+        "slug": "bajkalimpulsstroj_ooo"
+    },
+    {
+        "id": 10,
+        "name": "Илим_Усть-Илимск",
+        "slug": "ilim_ustilimsk"
+    },
+    {
+        "id": 9,
+        "name": "ИНК",
+        "slug": "ink"
+    },
+    {
+        "id": 8,
+        "name": "ЗМК-Сибирь, ООО",
+        "slug": "zmksibir-ooo"
+    },
+    {
+        "id": 7,
+        "name": "Илим_Братск",
+        "slug": "ilim_bratsk"
+    },
+    {
+        "id": 6,
+        "name": "Газпромнефть ОНПЗ",
+        "slug": "gazpromneft-onpz"
+    },
+    {
+        "id": 5,
+        "name": "АО_Катод",
+        "slug": "ao_katod"
+    },
+    {
+        "id": 4,
+        "name": "АК АО \"Апатит\"",
+        "slug": "ak-ao-apatit"
+    },
+    {
+        "id": 3,
+        "name": "АК_АЛРОСА_(ПАО)",
+        "slug": "ak_alrosa_pao"
+    },
+    {
+        "id": 2,
+        "name": "SE",
+        "slug": "se"
+    },
+    {
+        "id": 1,
+        "name": "АГПЗ",
+        "slug": "agpz"
+    }
+]

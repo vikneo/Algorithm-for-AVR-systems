@@ -17,14 +17,11 @@ def product_images_directory_path(instance: 'Image', filename: str) -> str:
     return f'products/product_{instance.product_id}/{filename}'
 
 
-class Client(MPTTModel):
+class Client(models.Model):
     """
     Класс описывает модель клиента
     """
-    name = models.CharField(max_length=100, verbose_name='Объект')
-    parent = TreeForeignKey('self', on_delete=models.PROTECT, 
-                              null=True, blank=True, related_name='children',
-                              verbose_name='Клиент', db_index=True)
+    name = models.CharField(max_length=100, verbose_name='Клиент', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
 
     def __str__(self) -> str:
@@ -37,9 +34,23 @@ class Client(MPTTModel):
         db_table = 'clients'
         verbose_name = 'клиент(а)'
         verbose_name_plural = 'клиенты'
+
+
+class Subjects(models.Model):
+    """
     
-    class MPTTMeta:
-        order_insertion_by = ['name']
+    """
+    client = models.ForeignKey("Subjects", on_delete=models.CASCADE, verbose_name='Объект')
+    name = models.CharField(max_length=120, verbose_name='Объект', db_index=True)
+    slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+    
+    class Meta:
+        db_table = 'subjects'
+        verbose_name = 'объект'
+        verbose_name_plural = 'объекты'
 
 
 class SmartRelay(models.Model):
@@ -89,7 +100,7 @@ class Product(models.Model):
         """
         MBB = 1, 'Мартынов В.'
 
-    subject = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Объект')
+    subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Объект')
     name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
     descriiption = models.TextField(verbose_name='Описание файла', default='')

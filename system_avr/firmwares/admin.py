@@ -1,12 +1,12 @@
 from django.contrib import admin
-from django_mptt_admin.admin import DjangoMpttAdmin
 from django.urls import path
 
 from .models import (
     Client, 
     Product, 
     Image, 
-    SmartRelay
+    SmartRelay,
+    Subjects
     )
 
 from import_export.admin import ImportExportModelAdmin
@@ -20,14 +20,26 @@ class ImageProduct(admin.TabularInline):
 
 
 @admin.register(Client)
-class AdminClient(DjangoMpttAdmin, ImportExportModelAdmin):
+class AdminClient(ImportExportModelAdmin, admin.ModelAdmin):
     """
     Регистрация модели "Клиент".
     """
 
-    list_display = ['name', 'parent', 'slug']
+    list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
-    list_filter = ['parent']
+    list_filter = ['name',]
+    search_fields = ['name',]
+
+
+@admin.register(Subjects)
+class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
+    """
+    
+    """
+    list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
+    list_filter = ['name',]
+    search_fields = ['name',]
 
 
 class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
@@ -40,6 +52,8 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
 
     list_display = ['name', 'author', 'status', 'images', 'relay', 'created_at']
     prepopulated_fields = {'slug': ('name',)}
+    search_fields = ['name',]
+    save_on_top = True
 
 
 class AdminSmartRelay(admin.ModelAdmin):
