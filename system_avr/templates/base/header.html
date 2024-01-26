@@ -39,26 +39,28 @@
         </div>
         <div class="heared-searchWrap">
             <div class="flex wrap">
-                {% block client %}
-                <div class=" flex sidebar-block">
-                    <div class="flex clients-header">
+                <div class="flex header-search-inner">
+                    {% block client %}
+                    <div class=" flex sidebar-block">
+                        <div class="flex clients-header">
+                        </div>
+                        <div class="client">
+                            {% client_main %}
+                        </div>
                     </div>
-                    <div class="client">
-                        {% client_main %}
+                    {% endblock %}
+                    <div class="flex">
+                        <form class="flex header-search-form" method="get" onsubmit="return false" id="search">
+                            <input class="header-search-input" id="search-textbox-input" type="text" autocomplete="off"
+                                placeholder="поиск проекта">
+                                <button class="header-search-icon-btn" type="submit">
+                                    <img src="../../static/assests/icon/icon_searche_white.svg" width="30px"
+                                        height="30px" alt="">
+                                </button>
+                            <span class="header-search-icon header-search-icon-title">
+                            </span>
+                        </form>
                     </div>
-                </div>
-                {% endblock %}
-                <div class="header-search-inner">
-                    <form class="header-search-form" method="get" onsubmit="return false" id="search">
-                        <input class="header-search-input" id="search-textbox-input" type="text" autocomplete="off"
-                            placeholder="поиск проекта">
-                        <span class="header-search-icon header-search-icon-title">
-                            <button class="header-search-icon-btn" type="submit">
-                                <img src="../../static/assests/icon/icon_searche_white.svg" width="30px"
-                                    height="30px" alt="">
-                            </button>
-                        </span>
-                    </form>
                 </div>
             </div>
         </div>
