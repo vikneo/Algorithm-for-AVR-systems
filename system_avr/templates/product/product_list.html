@@ -12,6 +12,8 @@
 {% block content %}
 {% block title %}<title>Product</title>{% endblock %}
     <div>
-
+        {% for sub in subjects %}
+            <p style="padding: 0;">{{ sub }}</p>
+        {% endfor %}
     </div>
 {% endblock %}

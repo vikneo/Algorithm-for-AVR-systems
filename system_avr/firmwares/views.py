@@ -32,4 +32,8 @@ class SubjectListView(ListView):
         """
         Возвращает queryset отфильтрованный по полю archive.
         """
-        return Subjects.objects.filter(archive=True)
+        client_id = self.request.GET.get('client')
+        if client_id == '0':
+            return Subjects.objects.filter(archive=True)
+        else:
+            return Subjects.objects.filter(archive=True, client=client_id)

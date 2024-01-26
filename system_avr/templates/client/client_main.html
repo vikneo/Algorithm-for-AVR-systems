@@ -1,24 +1,20 @@
-
 {% load static i18n %}
 
 {% if clients %}
 <div class="flex">
-    <select class="select-client" name="client" id="element">
-        <option value="0">Показать все</option>
-        {% for client in clients %}
-        <div class="flex position">
-            <a href="#">
-                <option value="{{ client.id }}">{{ client.name }}</option>
-            </a>
-            {% for sub_cat in client.clients.all %}
-            <a href="#">
-                <option value="{{ sub_cat.id }}">{{ sub_cat.name }}</option>
-            </a>
+    <form class="flex" action="." method="get">
+        <select class="select-client" name="client" id="element">
+            <option value="0">Показать все</option>
+            {% for client in clients %}
+            <div class="flex position">
+                <a href="#">
+                    <option value="{{ client.id }}">{{ client.name }}</option>
+                </a>
+            </div>
             {% endfor %}
-        </div>
-        {% endfor %}
-    </select>
-    <button class="select-client-btn" type="submit">Показать</button>
+        </select>
+        <button class="select-client-btn" type="submit">Показать</button>
+    </form>
 </div>
 {% else %}
 <div>
