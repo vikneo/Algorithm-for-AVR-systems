@@ -3,6 +3,7 @@
 {% if clients %}
 <div class="flex">
     <form class="flex" action="." method="get">
+        {% csrf_token %}
         <select class="select-client" name="client" id="element">
             <option value="0">Показать все</option>
             {% for client in clients %}

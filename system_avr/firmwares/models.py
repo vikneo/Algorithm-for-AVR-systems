@@ -28,8 +28,8 @@ class Client(models.Model):
     def __str__(self) -> str:
         return f'{self.name}'
     
-    # def get_absolute_url(self):
-    #     return reverse('client', args=[self.slug])
+    def get_absolute_url(self):
+        return reverse('client', kwargs={'slug': self.kwargs['slug']})
 
     class Meta:
         db_table = 'clients'
@@ -49,6 +49,9 @@ class Subjects(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    def get_absolute_url(self):
+        return reverse('subject_detail', kwargs={'slug': self.kwargs['slug']})
     
     class Meta:
         db_table = 'subjects'
@@ -127,6 +130,9 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    def get_absolute_url(self):
+        return reverse('product_detail', kwargs={'slug': self.kwargs['slug']})
 
     class Meta:
         db_table = 'products'
