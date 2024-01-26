@@ -2,18 +2,39 @@
 {% load i18n static %}
 
 {% block filter %}
-    {% if subjects %}
-    
-    {% else %}
-        Нет объектов
-    {% endif %}
+{% if subjects %}
+
+{% else %}
+Нет объектов
+{% endif %}
 {% endblock %}
 
 {% block content %}
 {% block title %}<title>Product</title>{% endblock %}
-    <div>
-        {% for sub in subjects %}
-            <p style="padding: 0;">{{ sub }}</p>
-        {% endfor %}
+
+<div class=" flex contaner block-row">
+    <div class="left-sidebar">
+        <div class="left-sidebar-nav">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti amet ducimus, doloribus provident dolorem consectetur ad sit rerum accusantium repudiandae, nam expedita enim quod hic ut quasi dolores odio quam.
+        </div>
     </div>
+    <div class="center-sidebar">
+        <div class="flex">
+            <div class="flex subject-wrap">
+                {% for sub in subjects %}
+                <li class="li-subject">
+                    <ul class="cart-subject">
+                        <div class="flex cart-subject-title">
+                            <span>{{ sub }}</span>
+                        </div>
+                    </ul>
+                </li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+</div>
 {% endblock %}

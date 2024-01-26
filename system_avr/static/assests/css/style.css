@@ -1,11 +1,14 @@
 body {
-    margin: 0 auto;
-    padding-top: 20px;
-    max-width: 1600px;
-    flex-direction: column;
     background-color: #363434;
     color: #fdfdff;
     background-image: url('../img/programming.jpg');
+}
+
+.contaner {
+    margin: 0 auto;
+    /* padding-top: 40px; */
+    max-width: 1600px;
+    flex-direction: column;
 }
 
 a {
@@ -23,6 +26,18 @@ li {
     margin-right: 20px;
     background-color: #3771a7;
     color: #e3ebeb;
+}
+
+.left-sidebar {
+    width: 20%;
+}
+
+.center-sidebar {
+    width: 60%;
+}
+
+.right-sidebar {
+    width: 20%;
 }
 
 .flex {
@@ -46,6 +61,7 @@ li {
 }
 
 .nav {
+    margin-top: 35px;
     outline: 3px solid #494956;
     justify-content: center;
     flex-direction: column;
@@ -113,7 +129,7 @@ li {
     color: #535c69
 }
 
-/* sidebar */
+/*=================================== header navigate list ======================================*/
 
 .sidebar-block {
     width: 390px;
@@ -150,4 +166,38 @@ li {
     /* padding-bottom: 10px; */
     align-items: flex-start;
     /* outline: 2px solid #494956; */
+}
+
+/*================================================== left sidebar =======================================*/
+
+.left-sidebar-nav {
+    margin-top: 50px;
+    padding: 10px 25px;
+}
+
+/*================================================== subject list =======================================*/
+
+.subject-wrap {
+    flex-wrap: wrap;
+}
+
+.block-row {
+    flex-direction: row;
+}
+
+.li-subject {
+    margin-top: 50px;
+    margin-left: 25px;
+    background: #3f576e;
+    border: 1px solid red;
+}
+
+.cart-subject {
+    width: 400px;
+    height: 200px;
+    padding: 0;
+}
+
+.cart-subject-title {
+    justify-content: center;
 }
