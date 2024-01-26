@@ -31,6 +31,16 @@ li {
 
 /* Header */
 
+.wrap {
+    padding: 0 15px;
+    max-width: 1630px;
+    min-width: 320px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+}
+
 .header-h1 {
     text-align: center;
 }
@@ -43,18 +53,27 @@ li {
     background-color: #3f576e;
 }
 
+.heared-searchWrap {
+    height: 70px;
+    width: 100%;
+    background: #3771a7;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
 .header-menu-nav {
     margin-bottom: 20px;
 }
 
 .header-search-inner {
-    width: 600px;
-    margin-bottom: 20px;
+    /* width: 600px; */
+    margin-left: 50px;
 }
 
 .header-search-form {
     height: 45px;
-    position: relative;
+    position: static;
+    padding-top: 10px;
 }
 
 .header-search-icon {
@@ -67,13 +86,14 @@ li {
 }
 
 .header-search-icon-title {
-    top: 1px;
-    right: 110px;
+    top: 0;
+    right: 23em;
+    padding-top: 11px;
 }
 
 .header-search-input {
-    width: 100%;
-    height: 22px;
+    width: 36em;
+    height: 29px;
     padding: 10px;
     border: 1px solid #cfb0b0;
     border-radius: 30px 0 0 30px;
@@ -83,8 +103,10 @@ li {
 }
 
 .header-search-icon-btn {
-    width: 165px;
-    height: 42px;
+    width: 20em;
+    height: 50px;
+    border: 0;
+    border-radius: 0 30px 30px 0;
 }
 
 .header-search-active .header-search-input {
@@ -103,12 +125,17 @@ li {
 }
 
 .select-client {
-    height: 38px;
+    height: 73px;
     width: 260px;
     padding-left: 10px;
-    font-size: 18px;
-    background-color: #3f576e;
+    font-size: 20px;
+    background-color: #1a1c1e;
     color: white;
+}
+
+.select-client-btn {
+    width: 100%;
+    font-size: 20px;
 }
 
 .clients-header {
@@ -117,10 +144,10 @@ li {
 }
 
 .client {
-    padding-top: 10px;
-    /* padding-left: 18px; */
-    padding-right: 18px;
-    padding-bottom: 10px;
+    /* padding-top: 10px; */
+    padding-left: 18px;
+    /* padding-right: 18px; */
+    /* padding-bottom: 10px; */
     align-items: flex-start;
     /* outline: 2px solid #494956; */
 }
