@@ -13,7 +13,7 @@ def product_images_directory_path(instance: 'ProductImage', filename: str) -> st
     :param filename: имя файла
     :return: str - путь для сохранения
     """
-    return f'products/product_{instance.product}/{filename}'
+    return f'products/product_{instance.product.name}/{filename}'
 
 def subject_images_directory_path(instance: 'Subjects', filename: str) -> str:
     """
@@ -51,7 +51,7 @@ class Subjects(models.Model):
     slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
     photo = ProcessedImageField(
         verbose_name='Основное фото',
-        upload_to='subjects/%y/%m/%d',
+        upload_to=subject_images_directory_path,
         options={'quantity': 90},
         processors=[ResizeToFill(300, 300)]
     )
