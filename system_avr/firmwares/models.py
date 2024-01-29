@@ -115,7 +115,7 @@ class Product(models.Model):
     date_check = models.DateField(verbose_name='Дата Проверки', blank=True)
     status = models.IntegerField(choices=Status.choices, verbose_name='Статус')
     author = models.IntegerField(choices=Author.choices, verbose_name='Автор')
-    relay = models.OneToOneField(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК')
+    relay = models.ForeignKey(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК', unique=False)
     images = ProcessedImageField(
         verbose_name='Основное фото',
         blank=True,
