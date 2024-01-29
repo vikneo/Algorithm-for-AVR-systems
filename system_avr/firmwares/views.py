@@ -46,7 +46,6 @@ class SubjectDetailView(DetailView):
         context.update(
             title=kwargs['object']
         )
-        print(context)
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
