@@ -2,7 +2,7 @@
 
 {% if clients %}
 <div class="flex">
-    <form class="flex" action="." method="get">
+    <form class="flex" action="{% url 'product:subject' %}" method="get">
         <!-- {% csrf_token %} -->
         <select class="select-client" name="client">
             <option value="0">Показать все</option>
@@ -12,7 +12,7 @@
             </div>
             {% endfor %}
         </select>
-        <button class="select-client-btn" type="submit">Показать</button>
+        <input class="select-client-btn" type="submit" value="Показать">
     </form>
 </div>
 {% else %}
