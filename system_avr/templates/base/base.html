@@ -1,15 +1,41 @@
 {% include 'base/header.html' %}
-
 {% load i18n static %}
 
 
-
-    {% block filter %}
-    
-    {% endblock %}
-</div>
+{% block filter %}
+{% endblock %}
 
 {% block content %}
 {% endblock %}
+
+<div class="flex" style="display: contents;">
+    <div>
+        {% if page_obj.has_other_pages %}
+        <nav class="page-list">
+            <ul>
+                {% if page_obj.has_previous %}
+                <li class="page-num">
+                    <a href="?page={{ page_obj.previous_page_number }}">&lt;&lt;</a>
+                </li>
+                {% endif %}
+                {% for page in paginator.page_range %}
+                {% if page_obj.number == page %}
+                <li class="page-num page-num-selected">{{ page }}</li>
+                {% elif page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %} <li class="page-num">
+                    <a href="?page={{ page }}">
+                        {{ page }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                    <li class="page-num">
+                        <a href="?page={{ page_obj.next_page_number }}">&gt;&gt;</a>
+                    </li>
+                    {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
 
 {% include 'base/footer.html' %}

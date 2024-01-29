@@ -1,20 +1,12 @@
 {% extends 'base/base.html' %}
 {% load i18n static %}
 
-{% block filter %}
-{% if subjects %}
-
-{% else %}
-Нет объектов
-{% endif %}
-{% endblock %}
-
 {% block content %}
 {% block title %}<title>Product</title>{% endblock %}
 
 <div class="flex contaner block-row">
     <div class="left-sidebar" style="padding-left: 5px;">
-        <div class="left-sidebar-nav"  style="outline: 1px solid red; height: 500px;">
+        <div class="left-sidebar-nav">
             <h2>заголовки</h2>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti amet ducimus, doloribus provident dolorem consectetur ad sit rerum accusantium repudiandae, nam expedita enim quod hic ut quasi dolores odio quam.
         </div>
@@ -44,6 +36,4 @@
     </div>
 </div>
 
-<div>
-</div>
 {% endblock %}
