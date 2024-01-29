@@ -2,12 +2,14 @@ body {
     margin: 0;
     background-color: #363434;
     color: #fdfdff;
+    background: #3f576e;
     /* background-image: url('../img/programming.jpg'); */
     background-repeat: no-repeat;
 }
 
 .contaner {
     margin: 0 auto;
+    margin-bottom: 50px;
     /* padding-top: 40px; */
     max-width: 100%;
     flex-direction: column;
@@ -20,6 +22,11 @@ a {
 
 p {
     padding: 10px;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
     margin: 0;
 }
 
@@ -157,6 +164,7 @@ li {
 .select-client-btn {
     width: 100%;
     font-size: 20px;
+    background: #cbe1f3;
 }
 
 .clients-header {
@@ -192,32 +200,43 @@ li {
 }
 
 .li-subject {
-    margin-top: 50px;
+    width: 390px;
+    max-height: 235px;
+    margin-bottom: 30px;
     margin-left: 25px;
     background: #3f576e;
+    box-shadow: 10px 10px 9px 8px #211e1e;
     /* border: 1px solid red; */
 }
 
 .cart-subject {
-    width: 390px;
-    height: 200px;
-    padding: 0;
-    box-shadow: 10px 18px 14px 8px #211e1e;
+    display: block;
+}
+
+.cart-title {
+    position: absolute;
+    padding-left: 15px;
+    padding-top: 20px;
+    font-size: 30px;
 }
 
 .cart-subject-title {
     max-height: 100%;
     flex-direction: column;
     justify-content: center;
+    flex-direction: column-reverse;
 }
 
 .subject-title {
-    padding: 0 1em;
+    padding: 1em 1em;
+    font-size: 20px;
 }
 
 /* =================================== footer-block ========================================*/
 
 .footer-block {
+    height: 120px;
+    margin: 0;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -230,6 +249,12 @@ li {
 	text-align: center;
 	margin: 0 0 20px 0;
 }
+
+.pos-page {
+    outline: 1px solid grey;
+    padding: 1px 0;
+}
+
 .page-list ul {
 	margin: 20px 0 0 0;
 	padding: 0;
@@ -245,6 +270,7 @@ li {
 	font-size: 24px;
 	text-decoration: none;
 }
+
 .page-list .page-num, .page-num-selected {
 	display: inline-block;
 	width: 60px;

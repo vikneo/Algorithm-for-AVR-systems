@@ -9,8 +9,8 @@
 {% endblock %}
 
 <div class="flex" style="display: contents;">
-    <div>
-        {% if page_obj.has_other_pages %}
+    {% if page_obj.has_other_pages %}
+    <div class="pos-page">
         <nav class="page-list">
             <ul>
                 {% if page_obj.has_previous %}
@@ -34,8 +34,10 @@
                     {% endif %}
             </ul>
         </nav>
-        {% endif %}
     </div>
+    {% else %}
+    <hr>
+    {% endif %}
 </div>
 
 {% include 'base/footer.html' %}
