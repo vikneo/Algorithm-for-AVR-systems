@@ -7,4 +7,4 @@ app_name = 'product'
 urlpatterns = [
     path('', SubjectListView.as_view(), name='subject'),
     path('subject/<slug:slug>', SubjectDetailView.as_view(), name='subject_detail')
-]
+] 
