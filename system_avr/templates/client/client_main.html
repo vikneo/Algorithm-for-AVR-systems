@@ -8,9 +8,7 @@
             <option value="0">Показать все</option>
             {% for client in clients %}
             <div class="flex position">
-                <a href="#">
-                    <option value="{{ client.id }}">{{ client.name }}</option>
-                </a>
+                <option value="{{ client.id }}">{{ client.name }}</option>
             </div>
             {% endfor %}
         </select>

@@ -5,8 +5,23 @@
 {% block filter %}
 {% endblock %}
 
+<div class="flex contaner block-row">
+{% block left-sidebar %}
+<div class="left-sidebar" style="padding-left: 5px;">
+    <div class="left-sidebar-nav">
+        <h2>заголовки</h2>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti amet ducimus, doloribus provident dolorem
+        consectetur ad sit rerum accusantium repudiandae, nam expedita enim quod hic ut quasi dolores odio quam.
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 {% endblock %}
+
+{% block right-sidebar %}
+{% endblock %}
+</div>
 
 <div class="flex" style="display: contents;">
     {% if page_obj.has_other_pages %}

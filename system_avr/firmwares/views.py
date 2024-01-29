@@ -1,24 +1,11 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import Product, Subjects
 
 
-class ProductListView(ListView):
-    """
-    Представление Всех продуктов на странице
-    """
-    # model = Product
-    template_name = 'product/product_list.html'
-    context_object_name = 'products'
-
-    def get_queryset(self) -> QuerySet[Any]:
-        """
-        Возвращает queryset отфильтрованный по полю archive.
-        """
-        return Product.objects.filter(archive=True)
 
 
 class SubjectListView(ListView):
@@ -26,7 +13,7 @@ class SubjectListView(ListView):
     
     """
     paginate_by = 8
-    template_name = 'product/product_list.html'
+    template_name = 'product/subject_list.html'
     context_object_name = 'subjects'
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
@@ -45,3 +32,25 @@ class SubjectListView(ListView):
             return Subjects.objects.filter(archive=True)
         else:
             return Subjects.objects.filter(archive=True, client=client_id)
+
+
+class SubjectDetailView(DetailView):
+    """
+    Представление Всех продуктов на странице Объекта
+    """
+    template_name = 'product/product_list.html'
+    context_object_name = 'subject'
+
+    def get_context_data(self, *args: Any, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(*args, **kwargs)
+        context.update(
+            title=kwargs['object']
+        )
+        print(context)
+        return context
+
+    def get_queryset(self) -> QuerySet[Any]:
+        """
+        Возвращает queryset отфильтрованный по полю archive.
+        """
+        return Subjects.objects.filter(archive=True)

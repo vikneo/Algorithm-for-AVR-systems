@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+{% block title %}<title>{{ title }}</title>{% endblock %}
+
+<div class="center-sidebar">
+    <div class="flex">
+        <div class="flex subject-wrap">
+            {% for sub in subjects %}
+            <li class="li-subject">
+                <ul class="cart-subject">
+                    <div class="flex cart-subject-title">
+                        <a href="{% url 'product:subject_detail' sub.slug %}">
+                            <div class="subject-title">
+                                <span>{{ sub }}</span>
+                            </div>
+                        </a>
+                        <div class="description">
+                        </div>
+                        <div class="cart-image">
+                            <span class="cart-title">{{ sub.client }}</span>
+                            <img src="{% static 'assests/img/АГПЗ_Ханавел_8.jpg' %}" width="100%" height="150px" alt="">
+                        </div>
+                    </div>
+                </ul>
+            </li>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
