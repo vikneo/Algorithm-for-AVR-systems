@@ -6,7 +6,7 @@ from django.utils.safestring import mark_safe
 from .models import (
     Client, 
     Product, 
-    Image, 
+    ProductImage, 
     SmartRelay,
     Subjects
     )
@@ -25,8 +25,8 @@ def open_access(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: Qu
 
 
 
-class ImageProduct(admin.TabularInline):
-    model = Image
+class ImageSubject(admin.TabularInline):
+    model = ProductImage
     verbose_name = 'картинку'
     verbose_name_plural = 'картинки'
     extra = 0
@@ -54,12 +54,15 @@ class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
     """
     
     """
+    inlines = [
+        ImageSubject,
+    ]
     actions = [
         close_access,
         open_access
     ]
     list_per_page = 15
-    list_display = ['id', 'name', 'get_client', 'slug', 'archive']
+    list_display = ['name', 'get_client', 'get_images', 'slug', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ['client',]
     list_display_links = ['name']
@@ -72,22 +75,27 @@ class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
         """
         client = obj.client.name
         return client
+        
+    def get_images(self, obj):
+        """
+        В панели администратора,
+        ссылка на изображение отображается в виде картинки размером 60х 60.
+        """
+        return mark_safe(f'<img src="{obj.photo.url}" alt="" width="40">')
     
     get_client.short_description = 'Клиент'
+    get_images.short_description = 'Фото'
 
 
 class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
     """
     Регистрация модели "Product".
     """
-    inlines = [
-        ImageProduct,
-    ]
     actions = [
         close_access,
         open_access
     ]
-    list_display = ['get_subject', 'name', 'author', 'status', 'get_images', 'relay', 'created_at', 'archive']
+    list_display = ['get_subject', 'name', 'author', 'status', 'relay', 'created_at', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name',]
     save_on_top = True
@@ -99,15 +107,7 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
         subject = obj.subject.name
         return subject
     
-    def get_images(self, obj):
-        """
-        В панели администратора,
-        ссылка на изображение отображается в виде картинки размером 60х 60.
-        """
-        return mark_safe(f'<img src="{obj.images.url}" alt="" width="60">')
-    
     get_subject.short_description = 'объект'
-    get_images.short_description = 'Фото'
 
 
 class AdminSmartRelay(admin.ModelAdmin):

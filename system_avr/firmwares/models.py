@@ -1,12 +1,11 @@
 from django.db import models
 from django.urls import reverse
-from mptt.models import MPTTModel, TreeForeignKey
 
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
 
-def product_images_directory_path(instance: 'Image', filename: str) -> str:
+def product_images_directory_path(instance: 'ProductImage', filename: str) -> str:
     """
     Функция генерирует путь сохранения изображений с привязкой к id товара
 
@@ -14,7 +13,13 @@ def product_images_directory_path(instance: 'Image', filename: str) -> str:
     :param filename: имя файла
     :return: str - путь для сохранения
     """
-    return f'products/product_{instance.product_id}/{filename}'
+    return f'products/product_{instance.product}/{filename}'
+
+def subject_images_directory_path(instance: 'Subjects', filename: str) -> str:
+    """
+    
+    """
+    return f"subjects/{instance.name}/{filename}"
 
 
 class Client(models.Model):
@@ -44,6 +49,12 @@ class Subjects(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Клиент', related_name='clients')
     name = models.CharField(max_length=120, verbose_name='Объект', db_index=True)
     slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
+    photo = ProcessedImageField(
+        verbose_name='Основное фото',
+        upload_to='subjects/%y/%m/%d',
+        options={'quantity': 90},
+        processors=[ResizeToFill(300, 300)]
+    )
     archive = models.BooleanField(default=True, verbose_name='Архив')
 
 
@@ -115,14 +126,7 @@ class Product(models.Model):
     date_check = models.DateField(verbose_name='Дата Проверки', blank=True)
     status = models.IntegerField(choices=Status.choices, verbose_name='Статус')
     author = models.IntegerField(choices=Author.choices, verbose_name='Автор')
-    relay = models.ForeignKey(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК', unique=False)
-    images = ProcessedImageField(
-        verbose_name='Основное фото',
-        blank=True,
-        upload_to='images/product/%y/%m/%d',
-        options={'quantity': 90},
-        processors=[ResizeToFill(300, 300)]
-    )
+    relay = models.ForeignKey(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     archive = models.BooleanField(default=True, verbose_name='Доступ')
@@ -140,11 +144,11 @@ class Product(models.Model):
         verbose_name_plural = 'продукты'
 
 
-class Image(models.Model):
+class ProductImage(models.Model):
     """
     Класс описывает модель изображений для изделия
     """
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Фото')
+    product = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Фото')
     image = ProcessedImageField(
         verbose_name='Фотография',
         upload_to=product_images_directory_path,
