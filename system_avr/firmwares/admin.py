@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.http import HttpRequest
 from django.db.models import QuerySet
+from django.utils.safestring import mark_safe
 
 from .models import (
     Client, 
@@ -65,7 +66,10 @@ class AdminSubject(ImportExportModelAdmin, admin.ModelAdmin):
     search_fields = ['name',]
     ordering = ('id',)
 
-    def get_client(self, obj):
+    def get_client(self, obj: Subjects) -> str:
+        """
+        Возвращает название клиента для объекта.
+        """
         client = obj.client.name
         return client
     
@@ -83,10 +87,27 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
         close_access,
         open_access
     ]
-    list_display = ['name', 'author', 'status', 'images', 'relay', 'created_at', 'archive']
+    list_display = ['get_subject', 'name', 'author', 'status', 'get_images', 'relay', 'created_at', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name',]
     save_on_top = True
+
+    def get_subject(self, obj: Product) -> str:
+        """
+        Возврящает название объекта для продукта.
+        """
+        subject = obj.subject.name
+        return subject
+    
+    def get_images(self, obj):
+        """
+        В панели администратора,
+        ссылка на изображение отображается в виде картинки размером 60х 60.
+        """
+        return mark_safe(f'<img src="{obj.images.url}" alt="" width="60">')
+    
+    get_subject.short_description = 'объект'
+    get_images.short_description = 'Фото'
 
 
 class AdminSmartRelay(admin.ModelAdmin):
