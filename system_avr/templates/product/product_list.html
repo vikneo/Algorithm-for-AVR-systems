@@ -10,8 +10,27 @@
     <div class="flex section">
         <h2>{{ title }}</h2>
         {% for product in subject.product_set.all %}
-        <div class="product-title">
-            {{ product }}
+        <div class="section-box">
+            <div class="product-title">
+                {{ product }}
+            </div>
+            <div class="product-description">
+                {{ product.descriiption }}
+            </div>
+            <div class="flex box-short-detail">
+                <div class="product-name">
+                    <span class="span">Название: </span> {{ product.name}}
+                </div>
+                <div class="product-created">
+                    <span class="span">Дата заказа: </span> {{ product.date_order }}
+                </div>
+                <div class="product-ready">
+                    <span class="span">Дата создания: </span>{{ product.created_at }}
+                </div>
+                <div class="product-link">
+                    <a href="#">Подробнее >></a>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>

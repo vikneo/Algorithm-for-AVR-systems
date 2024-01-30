@@ -1,11 +1,51 @@
+@font-face {
+    font-family: 'Pixar';
+    /* src: url("{% static 'assests/fonts/Charlemagne-Bold.ttf' %} format('truetype')"); */
+    src: url("../fonts/Charlemagne-Bold.ttf") format('truetype');
+}
+
 .section {
     flex-direction: column;
     padding-top: 30px;
     padding-left: 30px;
 }
 
+.section-box {
+    margin-bottom: 30px;
+    /* outline: 1px solid red; */
+    box-shadow: 3px 7px 13px #efe6d5;
+}
+
 .product-title {
     padding: 16px;
-    outline: 1px solid red;
     font-size: 30px;
+    font-family: 'Pixar';
+}
+
+.product,
+.product-name,
+.product-created,
+.product-ready,
+.product-description,
+.product-link {
+    padding: 10px;
+}
+
+/* .product-description {
+    padding: auto;
+} */
+
+.box-short-detail {
+    width: 100%;
+    background: #264b5d;
+}
+
+span.span {
+
+}
+
+.product-link {
+    position: absolute;
+    right: 22em;
+    background: #2b52e2;
 }

@@ -226,8 +226,8 @@ li {
     margin-bottom: 30px;
     margin-left: 25px;
     background: #3f576e;
-    box-shadow: 10px 10px 9px 8px #211e1e;
-    /* border: 1px solid red; */
+    /* box-shadow: 10px 10px 9px 8px #211e1e; */
+    box-shadow: 8px 11px 11px 4px #efe6d5;
 }
 
 .cart-subject {
