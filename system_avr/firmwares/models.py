@@ -48,6 +48,7 @@ class Subjects(models.Model):
     """
     client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='Клиент', related_name='clients')
     name = models.CharField(max_length=120, verbose_name='Объект', db_index=True)
+    description = models.TextField(verbose_name='Описание', blank=True, default="!")
     slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
     photo = ProcessedImageField(
         verbose_name='Основное фото',
@@ -121,7 +122,7 @@ class Product(models.Model):
     subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Объект')
     name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
-    descriiption = models.TextField(verbose_name='Описание файла', default='')
+    descriiption = models.TextField(verbose_name='Описание файла', blank=True, default="!")
     date_order = models.DateField(verbose_name='Дата заказа')
     date_ready = models.DateField(verbose_name='Дата готовности', blank=True, null=True)
     date_check = models.DateField(verbose_name='Дата Проверки', blank=True, null=True)
