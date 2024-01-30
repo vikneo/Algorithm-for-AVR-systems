@@ -3,528 +3,704 @@
         "id": 1,
         "client": 1,
         "name": "Ханевел_НКУ_24",
-        "slug": "hanevel_nku_24"
+        "slug": "hanevel_nku_24",
+        "photo": "subjects/Ханевел_НКУ_24/АГПЗ_Ханавел_24.jpg",
+        "archive": "1"
     },
     {
         "id": 2,
         "client": 1,
         "name": "Ханевел_НКУ_8",
-        "slug": "hanevel_nku_8"
+        "slug": "hanevel_nku_8",
+        "photo": "subjects/Ханевел_НКУ_8/АГПЗ_Ханавел_8.jpg",
+        "archive": "1"
     },
     {
         "id": 3,
         "client": 2,
-        "name": "ИЗП_1200_щиты_управления_вентиляции",
-        "slug": "izp_1200_shity_upravleniya_ventilyacii"
+        "name": "ИЗП_1200_щиты управления_вентиляции",
+        "slug": "izp_1200_shity_upravleniya_ventilyacii",
+        "photo": "subjects/ИЗП_1200_щиты управления_вентиляции/SE.jpg",
+        "archive": "1"
     },
     {
         "id": 4,
         "client": 4,
         "name": "ТП-41 (АНОФ-3)",
-        "slug": "tp-41-anof-3"
+        "slug": "tp-41-anof-3",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 5,
         "client": 3,
         "name": "Запрос2020-142_УГОК_ГАЗКОЛ",
-        "slug": "zapros2020-142_ugok_gazkol"
+        "slug": "zapros2020-142_ugok_gazkol",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 6,
         "client": 11,
         "name": "Площадка_ЦПСН_Марковского_НГКМ",
-        "slug": "ploshadka_cpsn_markovskogo_ngkm"
+        "slug": "ploshadka_cpsn_markovskogo_ngkm",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 7,
         "client": 12,
         "name": "Реконструкция_освещения",
-        "slug": "rekonstrukciya_osvesheniya"
+        "slug": "rekonstrukciya_osvesheniya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 8,
         "client": 6,
         "name": "Биотехпрогресс  (ХОВ_ОЗХ) тит. 7822",
-        "slug": "biotehprogress-hov_ozh-tit-7822"
+        "slug": "biotehprogress-hov_ozh-tit-7822",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 9,
         "client": 6,
         "name": "КС-локальная_очистка_стоков",
-        "slug": "ks-lokalnaya_ochistka_stokov"
+        "slug": "ks-lokalnaya_ochistka_stokov",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 10,
         "client": 6,
         "name": "лот-1713",
-        "slug": "lot-1713"
+        "slug": "lot-1713",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 11,
         "client": 6,
         "name": "Поставка_щита ШР_ХПН-1_РЭ",
-        "slug": "postavka_shita-shr_hpn-1_re"
+        "slug": "postavka_shita-shr_hpn-1_re",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 12,
         "client": 6,
         "name": "НКУ_КПАП_СВП",
-        "slug": "nku_kpap_svp"
+        "slug": "nku_kpap_svp",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 13,
         "client": 8,
         "name": "597_ЭОМ_ВРУ_ПЭСПЗ",
-        "slug": "597_eom_vru_pespz"
+        "slug": "597_eom_vru_pespz",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 14,
         "client": 8,
         "name": "613_ЭОМ_ВРУ",
-        "slug": "613_eom_vru"
+        "slug": "613_eom_vru",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 15,
         "client": 7,
         "name": "ЦКРИ_237_ТП333_КТП2500",
-        "slug": "ckri_237_tp333_ktp2500"
+        "slug": "ckri_237_tp333_ktp2500",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 16,
         "client": 10,
         "name": "БКТП_Очистные",
-        "slug": "bktp_ochistnye"
+        "slug": "bktp_ochistnye",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 17,
         "client": 10,
         "name": "СРК4_31100_31600",
-        "slug": "srk4_31100_31600"
+        "slug": "srk4_31100_31600",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 18,
         "client": 10,
         "name": "Адм_корпус_7",
-        "slug": "adm_korpus_7"
+        "slug": "adm_korpus_7",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 19,
         "client": 10,
         "name": "ДПЦ4_12500-OL-006",
-        "slug": "dpc4_12500-ol-006"
+        "slug": "dpc4_12500-ol-006",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 20,
         "client": 10,
         "name": "КРУ_ЦКК_БМЗ_ПГВ",
-        "slug": "kru_ckk_bmz_pgv"
+        "slug": "kru_ckk_bmz_pgv",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 21,
         "client": 9,
         "name": "К-31_-21_2КТП630_УКПГ",
-        "slug": "k-31_-21_2ktp630_ukpg"
+        "slug": "k-31_-21_2ktp630_ukpg",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 22,
         "client": 9,
-        "name": "Toyo_ИЗП_Этилен_шкафы_управления_освещением_конкурс",
-        "slug": "toyo_izp_etilen_shkafy_upravleniya_osvesheniem_konkurs"
+        "name": "Toyo_ИЗП_Этилен шкафы_управления освещением_конкурс",
+        "slug": "toyo_izp_etilen_shkafy_upravleniya_osvesheniem_konkurs",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 23,
         "client": 9,
         "name": "НКУ_для_зданий",
-        "slug": "nku_dlya_zdanij"
+        "slug": "nku_dlya_zdanij",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 24,
         "client": 9,
         "name": "К-534_4200_Котельная",
-        "slug": "k-534_4200_kotelnaya"
+        "slug": "k-534_4200_kotelnaya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 25,
         "client": 9,
         "name": "ИЗП_ОЗХ_Водозабор_РТП_5100",
-        "slug": "izp_ozh_vodozabor_rtp_5100"
+        "slug": "izp_ozh_vodozabor_rtp_5100",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 26,
         "client": 9,
         "name": "К-270_-21_ИЗП_2440_РУНН_+_Тран",
-        "slug": "k-270_-21_izp_2440_runn__tran"
+        "slug": "k-270_-21_izp_2440_runn__tran",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 27,
         "client": 9,
         "name": "К-302_9_щитов_2440",
-        "slug": "k-302_9_shitov_2440"
+        "slug": "k-302_9_shitov_2440",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 28,
         "client": 45,
         "name": "ЩСН_КПП_1_2",
-        "slug": "shsn_kpp_1_2"
+        "slug": "shsn_kpp_1_2",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 29,
         "client": 45,
         "name": "ИСО_Саяногорск",
-        "slug": "iso_sayanogorsk"
+        "slug": "iso_sayanogorsk",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 30,
         "client": 31,
         "name": "СГК_МКУ_СИБИРЬ_12.9",
-        "slug": "sgk_mku_sibir_129"
+        "slug": "sgk_mku_sibir_129",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 31,
         "client": 31,
         "name": "СГК",
-        "slug": "sgk"
+        "slug": "sgk",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 32,
         "client": 26,
         "name": "ПС_35-6__Северная",
-        "slug": "ps_35-6__severnaya"
+        "slug": "ps_35-6__severnaya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 33,
         "client": 39,
         "name": "Корп_Дооб_Конц_ТП-№1_2_3",
-        "slug": "korp_doob_konc_tp-1_2_3"
+        "slug": "korp_doob_konc_tp-1_2_3",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 34,
         "client": 39,
         "name": "РП_136_вспомогательные_системы",
-        "slug": "rp_136_vspomogatelnye_sistemy"
+        "slug": "rp_136_vspomogatelnye_sistemy",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 35,
         "client": 16,
         "name": "КТП_параформ",
-        "slug": "ktp_paraform"
+        "slug": "ktp_paraform",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 36,
         "client": 23,
         "name": "Шкафы_ШСВ",
-        "slug": "shkafy_shsv"
+        "slug": "shkafy_shsv",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 37,
         "client": 23,
         "name": "ЗФ_НКУ_ЛОТ2969411_ID2781",
-        "slug": "zf_nku_lot2969411_id2781"
+        "slug": "zf_nku_lot2969411_id2781",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 38,
         "client": 23,
         "name": "НМЗ_НКУ_3008091",
-        "slug": "nmz_nku_3008091"
+        "slug": "nmz_nku_3008091",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 39,
         "client": 18,
         "name": "МК_Вспомогательное_здание",
-        "slug": "mk_vspomogatelnoe_zdanie"
+        "slug": "mk_vspomogatelnoe_zdanie",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 40,
         "client": 18,
         "name": "МК_ТП1_ТП3_ТП4_ТП_5",
-        "slug": "mk_tp1_tp3_tp4_tp_5"
+        "slug": "mk_tp1_tp3_tp4_tp_5",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 41,
         "client": 20,
         "name": "ГОК_Кубака_ЩСУ",
-        "slug": "gok_kubaka_shsu"
+        "slug": "gok_kubaka_shsu",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 42,
         "client": 20,
         "name": "Нежданинское_mini",
-        "slug": "nezhdaninskoe_mini"
+        "slug": "nezhdaninskoe_mini",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 43,
         "client": 20,
         "name": "ГОК_Кубака_КТП1250",
-        "slug": "gok_kubaka_ktp1250"
+        "slug": "gok_kubaka_ktp1250",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 44,
         "client": 20,
         "name": "АГМК_ETS-120-E02",
-        "slug": "agmk_ets-120-e02"
+        "slug": "agmk_ets-120-e02",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 45,
         "client": 20,
         "name": "Нежданинское_mini_ETS-070",
-        "slug": "nezhdaninskoe_mini_ets-070"
+        "slug": "nezhdaninskoe_mini_ets-070",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 46,
         "client": 20,
         "name": "Амикан_ШУ",
-        "slug": "amikan_shu"
+        "slug": "amikan_shu",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 47,
         "client": 20,
         "name": "УФ_МСС_Корпус_фильтрации",
-        "slug": "uf_mss_korpus_filtracii"
+        "slug": "uf_mss_korpus_filtracii",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 48,
         "client": 40,
         "name": "Корпус флотации. АБК. Энергоблок» ШСАУ",
-        "slug": "korpus-flotacii-abk-energoblok-shsau"
+        "slug": "korpus-flotacii-abk-energoblok-shsau",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 49,
         "client": 44,
         "name": "2КТП1600_насосная",
-        "slug": "2ktp1600_nasosnaya"
+        "slug": "2ktp1600_nasosnaya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 50,
         "client": 44,
         "name": "ГТС_НКУ_ID3339",
-        "slug": "gts_nku_id3339"
+        "slug": "gts_nku_id3339",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 51,
         "client": 44,
         "name": "Алдан_Регенерация_1Щ_ЩВ_2Щ",
-        "slug": "aldan_regeneraciya_1sh_shv_2sh"
+        "slug": "aldan_regeneraciya_1sh_shv_2sh",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 52,
         "client": 41,
         "name": "НКУ_Лесосибриск_03_22",
-        "slug": "nku_lesosibrisk_03_22"
+        "slug": "nku_lesosibrisk_03_22",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 53,
         "client": 41,
         "name": "ЗИФ5_Флот_ВРУ_ЩСУ",
-        "slug": "zif5_flot_vru_shsu"
+        "slug": "zif5_flot_vru_shsu",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 54,
         "client": 15,
         "name": "Вернинское_ШУГ",
-        "slug": "verninskoe_shug"
+        "slug": "verninskoe_shug",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 55,
         "client": 33,
         "name": "Запрос2020-127_КНС-24_2-630",
-        "slug": "zapros2020-127_kns-24_2-630"
+        "slug": "zapros2020-127_kns-24_2-630",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 56,
         "client": 30,
         "name": "Станция_газорефикации",
-        "slug": "stanciya_gazorefikacii"
+        "slug": "stanciya_gazorefikacii",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 57,
         "client": 48,
         "name": "Запрос2019-091_РУ04-LVS-B",
-        "slug": "zapros2019-091_ru04-lvs-b"
+        "slug": "zapros2019-091_ru04-lvs-b",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 58,
         "client": 43,
         "name": "2013657_ИБП",
-        "slug": "2013657_ibp"
+        "slug": "2013657_ibp",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 59,
         "client": 43,
         "name": "РУНН_в_КТП8661",
-        "slug": "runn_v_ktp8661"
+        "slug": "runn_v_ktp8661",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 60,
         "client": 43,
         "name": "2012407_РУНН",
-        "slug": "2012407_runn"
+        "slug": "2012407_runn",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 61,
         "client": 43,
         "name": "2020360_ЩСН_ГПП",
-        "slug": "2020360_shsn_gpp"
+        "slug": "2020360_shsn_gpp",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 62,
         "client": 24,
         "name": "2015672_ЗСНХ_НКУ",
-        "slug": "2015672_zsnh_nku"
+        "slug": "2015672_zsnh_nku",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 63,
         "client": 42,
         "name": "2009543_НКУ",
-        "slug": "2009543_nku"
+        "slug": "2009543_nku",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 64,
         "client": 46,
         "name": "СХП",
-        "slug": "shp"
+        "slug": "shp",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 65,
         "client": 49,
         "name": "Air_Liquid_Северсталь",
-        "slug": "air_liquid_severstal"
+        "slug": "air_liquid_severstal",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 66,
         "client": 37,
         "name": "2032093_НКУ",
-        "slug": "2032093_nku"
+        "slug": "2032093_nku",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 67,
         "client": 27,
         "name": "003_Цех 160.1_Перв-й об-ки стали_ТП-68",
-        "slug": "003_ceh-1601_perv-j-ob-ki-stali_tp-68"
+        "slug": "003_ceh-1601_perv-j-ob-ki-stali_tp-68",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 68,
         "client": 27,
         "name": "020_163_Цех_Щиты_распределения",
-        "slug": "020_163_ceh_shity_raspredeleniya"
+        "slug": "020_163_ceh_shity_raspredeleniya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 69,
         "client": 29,
         "name": "Реконструкция_ПНС_4",
-        "slug": "rekonstrukciya_pns_4"
+        "slug": "rekonstrukciya_pns_4",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 70,
         "client": 29,
         "name": "томские_РТС",
-        "slug": "tomskie_rts"
+        "slug": "tomskie_rts",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 72,
         "client": 27,
         "name": "033_ЦЕХ_320_ТП-24",
-        "slug": "033_ceh_320_tp-24"
+        "slug": "033_ceh_320_tp-24",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 73,
         "client": 27,
         "name": "036_ЦПП_ТП_2х2000",
-        "slug": "036_cpp_tp_2h2000"
+        "slug": "036_cpp_tp_2h2000",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 74,
         "client": 25,
         "name": "Насосная_станция",
-        "slug": "nasosnaya_stanciya"
+        "slug": "nasosnaya_stanciya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 75,
         "client": 32,
         "name": "Губаха_РУНН",
-        "slug": "gubaha_runn"
+        "slug": "gubaha_runn",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 76,
         "client": 17,
         "name": "РП8_ГРЩ_ВРУ",
-        "slug": "rp8_grsh_vru"
+        "slug": "rp8_grsh_vru",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 77,
         "client": 17,
         "name": "Кирова_РП+НКУ",
-        "slug": "kirova_rpnku"
+        "slug": "kirova_rpnku",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 78,
         "client": 47,
         "name": "ТП_Центральная",
-        "slug": "tp_centralnaya"
+        "slug": "tp_centralnaya",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 79,
         "client": 22,
         "name": "2009078_ТП125_под_ключ",
-        "slug": "2009078_tp125_pod_klyuch"
+        "slug": "2009078_tp125_pod_klyuch",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 80,
         "client": 14,
         "name": "Кинотеатр г.Ленинский",
-        "slug": "kinoteatr-gleninskij"
+        "slug": "kinoteatr-gleninskij",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 81,
         "client": 22,
         "name": "2459766_УМИ4",
-        "slug": "2459766_umi4"
+        "slug": "2459766_umi4",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 82,
         "client": 35,
         "name": "10КТП",
-        "slug": "10ktp"
+        "slug": "10ktp",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 83,
         "client": 35,
         "name": "КТП_ТП12",
-        "slug": "ktp_tp12"
+        "slug": "ktp_tp12",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 84,
         "client": 22,
         "name": "ТП-135",
-        "slug": "tp-135"
+        "slug": "tp-135",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 85,
         "client": 19,
         "name": "ШРиУ_на_техперевооружение_ИБП",
-        "slug": "shriu_na_tehperevooruzhenie_ibp"
+        "slug": "shriu_na_tehperevooruzhenie_ibp",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 86,
         "client": 38,
         "name": "ИБП_2х20_кВА_(Балаково)",
-        "slug": "ibp_2h20_kva_balakovo"
+        "slug": "ibp_2h20_kva_balakovo",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 87,
         "client": 38,
         "name": "ТП-13-1_(АНОФ-3_КФ)",
-        "slug": "tp-13-1_anof-3_kf"
+        "slug": "tp-13-1_anof-3_kf",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 88,
         "client": 28,
         "name": "СУЭК_Кузбасс_Разрез_Заречный",
-        "slug": "suek_kuzbass_razrez_zarechnyj"
+        "slug": "suek_kuzbass_razrez_zarechnyj",
+        "photo": "default.PNG",
+        "archive": "1"
     },
     {
         "id": 89,
         "client": 36,
         "name": "ЛЕДОВАЯ_АРЕНА_НСК",
-        "slug": "ledovaya_arena_nsk"
+        "slug": "ledovaya_arena_nsk",
+        "photo": "default.PNG",
+        "archive": "1"
     }
 ]
