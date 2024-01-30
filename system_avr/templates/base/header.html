@@ -8,6 +8,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assests/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/nav_sidebar.css' %}">
+    <script src="{% static 'admin/js/nav_sidebar.js' %}" defer></script>
 
     {% block title %}{% endblock %}
 </head>
@@ -63,4 +66,14 @@
                 </div>
             </div>
         </div>
+        {% block nav-breadcrumbs %}
+        <nav aria-label="{% translate 'Breadcrumbs' %}" class="pos" >
+            {% block breadcrumbs %}
+            <div class="breadcrumbs">
+                <a href="{% url 'product:subject' %}">{% translate 'Home' %}</a>
+                {% if title %} &rsaquo; {{ title }}{% endif %}
+            </div>
+            {% endblock %}
+        </nav>
+        {% endblock %}
     </div>
