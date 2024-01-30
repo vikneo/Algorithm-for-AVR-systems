@@ -44,7 +44,7 @@ class SubjectDetailView(DetailView):
     def get_context_data(self, *args: Any, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(*args, **kwargs)
         context.update(
-            title=kwargs['object']
+            title=kwargs['object'],
         )
         return context
 

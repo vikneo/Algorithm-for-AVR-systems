@@ -8,18 +8,21 @@
 <div class="center-sidebar">
     {% if subject.product_set.all %}
     <div class="flex section">
-        <h2>{{ title }}</h2>
+        <h2>{{ subject.client.name }}</h2>
+        <p class="client-descript">
+            {{ subject.client.description }}
+        </p>
         {% for product in subject.product_set.all %}
         <div class="section-box">
+            <div class="product-description">
+                {{ product.subject.description }}
+            </div>
             <div class="product-title">
                 {{ product }}
             </div>
-            <div class="product-description">
-                {{ product.descriiption }}
-            </div>
             <div class="flex box-short-detail">
                 <div class="product-name">
-                    <span class="span">Название: </span> {{ product.name}}
+                    <span class="span">Название: </span> {{ product.name|truncatechars:10 }}
                 </div>
                 <div class="product-created">
                     <span class="span">Дата заказа: </span> {{ product.date_order }}
@@ -30,6 +33,7 @@
                 <div class="product-link">
                     <a href="#">Подробнее >></a>
                 </div>
+                {{ page }}
             </div>
         </div>
         {% endfor %}
