@@ -95,6 +95,7 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
         close_access,
         open_access
     ]
+    list_per_page = 40
     list_display = ['get_subject', 'name', 'author', 'status', 'relay', 'created_at', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     search_fields = ['name',]
