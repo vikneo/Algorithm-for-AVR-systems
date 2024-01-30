@@ -28,6 +28,7 @@ class Client(models.Model):
     """
     name = models.CharField(max_length=100, verbose_name='Клиент', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
+    description = models.TextField(verbose_name='Описание', blank=True, default="!")
     archive = models.BooleanField(default=True, verbose_name='Архив')
 
     def __str__(self) -> str:
