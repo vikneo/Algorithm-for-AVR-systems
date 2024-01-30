@@ -19,7 +19,7 @@
                         <div class="description">
                         </div>
                         <div class="cart-image">
-                            <span class="cart-title">{{ sub.client }}</span>
+                            <span class="cart-title">{{ sub.client|truncatechars:15 }}</span>
                             {% if sub.photo %}
                             <img src="{{ sub.photo.url }}" width="100%" height="150px" alt="">
                             {% else %}

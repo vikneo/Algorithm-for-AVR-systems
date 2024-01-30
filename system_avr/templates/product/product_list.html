@@ -2,23 +2,27 @@
 {% load i18n static %}
 
 {% block content %}
+    <link rel="stylesheet" href="{% static 'assests/css/product_style.css' %}">
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
-{% if subject.product_set.all %}
-<div>
-    {% for product in subject.product_set.all %}
-    {{ product }}
-    {% endfor %}
-</div>
-{% else %}
 <div class="center-sidebar">
+    {% if subject.product_set.all %}
+    <div class="flex section">
+        <h2>{{ title }}</h2>
+        {% for product in subject.product_set.all %}
+        <div class="product-title">
+            {{ product }}
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
     <div class="flex block-else-product">
         <h2 class="flex justify-for-else">Данных о <b>"{{ subject }}"</b> пока нет!</h2>
         <div class="flex img-tumbleweed">
             <img src="{% static 'assests/img/ShadyFaithfulFishingcat-size_restricted.gif' %}" alt="">
         </div>
     </div>
+    {% endif %}
 </div>
-{% endif %}
 
 {% endblock %}

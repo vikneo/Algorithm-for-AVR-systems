@@ -1,0 +1,11 @@
+.section {
+    flex-direction: column;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.product-title {
+    padding: 16px;
+    outline: 1px solid red;
+    font-size: 30px;
+}
