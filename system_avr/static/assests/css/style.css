@@ -12,6 +12,11 @@ body {
     background-repeat: no-repeat;
 }
 
+marquee {
+     padding-top: 5px;
+    font-size: 20px;
+}
+
 .contaner {
     margin: 0 auto;
     margin-bottom: 50px;

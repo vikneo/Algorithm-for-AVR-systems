@@ -51,3 +51,31 @@ p.client-descript {
     right: 22em;
     background: #2b52e2;
 }
+
+.roduct-box-detail {
+    max-width: 580px;
+    flex-direction: column;
+}
+
+p.product-date-detail {
+    /* padding-left: 25px; */
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.product-title-date {
+    padding: 0 25px 0;
+}
+
+.color-status-green,
+.color-status-yellow {
+    font-size: 24px;
+}
+
+.color-status-green {
+    color: #0cd90c;
+}
+
+.color-status-yellow {
+    color: yellow;
+}

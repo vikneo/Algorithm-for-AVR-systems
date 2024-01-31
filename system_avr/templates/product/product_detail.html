@@ -10,6 +10,38 @@
         <p class="client-descript">
             {{ product.descriiption }}
         </p>
+        <div class="flex roduct-box-detail">
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Дата заявки:</span>
+                {{ product.date_order }}
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Дата готовности:</span>
+                {{ product.date_ready }}
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Дата проверки:</span>
+                {{ product.date_check }}
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Статус проверки:</span>
+                <span {% if product.status == 1 %}class="color-status-green"{% else %}class="color-status-yellow"{% endif %}>
+                    {{ product.get_status_display }}
+                </span>
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Описание АВР:</span>
+                <button>Открыть</button>
+            </p>
+            {% if user.is_staff %}
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Файл конфигурации:</span>
+                <a href="#">Скачать</a>
+            </p>
+            {% endif %}
+        </div>
+        <div class="flex">
+        </div>
     </div>
 </div>
 
