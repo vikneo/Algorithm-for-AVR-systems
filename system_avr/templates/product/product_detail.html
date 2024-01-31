@@ -36,13 +36,20 @@
             {% if user.is_staff %}
             <p class="flex product-date-detail">
                 <span class="flex product-title-date">Файл конфигурации:</span>
-                <a href="#">Скачать</a>
+                <a style="color: #abbaff;" href="#">Скачать</a>
+            </p>
+            {% else %}
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Файл конфигурации:</span>
+                <a style="color: #ff9c9c;" href="#">Авторизация</a>
             </p>
             {% endif %}
         </div>
         <div class="flex">
         </div>
     </div>
+    <hr>
+    <div class=""></div>
 </div>
 
 {% endblock %}
