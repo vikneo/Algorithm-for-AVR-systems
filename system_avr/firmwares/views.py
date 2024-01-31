@@ -13,7 +13,7 @@ class SubjectListView(ListView):
     
     """
     paginate_by = 8
-    template_name = 'product/subject_list.html'
+    template_name = 'client/client_list.html'
     context_object_name = 'subjects'
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
@@ -38,7 +38,7 @@ class SubjectDetailView(DetailView):
     """
     Представление Всех продуктов на странице Объекта
     """
-    template_name = 'product/product_list.html'
+    template_name = 'product/subject_list.html'
     context_object_name = 'subject'
 
     def get_context_data(self, *args: Any, **kwargs: Any) -> dict[str, Any]:
@@ -53,3 +53,21 @@ class SubjectDetailView(DetailView):
         Возвращает queryset отфильтрованный по полю archive.
         """
         return Subjects.objects.filter(archive=True)
+    
+
+class ProductView(DetailView):
+    """
+    Представление продукта выбранного объекта
+    """
+    template_name = 'product/product_list.html'
+    context_object_name = 'product'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title=kwargs['object']
+        )
+        return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        return Product.objects.get(slug=self.kwargs['slug'])

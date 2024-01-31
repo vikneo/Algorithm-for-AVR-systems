@@ -2,40 +2,45 @@
 {% load i18n static %}
 
 {% block content %}
-{% block title %}<title>{{ title }}</title>{% endblock %}
+    <link rel="stylesheet" href="{% static 'assests/css/product_style.css' %}">
+{% block title %} <title>{{ title }}</title> {% endblock %}
 
 <div class="center-sidebar">
-    {% if subjects %}
-    <div class="flex">
-        <div class="flex subject-wrap">
-            {% for sub in subjects %}
-            <li class="li-subject">
-                <ul class="cart-subject">
-                    <div class="flex cart-subject-title">
-                        <a href="{% url 'product:subject_detail' sub.slug %}">
-                            <div class="subject-title">
-                                <span>{{ sub }}</span>
-                            </div>
-                        </a>
-                        <div class="description">
-                        </div>
-                        <div class="cart-image">
-                            <span class="cart-title">{{ sub.client|truncatechars:15 }}</span>
-                            {% if sub.photo %}
-                            <img src="{{ sub.photo.url }}" width="100%" height="150px" alt="">
-                            {% else %}
-                            <img src="{% static 'assests/img/owen_pr.png' %}" width="100px" height="150px" alt="">
-                            {% endif %}
-                        </div>
-                    </div>
-                </ul>
-            </li>
-            {% endfor %}
+    {% if subject.product_set.all %}
+    <div class="flex section">
+        <h2>{{ subject.client.name }}</h2>
+        <p class="client-descript">
+            {{ subject.client.description }}
+        </p>
+        {% for product in subject.product_set.all %}
+        <div class="section-box">
+            <div class="product-description">
+                {{ product.subject.description }}
+            </div>
+            <div class="product-title">
+                {{ product }}
+            </div>
+            <div class="flex box-short-detail">
+                <div class="product-name">
+                    <span class="span">Название: </span> {{ product.name|truncatechars:10 }}
+                </div>
+                <div class="product-created">
+                    <span class="span">Дата заказа: </span> {{ product.date_order }}
+                </div>
+                <div class="product-ready">
+                    <span class="span">Дата создания: </span>{{ product.created_at }}
+                </div>
+                <div class="product-link">
+                    <a href="#">Подробнее >></a>
+                </div>
+                {{ page }}
+            </div>
         </div>
+        {% endfor %}
     </div>
     {% else %}
     <div class="flex block-else-product">
-        <h2 class="flex justify-for-else">Данных пока нет!</h2>
+        <h2 class="flex justify-for-else">Данных о <b>"{{ subject }}"</b> пока нет!</h2>
         <div class="flex img-tumbleweed">
             <img src="{% static 'assests/img/ShadyFaithfulFishingcat-size_restricted.gif' %}" alt="">
         </div>
