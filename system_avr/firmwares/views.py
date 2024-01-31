@@ -55,6 +55,22 @@ class SubjectDetailView(DetailView):
         return Subjects.objects.filter(archive=True)
     
 
+class ProductListView(ListView):
+    """
+    
+    """
+    model = Product
+    template_name = 'product/product_list.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title='Все продукты'
+        )
+        return context
+
+
 class ProductView(DetailView):
     """
     Представление продукта выбранного объекта
