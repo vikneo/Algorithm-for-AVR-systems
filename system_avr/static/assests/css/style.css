@@ -227,7 +227,7 @@ li {
     margin-left: 25px;
     background: #3f576e;
     /* box-shadow: 10px 10px 9px 8px #211e1e; */
-    box-shadow: 8px 11px 11px 4px #efe6d5;
+    box-shadow: 7px 7px 6px 0px #efe6d5;
 }
 
 .cart-subject {
@@ -237,9 +237,9 @@ li {
 .cart-title {
     position: absolute;
     padding-left: 15px;
-    padding-top: 20px;
-    font-size: 29px;
-    color: #fb4141;
+    padding-top: 5px;
+    font-size: 24px;
+    color: #ff4646;
     font-family: 'Novartis';
 }
 
