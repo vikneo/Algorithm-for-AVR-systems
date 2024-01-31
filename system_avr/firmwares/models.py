@@ -55,7 +55,7 @@ class Subjects(models.Model):
         verbose_name='Основное фото',
         upload_to=subject_images_directory_path,
         options={'quantity': 90},
-        processors=[ResizeToFill(300, 300)]
+        processors=[ResizeToFill(600, 300)]
     )
     archive = models.BooleanField(default=True, verbose_name='Архив')
 
