@@ -2,7 +2,6 @@
 {% load i18n static %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'assests/css/product_style.css' %}">
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
 <div class="center-sidebar">
@@ -31,7 +30,7 @@
                     <span class="span">Дата создания: </span>{{ product.created_at }}
                 </div>
                 <div class="product-link">
-                    <a href="#">Подробнее >></a>
+                    <a href="{% url 'product:product_detail' product.slug %}">Подробнее >></a>
                 </div>
                 {{ page }}
             </div>

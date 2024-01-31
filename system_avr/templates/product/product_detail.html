@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+{% block title %} <title>{{ title }}</title> {% endblock %}
+
+<div class="center-sidebar">
+    <div class="flex section">
+        <h1>{{ product.name }}</h1>
+        <p class="client-descript">
+            {{ product.descriiption }}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

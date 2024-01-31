@@ -59,7 +59,8 @@ class ProductView(DetailView):
     """
     Представление продукта выбранного объекта
     """
-    template_name = 'product/product_list.html'
+    model = Product
+    template_name = 'product/product_detail.html'
     context_object_name = 'product'
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
@@ -68,6 +69,3 @@ class ProductView(DetailView):
             title=kwargs['object']
         )
         return context
-    
-    def get_queryset(self) -> QuerySet[Any]:
-        return Product.objects.get(slug=self.kwargs['slug'])
