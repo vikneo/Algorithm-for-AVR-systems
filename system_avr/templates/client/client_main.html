@@ -5,7 +5,7 @@
     <form class="flex" action="{% url 'product:subject' %}" method="get">
         <!-- {% csrf_token %} -->
         <select class="select-client" name="client">
-            <option value="0">Показать все</option>
+            <option value="0">Все проекты</option>
             {% for client in clients %}
             <div class="flex position">
                 <option value="{{ client.id }}">{{ client.name }}</option>
