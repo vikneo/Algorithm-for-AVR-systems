@@ -1,5 +1,7 @@
 # Запуск и настройка проекта
 
+Клонируем проект из [репозитория](https://github.com/vikneo/Algorithm-for-AVR-systems.git) на локальный компьютер
+
 ## Виртуальное окружение
 
 ### Для Windows
@@ -29,7 +31,7 @@ source venv/bin/activate
 
 * Доступная информация по настройке **poetry** [здесь](https://python-poetry.org/docs/cli/)
 
-* for install  ***poetry***  with command:
+* что бы установить  ***poetry***  воспользуйтесь командой:
     ```html
     pip install poetry
     ```
@@ -55,5 +57,27 @@ source venv/bin/activate
         ```html
         poetry install
         ```
-
+* Добавление
+    * Команда **add** добавит новую библиотеку в **pyproject.toml** 
+    и произведет установку данного пакета
+        ```html
+        poetry add Pillow
+        ```
+    * Можно указывать версию пакета:
+        ```html
+        poetry add django==4.2
+            или
+        poetry add django>=4.2
+        ```
+* Удаление
+    * Команда **remove** удалит пакет из файла **pyproject.toml**
+        ```html
+        poetry remove Pillow
+        ```
+* Просмотр
+    * Команда **show** позволяет просмотреть установленные зависимоти проекта
+        ```html
+        poetry show
+        ```
 <hr>
+
