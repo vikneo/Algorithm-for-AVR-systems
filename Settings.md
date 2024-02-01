@@ -120,7 +120,28 @@ python manage.py migrate
     Вводите повтор: 1234
 ```
 
-* Запуск приложения:
+### Запуск приложения:
+
+* Создаем файл **.env**
+    
+    Заполняем его содержимым
+
+    ПРИМЕР:
+    ```html
+    DEBUG=True
+
+    SECRET_KEY='django-insecure--flqljj6&bi&c#351e#e@bwd=c#+7-d$!wb#!)lj8h=_z3sw8g'
+    
+    ALLOWED_HOSTS='*'
+    
+    IF DEBUG:
+        ENGINE='django.db.backends.sqlite3'
+        NAME='db.sqlite3'
+    ELSE:
+        <!-- Здесь настройки для опциональной БД -->
+    ```
+
+* Запускаем сервер
 
     ```html
     python manage.py runserver
