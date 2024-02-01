@@ -61,8 +61,8 @@
                     </div>
                     {% endblock %}
                     <div class="flex">
-                        <form class="flex header-search-form" method="get" onsubmit="return false" id="search">
-                            <input class="header-search-input" id="search-textbox-input" type="text" autocomplete="off"
+                        <form class="flex header-search-form" method="get" id="search" action="{% url 'product:product_list' %}">
+                            <input class="header-search-input" name="search" id="search-textbox-input" type="text" autocomplete="off"
                                 placeholder="поиск проекта">
                             <button class="header-search-icon-btn" type="submit">
                                 <img src="../../static/assests/icon/icon_searche_white.svg" width="30px" height="30px"

@@ -59,8 +59,7 @@ class ProductListView(ListView):
     """
     
     """
-    paginate_by = 10
-    model = Product
+    paginate_by = 8
     template_name = 'product/product_list.html'
     context_object_name = 'products'
 
@@ -70,6 +69,13 @@ class ProductListView(ListView):
             title='Все продукты'
         )
         return context
+
+    def get_queryset(self) -> QuerySet[Any]:
+        query = self.request.GET.get('search')
+        print(query)
+        if query is None:
+            return Product.objects.all()
+        return Product.objects.filter(name__icontains=query.upper())
 
 
 class ProductView(DetailView):
