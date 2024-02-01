@@ -163,7 +163,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-media/
+# For project demo added dir "media" to repository
+# media/
 
 Makefile
 ./Makefile
