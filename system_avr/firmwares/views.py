@@ -72,7 +72,6 @@ class ProductListView(ListView):
 
     def get_queryset(self) -> QuerySet[Any]:
         query = self.request.GET.get('search')
-        print(query)
         if query is None:
             return Product.objects.all()
         return Product.objects.filter(name__icontains=query.upper())
