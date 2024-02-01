@@ -136,6 +136,19 @@ python manage.py migrate
 http://127.0.0.1:8000/admin-preview-panel/
 ```
 
+* Импорт файлов
+    * Проимпортируйте файлы находящиеся в папке **import/json**
+
+        Импорт проектов:
+        ![проектов](/related_docs/import_client.PNG)
+        Выбираем файл **Client_2024-01-25.json**
+
+        Импорт объектов:
+        ![объект](/related_docs/import_object.PNG)
+        Выбираем файл **Subject_2024-01-30.json**
+        
+P.S. В доработке фал для импорта продуктов и **fixtures** проекта
+
 К [содержанию ↑](#содержание)
 
 <hr>
