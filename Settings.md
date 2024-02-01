@@ -2,6 +2,14 @@
 
 Клонируем проект из [репозитория](https://github.com/vikneo/Algorithm-for-AVR-systems.git) на локальный компьютер
 
+Назад к файлу [README](README.md)
+
+## Содержание
+
+* [Виртуальное окружение](#виртуальное-окружение)
+* [Установка poetry](#установка-пакета-poetry)
+* [Запуск проекта](#запуск-проекта)
+
 ## Виртуальное окружение
 
 ### Для Windows
@@ -25,6 +33,9 @@ venv\Scripts\activate
 ```html
 source venv/bin/activate
 ```
+
+К [содержанию ↑](#содержание)
+
 <hr>
 
 ## Установка пакета "poetry"
@@ -79,6 +90,8 @@ source venv/bin/activate
         ```html
         poetry show
         ```
+К [содержанию ↑](#содержание)
+
 <hr>
 
 ## Запуск проекта
@@ -100,7 +113,7 @@ python manage.py migrate
 
 ```html
     python manage.py createsuperuser
-    
+    /* пример */
     Вводите login: admin
     Вводите email: admin@qwe.com
     Вводите пароль: 1234
@@ -122,3 +135,7 @@ python manage.py migrate
 ```html
 http://127.0.0.1:8000/admin-preview-panel/
 ```
+
+К [содержанию ↑](#содержание)
+
+<hr>
