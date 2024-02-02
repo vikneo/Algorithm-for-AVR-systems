@@ -6,32 +6,32 @@
 {% endblock %}
 
 <div class="flex contaner block-row">
-{% block left-sidebar %}
-<div class="left-sidebar" style="padding-left: 5px;">
-    <div class="left-sidebar-nav">
-        <h2>ФИЛЬТР</h2>
-        <div class="flex filter-block">
-            <span class="flex filter-link-title">Прошивки</span>
-            <a class="filter-link" href="{% url 'product:product_list' %}">Показать все</a>
+    {% block left-sidebar %}
+    <div class="left-sidebar" style="padding-left: 5px;">
+        <div class="left-sidebar-nav">
+            <h2>ФИЛЬТР</h2>
+            <div class="flex filter-block">
+                <span class="flex filter-link-title">Продукты</span>
+                <a class="filter-link" href="{% url 'product:product_list' %}">Показать все</a>
+            </div>
+            <hr>
+            <h2>заголовки</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti amet ducimus, doloribus provident dolorem
+            consectetur ad sit rerum accusantium repudiandae, nam expedita enim quod hic ut quasi dolores odio quam.
         </div>
-        <hr>
-        <h2>заголовки</h2>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti amet ducimus, doloribus provident dolorem
-        consectetur ad sit rerum accusantium repudiandae, nam expedita enim quod hic ut quasi dolores odio quam.
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
 
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
-{% block right-sidebar %}
-<div class="right-sidebar">
-    <div class="advertisement-box">
-        <!-- <img class="advertisement" src="{% static 'assests/img/default/реклама.jpg' %}" alt=""> -->
+    {% block right-sidebar %}
+    <div class="right-sidebar">
+        <div class="advertisement-box">
+            <!-- <img class="advertisement" src="{% static 'assests/img/default/реклама.jpg' %}" alt=""> -->
+        </div>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
 </div>
 
 <div class="flex" style="display: contents;">
