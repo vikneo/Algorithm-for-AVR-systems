@@ -119,7 +119,7 @@ class Product(models.Model):
         Модель выбора авторов изделия
         """
         MBB = 1, 'Мартынов В.'
-
+    id_product = models.IntegerField(verbose_name='ID Продукта', db_index=True)
     subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Объект')
     name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
