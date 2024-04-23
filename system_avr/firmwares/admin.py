@@ -10,7 +10,10 @@ from .models import (
     SmartRelay,
     Subjects
     )
-from utils.config import LENGTH
+from utils.config import (
+    LENGTH,
+    get_count_for_id,
+    )
 
 from import_export.admin import ImportExportModelAdmin
 
@@ -105,10 +108,10 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
 
     def get_id_product(self, obj: Product) -> str:
         """
-        Возвращает строку с номером зродукта длиной 5 регистров
+        Возвращает строку с номером родукта длиной 5 регистров
         """
         product_id = str(obj.id_product)
-        return '0' * (5 - len(product_id)) + product_id if len(product_id) < 5 else product_id
+        return get_count_for_id(product_id)
 
     def get_subject(self, obj: Product) -> str:
         """
