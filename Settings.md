@@ -30,7 +30,7 @@ venv\Scripts\activate
 
 * Создать виртуальное окружение
 ```html
-
+python3 -m venv name_venv
 ```
 * Активация окружения
 ```html
