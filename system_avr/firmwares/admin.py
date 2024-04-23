@@ -10,6 +10,7 @@ from .models import (
     SmartRelay,
     Subjects
     )
+from utils.config import LENGTH
 
 from import_export.admin import ImportExportModelAdmin
 
@@ -96,19 +97,36 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
         open_access
     ]
     list_per_page = 40
-    list_display = ['get_subject', 'name', 'author', 'status', 'relay', 'created_at', 'archive']
+    list_display = ['get_id_product', 'get_subject', 'get_name', 'status', 'relay', 'archive']
     prepopulated_fields = {'slug': ('name',)}
-    search_fields = ['name',]
+    list_filter = ['id_product']
+    search_fields = ['id_product', 'name',]
     save_on_top = True
+
+    def get_id_product(self, obj: Product) -> str:
+        """
+        Возвращает строку с номером зродукта длиной 5 регистров
+        """
+        product_id = str(obj.id_product)
+        return '0' * (5 - len(product_id)) + product_id if len(product_id) < 5 else product_id
 
     def get_subject(self, obj: Product) -> str:
         """
         Возврящает название объекта для продукта.
         """
         subject = obj.subject.name
-        return subject
+        return subject if len(subject) < LENGTH else subject[:LENGTH] + '...'
+    
+    def get_name(self, obj: Product) -> str:
+        """
+        Возвращает обрезаную строку названия продукта
+        """
+        product_name = obj.name
+        return product_name if len(product_name) < LENGTH else product_name[:LENGTH] + '...'
     
     get_subject.short_description = 'объект'
+    get_name.short_description = 'название'
+    get_id_product.short_description = 'ID Продукт'
 
 
 class AdminSmartRelay(admin.ModelAdmin):
