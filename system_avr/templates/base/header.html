@@ -27,7 +27,7 @@
                 если произошло непредвиденное прекращение работы основной линии.
             </marquee>
         </div>
-        <div class="flex auth align-items justify-content-between">
+        <div class="flex auth align-items-center justify-content-between">
             <div class="">
                 <h1 class="header-h1">Автоматизация систем АВР</h1>
             </div>
@@ -35,11 +35,16 @@
                 {% if user.is_authenticated %}
                 <a href="#">Профиль</a>
                 <span class="span">|</span>
-                <a href="{% url 'profile:logout' %}">Выйти</a>
+                <form action="{% url 'profile:logout' %}" method="post">
+                    {% csrf_token %}
+                    <a href=".">
+                        <button class="btn-logout" type="submit">Выйти</button>
+                    </a>
+                </form>
                 {% else %}
-                <a href="{% url 'profile:login' %}">Войти</a>
-                <span class="span">|</span>
                 <a href="{% url 'profile:register' %}">Регистрация</a>
+                <span class="span">|</span>
+                <a href="{% url 'profile:login' %}">Войти</a>
                 {% endif %}
             </div>
         </div>

@@ -60,4 +60,4 @@ class LogOutUserView(LogoutView):
     """
     Log Out of the system
     """
-    next_page = reverse_lazy('profile:login')
+    next_page = reverse_lazy('product:subject')
