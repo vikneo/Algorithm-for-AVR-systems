@@ -26,8 +26,21 @@
                 если произошло непредвиденное прекращение работы основной линии.
             </marquee>
         </div>
-        <div class="">
-            <h1 class="header-h1">Автоматизация систем АВР</h1>
+        <div class="flex auth align-items justify-content">
+            <div class="">
+                <h1 class="header-h1">Автоматизация систем АВР</h1>
+            </div>
+            <div class="flex">
+                {% if user.is_authenticated %}
+                <a href="#">Профиль</a>
+                <span class="span">|</span>
+                <a href="#">Выйти</a>
+                {% else %}
+                <a href="{% url 'profile:login' %}">Войти</a>
+                <span class="span">|</span>
+                <a href="{% url 'profile:register' %}">Регистрация</a>
+                {% endif %}
+            </div>
         </div>
         <div class="flex header-menu-nav">
             <ul class="flex">
@@ -61,9 +74,10 @@
                     </div>
                     {% endblock %}
                     <div class="flex">
-                        <form class="flex header-search-form" method="get" id="search" action="{% url 'product:product_list' %}">
-                            <input class="header-search-input" name="search" id="search-textbox-input" type="text" autocomplete="off"
-                                placeholder=" РУНН-0,4 кВ">
+                        <form class="flex header-search-form" method="get" id="search"
+                            action="{% url 'product:product_list' %}">
+                            <input class="header-search-input" name="search" id="search-textbox-input" type="text"
+                                autocomplete="off" placeholder=" РУНН-0,4 кВ">
                             <button class="header-search-icon-btn" type="submit">
                                 <img src="../../static/assests/icon/icon_searche_white.svg" width="30px" height="30px"
                                     alt="Search">
@@ -76,7 +90,7 @@
             </div>
         </div>
         {% block nav-breadcrumbs %}
-        <nav aria-label="{% translate 'Breadcrumbs' %}" class="pos" >
+        <nav aria-label="{% translate 'Breadcrumbs' %}" class="pos">
             {% block breadcrumbs %}
             <div class="breadcrumbs">
                 <a href="{% url 'product:subject' %}">{% translate 'Home' %}</a>
@@ -90,4 +104,5 @@
     {% block footer %}
     {% endblock %}
 </body>
+
 </html>
