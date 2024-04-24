@@ -20,6 +20,9 @@ class RegisterUserView(CreateView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
+        context.update(
+            title='Регистрация'
+        )
         return context
     
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
@@ -48,13 +51,13 @@ class LoginUserView(LoginView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context.update(
-            title='Профиль',
+            title='Авторизация',
         )
         return context
 
 
 class LogOutUserView(LogoutView):
     """
-    
+    Log Out of the system
     """
-    next_page = '/'
+    next_page = reverse_lazy('profile:login')
