@@ -326,6 +326,11 @@ li, .li-paginate {
     font-size: 20px;
 }
 
+.subject-name {
+    padding-left: 2em;
+    color: #b9f309;
+}
+
 /* =================================== footer-block ========================================*/
 
 .footer-block {

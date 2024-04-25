@@ -16,6 +16,7 @@ p.client-descript {
 }
 
 .section-box {
+    max-width: 875px;
     margin-bottom: 30px;
     /* outline: 1px solid red; */
     box-shadow: 6px 6px 8px 1px #efe6d5;
@@ -41,14 +42,18 @@ p.client-descript {
     font-size: 21px;
 }
 
-.box-short-detail {
+.box-short-detail, .box-subject  {
     width: 100%;
     background: #264b5d;
 }
 
+.box-subject {
+    justify-content: space-between;
+}
+
 .product-link {
-    position: absolute;
-    right: 22em;
+    /* position: absolute; */
+    /* right: 22em; */
     background: #2b52e2;
 }
 
