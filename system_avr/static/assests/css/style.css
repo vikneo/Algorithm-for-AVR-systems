@@ -385,3 +385,42 @@ li, .li-paginate {
 .page-list .page-num-selected:hover {
 	box-shadow: none;
 }
+
+/* ============================ MESSAGES ========================= */
+
+.message {
+    padding: 13px 19px;
+    font-size: 20px;
+    outline: 1px solid red;
+    border-radius: 8px;
+    background: #9eeaf9;
+}
+
+.advant-box {
+    margin-bottom: 50px;
+    /* background: #e9e4e4; */
+    color: #055160;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.m-0 {
+    margin: 0!important;
+}
+
+.p-0 {
+    padding: 0!important;
+}
+
+/* .alert {
+    background-color: #6adaf39e;
+} */
+
+.alert-dismissible {
+    padding-right: 3rem
+}
