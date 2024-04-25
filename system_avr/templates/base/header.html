@@ -38,7 +38,7 @@
                 <form action="{% url 'profile:logout' %}" method="post">
                     {% csrf_token %}
                     <a href=".">
-                        <button class="btn-logout" type="submit">Выйти</button>
+                        <button style="font-size: 14px;" class="btn-logout" type="submit">Выйти</button>
                     </a>
                 </form>
                 {% else %}
@@ -63,7 +63,9 @@
                     <p>меню, с контактами</p>
                 </li>
                 <li class="li-paginate">
-                    <p>меню, с контактами</p>
+                    <p>
+                        <a target="_blank" href="#">Реестр прошивок</a>
+                    </p>
                 </li>
             </ul>
         </div>
