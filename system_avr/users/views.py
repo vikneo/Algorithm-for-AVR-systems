@@ -42,7 +42,7 @@ class RegisterUserView(CreateView):
 
 class LoginUserView(LoginView):
     """
-    
+    Login iin the system
     """
     form_class = UserFormAuth
     template_name = 'profile/login.html'
