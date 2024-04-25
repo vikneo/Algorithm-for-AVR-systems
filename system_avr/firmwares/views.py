@@ -14,10 +14,10 @@ from typing import Any
 
 class SubjectListView(ListView):
     """
-    
+    Представление всех объектов
     """
     paginate_by = 8
-    template_name = 'client/client_list.html'
+    template_name = 'product/subject_list.html'
     context_object_name = 'subjects'
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
@@ -31,11 +31,7 @@ class SubjectListView(ListView):
         """
         Возвращает queryset отфильтрованный по полю archive.
         """
-        client_id = self.request.GET.get('client')
-        if client_id is None or client_id == '0':
-            return Subjects.objects.filter(archive=True)
-        else:
-            return Subjects.objects.filter(archive=True, client=client_id)
+        return Subjects.objects.filter(archive=True)
 
 
 class SubjectDetailView(DetailView):
@@ -95,7 +91,7 @@ class SearchView(ListView):
         except Exception as err:
             messages.info(self.request, not_found)
     
-# тп 41
+
 class ProductListView(ListView):
     """
     Представление списка всех продуктов
@@ -129,3 +125,9 @@ class ProductView(DetailView):
             title=kwargs['object']
         )
         return context
+
+
+class ClientListView(ListView):
+    """
+    Представление всех клиентов
+    """

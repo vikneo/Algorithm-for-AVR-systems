@@ -5,13 +5,29 @@
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
 <div class="center-sidebar">
-    {% if subject.product_set.all %}
+    {% if subjects %}
     <div class="flex section">
-        <h2>{{ subject.client.name }}</h2>
-        <p class="client-descript">
-            {{ subject.client.description }}
-        </p>
-        {% for product in subject.product_set.all %}
+        {% for subject in subjects %}
+        <div class="section-box ">
+            <div class="subject-name">
+                <h2>{{ subject.name }}</h2>
+            </div>
+            <div class="product-description">
+                <p class="client-descript">
+                    {{ subject.client.description }}
+                </p>
+                <div class="flex box-subject">
+                    <div class="product-name">
+                        <span class="span">Клиент: </span> {{ subject.client.name }}
+                    </div>
+                    <div class="product-link">
+                        <a href="">Подробнее >></a>
+                        <!-- {% url 'product:subject_detail' subject.slug %} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- {% for product in subject.product_set.all %}
         <div class="section-box">
             <div class="product-description">
                 {{ product.subject.description }}
@@ -36,6 +52,7 @@
                 {{ page }}
             </div>
         </div>
+        {% endfor %} -->
         {% endfor %}
     </div>
     {% else %}
