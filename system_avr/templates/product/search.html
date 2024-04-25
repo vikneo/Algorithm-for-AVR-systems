@@ -6,6 +6,13 @@
 <!-- <marquee direction="right"><img src="../../static/assests/icon/Qw5v.gif" /></marquee> -->
 
 <div class="center-sidebar">
+    {% block messages %}
+    {% if messages %}
+    <div class="message">
+        {% include 'messages/message.html' %}
+    </div>
+    {% endif %}
+    {% endblock %}
     {% if seraches %}
     <div class="flex section">
         {% for product in seraches %}
