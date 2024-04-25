@@ -79,7 +79,7 @@ class SearchView(ListView):
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
-        not_found = 'Совпадений нет'
+        not_found = 'Нет ни одного совпадения'
         try:
             query = self.request.GET.get('search')
             search = slugify(query)
