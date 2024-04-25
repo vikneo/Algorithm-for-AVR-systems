@@ -50,6 +50,12 @@ li, .li-paginate {
     background-color: #3771a7;
 }
 
+.span-link {
+    padding-right: 32px;
+    font-size: 36px;
+    color: red;
+}
+
 .left-sidebar {
     width: 22%;
 }
