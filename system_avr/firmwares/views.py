@@ -1,10 +1,14 @@
-from typing import Any
 from django.db.models.query import QuerySet
+from django.db.models import Q
+from django.http import Http404
 from django.shortcuts import render
+from django.contrib import messages
 from django.views.generic import ListView, DetailView
 
 from .models import Product, Subjects
+from utils.slugify import slugify
 
+from typing import Any
 
 
 
@@ -53,11 +57,48 @@ class SubjectDetailView(DetailView):
         Возвращает queryset отфильтрованный по полю archive.
         """
         return Subjects.objects.filter(archive=True)
-    
 
+
+class SearchView(ListView):
+    """
+    Представение поискового запроса
+    """
+    template_name = 'product/search.html'
+    context_object_name = 'seraches'
+    allow_empty = True
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        try:
+            context = super().get_context_data(**kwargs)
+        except Exception as err:
+            return Http404("Poll does not exist")
+        
+        context.update(
+            title='Результат поиска',
+        )
+        return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        not_found = 'Совпадений нет'
+        try:
+            query = self.request.GET.get('search')
+            search = slugify(query)
+            print(search)
+            result = Product.objects.filter(
+                # Q(slug__icontains=search) |
+                Q(id_product=search)
+            )
+            print(result)
+            if not result:
+                messages.info(self.request, not_found)
+            return result
+        except Exception as err:
+            messages.info(self.request, not_found)
+    
+# тп 41
 class ProductListView(ListView):
     """
-    
+    Представление списка всех продуктов
     """
     paginate_by = 8
     template_name = 'product/product_list.html'
@@ -71,10 +112,7 @@ class ProductListView(ListView):
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
-        query = self.request.GET.get('search')
-        if query is None:
-            return Product.objects.all()
-        return Product.objects.filter(name__icontains=query.upper())
+        return Product.objects.all().order_by('-date_ready')
 
 
 class ProductView(DetailView):
