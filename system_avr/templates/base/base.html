@@ -10,14 +10,37 @@
     <div class="left-sidebar" style="padding-left: 5px;">
         <div class="left-sidebar-nav">
             <h2>ФИЛЬТР</h2>
-            <div class="flex filter-block">
+            <div class="flex filter-block mb-3">
+                <span class="flex filter-link-title">Клиенты</span>
+                <a class="filter-link" href="#">Показать все</a>
+            </div>
+            <div class="flex filter-block mb-3">
+                <span class="flex filter-link-title">Объекты</span>
+                <a class="filter-link" href="#">Показать все</a>
+            </div>
+            <div class="flex filter-block mb-3">
                 <span class="flex filter-link-title">Продукты</span>
                 <a class="filter-link" href="{% url 'product:product_list' %}">Показать все</a>
             </div>
             <hr>
-            <h2>заголовки</h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti amet ducimus, doloribus provident dolorem
-            consectetur ad sit rerum accusantium repudiandae, nam expedita enim quod hic ut quasi dolores odio quam.
+            <div>
+                <a href="#">
+                    <div class="flex filter-block align-items-center">
+                        <h2>Создать заявку</h2>
+                        <span class="span-link">→</span>
+                    </div>
+                </a>
+            </div>
+            <hr>
+            <div>
+                <a href="#">
+                    <div class="flex filter-block align-items-center">
+                        <h2>Реестр прошивок</h2>
+                        <span class="span-link">→</span>
+                    </div>
+                </a>
+            </div>
+            <hr>
         </div>
     </div>
     {% endblock %}
