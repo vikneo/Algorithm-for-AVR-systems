@@ -91,6 +91,25 @@ class SearchView(ListView):
             return result
         except Exception as err:
             messages.info(self.request, not_found)
+
+
+class SubjectAllProductsListView(ListView):
+    """
+    
+    """
+    model = Product
+    template_name = 'product/subject_products.html'
+    context_object_name = 'subject_products'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title=f"ID-{self.model.objects.filter(id_product=self.kwargs['id_product'])[0].id_product}",
+        )
+        return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        return self.model.objects.filter(id_product=self.kwargs['id_product'])
     
 
 class ProductListView(ListView):
@@ -134,6 +153,8 @@ class ClientListView(ListView):
     """
     template_name = 'client/client_list.html'
     context_object_name = 'clients'
+    paginate_by = 10
+
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context.update(
