@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.views.generic import ListView, DetailView
 
-from .models import Product, Subjects
+from .models import Product, Subjects, Client
 from utils.slugify import slugify
 
 from typing import Any
@@ -34,17 +34,17 @@ class SubjectListView(ListView):
         return Subjects.objects.filter(archive=True)
 
 
-class SubjectDetailView(DetailView):
+class SubjectDetailView(ListView):
     """
     Представление Всех продуктов на странице Объекта
     """
-    template_name = 'product/subject_list.html'
-    context_object_name = 'subject'
+    template_name = 'product/subject_detail.html'
+    context_object_name = 'products'
 
     def get_context_data(self, *args: Any, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(*args, **kwargs)
         context.update(
-            title=kwargs['object'],
+            title=kwargs,
         )
         return context
 
@@ -52,7 +52,8 @@ class SubjectDetailView(DetailView):
         """
         Возвращает queryset отфильтрованный по полю archive.
         """
-        return Subjects.objects.filter(archive=True)
+        Subjects.objects.get(slug=self.kwargs['slug'])
+        return Product.objects.filter(subject__slug=self.kwargs['slug'])
 
 
 class SearchView(ListView):
@@ -131,3 +132,36 @@ class ClientListView(ListView):
     """
     Представление всех клиентов
     """
+    template_name = 'client/client_list.html'
+    context_object_name = 'clients'
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title='Клиенты'
+        )
+        return context
+    
+    def  get_queryset(self) -> QuerySet[Any]:
+        client_id = self.request.GET.get('client')
+        if client_id == '0' or client_id is None:
+            return Client.objects.all()
+        return Client.objects.filter(id=client_id)
+
+
+class ClientAllSubjectsView(ListView):
+    """
+    Предаставление всех объектов от данного клиента
+    """
+    template_name = 'client/client_subjects_list.html'
+    context_object_name = 'client_subjects'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        print(context['object_list'][0].id)
+        context.update(
+            title=kwargs,
+        )
+        return context
+    
+    def get_queryset(self) -> QuerySet[Any]:
+        return Subjects.objects.filter(client__slug=self.kwargs['slug'])

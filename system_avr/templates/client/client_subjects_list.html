@@ -5,9 +5,9 @@
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
 <div class="center-sidebar">
-    {% if subjects %}
+    {% if client_subjects %}
     <div class="flex section">
-        {% for subject in subjects %}
+        {% for subject in client_subjects %}
         <div class="section-box ">
             <div class="subject-name">
                 <h2>{{ subject.name }}</h2>
@@ -22,6 +22,7 @@
                     </div>
                     <div class="product-link">
                         <a href="{% url 'product:subject_detail' subject.slug %} ">Подробнее >></a>
+                        <!-- {% url 'product:subject_detail' subject.slug %} -->
                     </div>
                 </div>
             </div>

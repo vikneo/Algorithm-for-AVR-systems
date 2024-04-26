@@ -15,7 +15,7 @@
             </div>
             <div class="product-title">
                 <a style="padding-right: 50px;" href="#">ID {{ product.id_product}}</a>
-                <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product|truncatechars:23 }}</a>
+                <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
             </div>
             <div class="flex box-short-detail">
                 <div class="product-name">
