@@ -14,6 +14,9 @@
     {% endif %}
     {% endblock %}
     {% if seraches %}
+    <div class="flex product-id">
+        <h2>ID проекта -  {{ seraches.first.id_product }}</h2>
+    </div>
     <div class="flex section">
         {% for product in seraches %}
         <div class="section-box">
@@ -21,7 +24,9 @@
                 <span>Тип АВР - </span>{{ product.descriiption }}
             </div>
             <div class="product-title">
-                <a style="padding-right: 50px;" href="#">ID {{ product.id_product}}</a>
+                <a style="padding-right: 50px;" href="{% url 'product:subject-products' product.id_product %}">
+                    ID {{ product.id_product}}
+                </a>
                 <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
             </div>
             <div class="flex box-short-detail">
