@@ -2,7 +2,7 @@
 
 {% if clients %}
 <div class="flex">
-    <form class="flex" action="{% url 'product:subject' %}" method="get">
+    <form class="flex" action="{% url 'product:clients' %}" method="get">
         <!-- {% csrf_token %} -->
         <select class="select-client" name="client">
             <option value="0">Все проекты</option>
