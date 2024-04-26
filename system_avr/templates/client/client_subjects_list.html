@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+{% block title %} <title>{{ title }}</title> {% endblock %}
+
+<div class="center-sidebar">
+    {% if client_subjects %}
+    <div class="flex section">
+        {% for subject in client_subjects %}
+        <div class="section-box ">
+            <div class="subject-name">
+                <h2>{{ subject.name }}</h2>
+            </div>
+            <div class="product-description">
+                <p class="client-descript">
+                    {{ subject.client.description }}
+                </p>
+                <div class="flex box-short-detail">
+                    <div class="product-name">
+                        <span class="span">Клиент: </span> {{ subject.client.name }}
+                    </div>
+                    <div class="product-link">
+                        <a href="{% url 'product:subject_detail' subject.slug %} ">Подробнее >></a>
+                        <!-- {% url 'product:subject_detail' subject.slug %} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="flex block-else-product">
+        <h2 class="flex justify-for-else">Данных о <b>"{{ subject }}"</b> пока нет!</h2>
+        <div class="flex img-tumbleweed">
+            <img src="{% static 'assests/img/ShadyFaithfulFishingcat-size_restricted.gif' %}" alt="">
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
