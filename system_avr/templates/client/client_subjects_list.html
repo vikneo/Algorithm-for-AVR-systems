@@ -21,7 +21,10 @@
                         <span class="span">Клиент: </span> {{ subject.client.name }}
                     </div>
                     <div class="product-name">
-                        <span class="span">ID: </span> {{ subject.subjects.first.id_product }}
+                        <span class="span">ID: </span>
+                        <a href="{% url 'product:subject-products' subject.subjects.first.id_product %}">
+                            {{ subject.subjects.first.id_product }}
+                        </a>
                     </div>
                     <div class="product-link">
                         <a href="{% url 'product:subject_detail' subject.slug %} ">Подробнее >></a>

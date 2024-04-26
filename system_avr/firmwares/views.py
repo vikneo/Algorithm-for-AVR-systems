@@ -17,8 +17,8 @@ class SubjectListView(ListView):
     Представление всех объектов
     """
     paginate_by = 8
-    template_name = 'product/subject_list.html'
-    context_object_name = 'subjects'
+    template_name = 'client/client_subjects_list.html'
+    context_object_name = 'client_subjects'
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
