@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+{% block title %} <title>{{ title }}</title> {% endblock %}
+<!-- <marquee direction="right"><img src="../../static/assests/icon/Qw5v.gif" /></marquee> -->
+
+<div class="center-sidebar">
+    {% if products %}
+    <div class="flex section">
+        {% for product in products %}
+        <div class="section-box">
+            <div class="product-description">
+                <span>Тип АВР - </span>{{ product.descriiption }}
+            </div>
+            <div class="product-title">
+                <a style="padding-right: 50px;" href="#">ID {{ product.id_product}}</a>
+                <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
+            </div>
+            <div class="flex box-short-detail">
+                <div class="product-name">
+                    <span class="span">Название: </span> {{ product.name|truncatechars:10 }}
+                </div>
+                <div class="product-created">
+                    <span class="span">Дата заказа: </span> {{ product.date_order }}
+                </div>
+                <div class="product-ready">
+                    <span class="span">Дата создания: </span>{{ product.created_at }}
+                </div>
+                <div class="product-link">
+                    <a href="{% url 'product:product_detail' product.slug %}">Подробнее >></a>
+                </div>
+                {{ page }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="flex block-else-product">
+        <h2 class="flex justify-for-else">Данных о <b>"{{ subject }}"</b> пока нет!</h2>
+        <div class="flex img-tumbleweed">
+            <img src="{% static 'assests/img/ShadyFaithfulFishingcat-size_restricted.gif' %}" alt="">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
