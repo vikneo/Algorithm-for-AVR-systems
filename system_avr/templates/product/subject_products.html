@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load i18n static %}
+
+{% block content %}
+{% block title %} <title>{{ title }}</title> {% endblock %}
+
+<div class="center-sidebar">
+    {% if subject_products %}
+    <div class="flex product-id">
+        <h2>ID - {{ subject_products.first.id_product }}</h2>
+    </div>
+    <div class="flex section">
+        {% for product in subject_products %}
+        <div class="section-box ">
+            <div class="subject-name">
+                <h2>{{ product.name }}</h2>
+            </div>
+            <div class="product-description">
+                <p class="client-descript">
+                    {{ product.descriiption }}
+                </p>
+                <div class="flex box-short-detail">
+                    <div class="product-name">
+                        <span class="span">Клиент: </span> {{ product.subject.name }}
+                    </div>
+                    <div class="product-name">
+                        <span class="span">ID: </span> {{ product.id_product }}
+                    </div>
+                    <div class="product-link">
+                        <a href="{% url 'product:product_detail' product.slug %} ">Подробнее >></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    {% include 'exception/otherwise_if_not.html' %}
+    {% endif %}
+</div>
+
+{% endblock %}
