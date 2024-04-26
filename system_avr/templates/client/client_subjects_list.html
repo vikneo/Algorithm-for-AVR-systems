@@ -20,6 +20,9 @@
                     <div class="product-name">
                         <span class="span">Клиент: </span> {{ subject.client.name }}
                     </div>
+                    <div class="product-name">
+                        <span class="span">ID: </span> {{ subject.subjects.first.id_product }}
+                    </div>
                     <div class="product-link">
                         <a href="{% url 'product:subject_detail' subject.slug %} ">Подробнее >></a>
                         <!-- {% url 'product:subject_detail' subject.slug %} -->
@@ -30,12 +33,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <div class="flex block-else-product">
-        <h2 class="flex justify-for-else">Данных о <b>"{{ subject }}"</b> пока нет!</h2>
-        <div class="flex img-tumbleweed">
-            <img src="{% static 'assests/img/ShadyFaithfulFishingcat-size_restricted.gif' %}" alt="">
-        </div>
-    </div>
+    {% include 'exception/otherwise_if_not.html' %}
     {% endif %}
 </div>
 

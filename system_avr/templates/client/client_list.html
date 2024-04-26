@@ -31,12 +31,7 @@
         </div>
     </div>
     {% else %}
-    <div class="flex block-else-product">
-        <h2 class="flex justify-for-else">Данных пока нет!</h2>
-        <div class="flex img-tumbleweed">
-            <img src="{% static 'assests/img/ShadyFaithfulFishingcat-size_restricted.gif' %}" alt="">
-        </div>
-    </div>
+    {% include 'exception/otherwise_if_not.html' %}
     {% endif %}
 </div>
 
