@@ -35,19 +35,19 @@ p.client-descript {
 .product-ready,
 .product-description,
 .product-link {
-    padding: 10px 20px;
+    padding: 10px 18px;
 }
 
 .product-description {
     font-size: 21px;
 }
 
-.box-short-detail, .box-subject  {
+.box-short-detail {
     width: 100%;
     background: #264b5d;
 }
 
-.box-subject {
+.box-subject, .box-short-detail {
     justify-content: space-between;
 }
 

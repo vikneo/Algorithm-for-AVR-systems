@@ -92,7 +92,7 @@ li, .li-paginate {
 }
 
 .span {
-    padding: 0 5px;
+    padding: 0;
 }
 
 .mb-3 {
@@ -306,11 +306,11 @@ li, .li-paginate {
 }
 
 .cart-title {
-    position: absolute;
+    /* position: absolute; */
     padding-left: 15px;
     padding-top: 5px;
     font-size: 24px;
-    color: #ff4646;
+    color: #46ffd4;
     font-family: 'Novartis';
 }
 
@@ -328,7 +328,7 @@ li, .li-paginate {
 
 .subject-name {
     padding-left: 2em;
-    color: #b9f309;
+    color: #46ffd4;
 }
 
 /* =================================== footer-block ========================================*/
