@@ -72,6 +72,14 @@ p.product-date-detail {
     padding: 0 25px 0;
 }
 
+.product-id {
+    max-height: 47px;
+    margin: 0;
+    justify-content: center;
+    font-size: 22px;
+    align-items: center;
+}
+
 .color-status-green,
 .color-status-yellow {
     font-size: 24px;
