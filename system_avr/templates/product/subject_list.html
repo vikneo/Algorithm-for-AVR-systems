@@ -16,43 +16,16 @@
                 <p class="client-descript">
                     {{ subject.client.description }}
                 </p>
-                <div class="flex box-subject">
+                <div class="flex box-short-detail">
                     <div class="product-name">
                         <span class="span">Клиент: </span> {{ subject.client.name }}
                     </div>
                     <div class="product-link">
-                        <a href="">Подробнее >></a>
-                        <!-- {% url 'product:subject_detail' subject.slug %} -->
+                        <a href="{% url 'product:subject_detail' subject.slug %} ">Подробнее >></a>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- {% for product in subject.product_set.all %}
-        <div class="section-box">
-            <div class="product-description">
-                {{ product.subject.description }}
-            </div>
-            <div class="product-title">
-                <a style="padding-right: 50px;" href="#">ID {{ product.id_product}}</a>
-                <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
-            </div>
-            <div class="flex box-short-detail">
-                <div class="product-name">
-                    <span class="span">Название: </span> {{ product.name|truncatechars:10 }}
-                </div>
-                <div class="product-created">
-                    <span class="span">Дата заказа: </span> {{ product.date_order }}
-                </div>
-                <div class="product-ready">
-                    <span class="span">Дата создания: </span>{{ product.created_at }}
-                </div>
-                <div class="product-link">
-                    <a href="{% url 'product:product_detail' product.slug %}">Подробнее >></a>
-                </div>
-                {{ page }}
-            </div>
-        </div>
-        {% endfor %} -->
         {% endfor %}
     </div>
     {% else %}
