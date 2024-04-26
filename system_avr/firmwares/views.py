@@ -38,13 +38,14 @@ class SubjectDetailView(ListView):
     """
     Представление Всех продуктов на странице Объекта
     """
+    model = Subjects
     template_name = 'product/subject_detail.html'
     context_object_name = 'products'
 
     def get_context_data(self, *args: Any, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(*args, **kwargs)
         context.update(
-            title=kwargs,
+            title=self.model.objects.get(slug=self.kwargs['slug']),
         )
         return context
 
@@ -52,7 +53,6 @@ class SubjectDetailView(ListView):
         """
         Возвращает queryset отфильтрованный по полю archive.
         """
-        Subjects.objects.get(slug=self.kwargs['slug'])
         return Product.objects.filter(subject__slug=self.kwargs['slug'])
 
 
@@ -144,22 +144,22 @@ class ClientListView(ListView):
     def  get_queryset(self) -> QuerySet[Any]:
         client_id = self.request.GET.get('client')
         if client_id == '0' or client_id is None:
-            return Client.objects.all()
-        return Client.objects.filter(id=client_id)
+            return Client.objects.filter(archive=True)
+        return Client.objects.filter(id=client_id, archive=True)
 
 
 class ClientAllSubjectsView(ListView):
     """
     Предаставление всех объектов от данного клиента
     """
+    model = Client
     template_name = 'client/client_subjects_list.html'
     context_object_name = 'client_subjects'
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        print(context['object_list'][0].id)
         context.update(
-            title=kwargs,
+            title=self.model.objects.get(slug=self.kwargs['slug']).name,
         )
         return context
     
