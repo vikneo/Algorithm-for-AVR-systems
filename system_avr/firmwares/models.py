@@ -1,5 +1,5 @@
 from django.db import models
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
@@ -7,19 +7,33 @@ from imagekit.processors import ResizeToFill
 
 def product_images_directory_path(instance: 'ProductImage', filename: str) -> str:
     """
-    Функция генерирует путь сохранения изображений с привязкой к id товара
+    Функция генерирует путь сохранения изображений
 
-    :param instance: объект Image
+    :param instance: объект ProductImage
     :param filename: имя файла
     :return: str - путь для сохранения
     """
-    return f'products/product_{instance.product.name}/{filename}'
+    return f'products/{instance.product.name}/images/{filename}'
 
 def subject_images_directory_path(instance: 'Subjects', filename: str) -> str:
     """
-    
+    Функция генерирует путь сохранения изображений для "Объекта"
+
+    :param instance: объект Subjects
+    :param filename: имя файла
+    :return: str - путь для сохранения
     """
     return f"subjects/{instance.name}/{filename}"
+
+def product_file_path(instance: 'ProductFile', filename: str) -> str:
+    """
+    Функция генерирует путь сохранения файла конфигурации АВР и схемы подключения
+
+    :param instance: объект ProductFile
+    :param filename: имя файла
+    :return: str - путь для сохранения
+    """
+    return f'products/{instance.product.name}/fiile/{filename}'
 
 
 class Client(models.Model):
@@ -163,3 +177,25 @@ class ProductImage(models.Model):
         db_table = 'images'
         verbose_name = 'изображение'
         verbose_name_plural = 'изображения'
+
+
+class ProductFile(models.Model):
+    """
+    Класс описывает файлы для модели "Product"
+    """
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name='Алгоритм',
+        related_name='products',
+        )
+    file_config = models.FileField(upload_to=product_file_path, verbose_name='Конфигурация')
+    file_schema = models.FileField(upload_to=product_file_path, verbose_name='Схема с описанием')
+
+    def get_absolute_url(self) -> str:
+        return reverse_lazy('product:clients')
+    
+    class Meta:
+        db_table = 'files'
+        verbose_name = 'файл'
+        verbose_name_plural = 'файлы'
