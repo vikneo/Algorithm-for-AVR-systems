@@ -1,11 +1,17 @@
 from django.db.models.query import QuerySet
 from django.db.models import Q
-from django.http import Http404
+from django.forms import BaseModelForm
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from django.contrib import messages
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
-from .models import Product, Subjects, Client
+from .models import (
+    Product,
+    Subjects,
+    Client,
+    )
+from .forms import CreatedOrderForm
 from utils.slugify import slugify
 
 from typing import Any
@@ -186,3 +192,24 @@ class ClientAllSubjectsView(ListView):
     
     def get_queryset(self) -> QuerySet[Any]:
         return Subjects.objects.filter(client__slug=self.kwargs['slug'])
+
+
+class CreatedProductView(CreateView):
+    """
+    Представление для создания заявок
+    """
+    model = Product
+    form_class = CreatedOrderForm
+    template_name = 'orders/create_order.html'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title='Заявка на АВР'
+        )
+        return context
+    
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        
+        return super().form_valid(form)
+    
