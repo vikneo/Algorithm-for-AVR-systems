@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import (
-    Product,
+    ProductFile,
 )
 
 
@@ -62,22 +62,26 @@ class CreatedOrderForm(forms.ModelForm):
         ),
     )
     note = forms.CharField(
-        label='Тип реле',
-        widget=forms.TextInput(
+        label='Примечание',
+        widget=forms.Textarea(
             attrs={
                 'class': 'form-input',
+                'rows': 7,
+                'cols': 20,
                 "placeholder": "Примечание",
             },
         ),
     )
 
     class Meta:
-        model = Product
+        model = ProductFile
         fields = [
             'id_product',
             'client',
             'subject',
             'name',
             'relay',
-            'note'
+            'note',
+            'file_config',
+            'file_schema',
         ]
