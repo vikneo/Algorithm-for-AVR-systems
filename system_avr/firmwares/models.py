@@ -137,7 +137,7 @@ class Product(models.Model):
     subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Объект', related_name='subjects')
     name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
     slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
-    descriiption = models.TextField(verbose_name='Описание файла', blank=True, default="!")
+    descriiption = models.TextField(verbose_name='Описание файла', blank=True, default="Описание отсутствует!")
     date_order = models.DateField(verbose_name='Дата заказа')
     date_ready = models.DateField(verbose_name='Дата готовности', blank=True, null=True)
     date_check = models.DateField(verbose_name='Дата Проверки', blank=True, null=True)
@@ -147,6 +147,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     archive = models.BooleanField(default=True, verbose_name='Доступ')
+    note = models.TextField(verbose_name='ОПримечание', blank=True, default="Данных нет")
 
 
     def __str__(self) -> str:
