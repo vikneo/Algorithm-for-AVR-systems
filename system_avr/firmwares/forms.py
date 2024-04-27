@@ -1,7 +1,9 @@
 from django import forms
 
 from .models import (
+    SmartRelay,
     ProductFile,
+    Order
 )
 
 
@@ -52,15 +54,6 @@ class CreatedOrderForm(forms.ModelForm):
             },
         ),
     )
-    relay = forms.CharField(
-        label='Тип реле',
-        widget=forms.TextInput(
-            attrs={
-                'class': 'form-input',
-                "placeholder": "например: ПР200",
-            },
-        ),
-    )
     note = forms.CharField(
         label='Примечание',
         widget=forms.Textarea(
@@ -73,15 +66,20 @@ class CreatedOrderForm(forms.ModelForm):
         ),
     )
 
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.fields['user'].empty_label = 'Выберите автора'
+        self.fields['relay'].empty_label = 'Выберите тип реле'
+
     class Meta:
-        model = ProductFile
+        model = Order
         fields = [
+            'user',
             'id_product',
             'client',
             'subject',
             'name',
             'relay',
             'note',
-            'file_config',
             'file_schema',
         ]
