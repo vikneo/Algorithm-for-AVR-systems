@@ -42,3 +42,8 @@
     border: 0;
     color: #ffffff;
 }
+
+div.form-label select {
+    min-height: 28px;
+    min-width: 307px;
+}
