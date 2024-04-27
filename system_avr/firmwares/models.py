@@ -4,6 +4,8 @@ from django.urls import reverse, reverse_lazy
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
+from users.models import Profile
+
 
 def product_images_directory_path(instance: 'ProductImage', filename: str) -> str:
     """
@@ -34,6 +36,16 @@ def product_file_path(instance: 'ProductFile', filename: str) -> str:
     :return: str - путь для сохранения
     """
     return f'products/{instance.product.name}/fiile/{filename}'
+
+def order_file_path(instance: 'Order', filename: str) -> str:
+    """
+    Функция генерирует путь сохранения файла для схемы подключения и описания
+
+    :param instance: объект Order
+    :param filename: имя файла
+    :return: str - путь для сохранения
+    """
+    return f'orders/{instance.id_product}/fiile/{filename}'
 
 
 class Client(models.Model):
@@ -200,3 +212,23 @@ class ProductFile(models.Model):
         db_table = 'files'
         verbose_name = 'файл'
         verbose_name_plural = 'файлы'
+
+
+class Order(models.Model):
+    """
+    Модель для заказов систем АВР
+    """
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Автор заявки')
+    id_product = models.IntegerField(verbose_name='ID Продукта', db_index=True)
+    client = models.CharField(max_length=100, verbose_name='Клиент')
+    subject = models.CharField(max_length=100, verbose_name='Объект')
+    name = models.CharField(max_length=100, verbose_name='Название')
+    relay = models.ForeignKey(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК')
+    note = models.TextField(verbose_name='Примечание', default='Данных нет')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    file_schema = file_schema = models.FileField(upload_to=order_file_path, verbose_name='Схема с описанием')
+
+    class Meta:
+        db_table = 'orders'
+        verbose_name = 'заявку'
+        verbose_name_plural = 'заявки'
