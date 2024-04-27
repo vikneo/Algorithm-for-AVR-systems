@@ -20,6 +20,7 @@
                     <div class="product-name">
                         <span class="span">Клиент: </span> {{ subject.client.name }}
                     </div>
+                    {% if subject.subjects.first.id_product %}
                     <div class="product-name">
                         <span class="span">ID: </span>
                         <a href="{% url 'product:subject-products' subject.subjects.first.id_product %}">
@@ -28,8 +29,16 @@
                     </div>
                     <div class="product-link">
                         <a href="{% url 'product:subject_detail' subject.slug %} ">Подробнее >></a>
-                        <!-- {% url 'product:subject_detail' subject.slug %} -->
                     </div>
+                    {% else %}
+                    <div class="product-name">
+                        <span class="span">ID: </span>
+                        <span>0000</span>
+                    </div>
+                    <div class="product-link">
+                        <span>Нет данных</span>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
