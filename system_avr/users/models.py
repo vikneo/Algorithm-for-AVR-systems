@@ -11,7 +11,7 @@ class Profile(models.Model):
     archived = models.BooleanField(default=False, verbose_name='Архивация')
 
     def __str__(self) -> str:
-        return f'{self.user}'
+        return f'{self.user.first_name} {self.user.last_name}'
 
     class Meta:
         db_table = 'profiles'
