@@ -8,7 +8,8 @@ from .models import (
     Product, 
     ProductImage, 
     SmartRelay,
-    Subjects
+    Subjects,
+    ProductFile
     )
 from utils.config import (
     LENGTH,
@@ -27,6 +28,12 @@ def close_access(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: Q
 def open_access(modeladmin: admin.ModelAdmin, request: HttpRequest, queryset: QuerySet):
     queryset.update(archive=True)
 
+
+class ProductFileTabular(admin.TabularInline):
+    model = ProductFile
+    verbose_name = 'файл'
+    verbose_name_plural = 'файлы'
+    extra = 0
 
 
 class ImageSubject(admin.TabularInline):
@@ -95,6 +102,9 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
     """
     Регистрация модели "Product".
     """
+    inlines = [
+        ProductFileTabular,
+    ]
     actions = [
         close_access,
         open_access
