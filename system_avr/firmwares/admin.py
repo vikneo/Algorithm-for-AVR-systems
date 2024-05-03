@@ -68,6 +68,7 @@ class AdminOrder(admin.ModelAdmin):
     """
     list_display = ['user', 'id_product', 'get_client', 'get_subject', 'name', 'created_at', 'file_schema']
     list_filter = ['id_product']
+    list_display_links = ['user', 'id_product']
     search_fields = ['id_product']
     ordering = ('id_product', )
     list_per_page = 15
