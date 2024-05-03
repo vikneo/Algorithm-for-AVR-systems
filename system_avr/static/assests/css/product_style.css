@@ -92,3 +92,9 @@ p.product-date-detail {
 .color-status-yellow {
     color: yellow;
 }
+
+/* ======================= ORDERS ============================= */
+
+table.orders td {
+    color: black;
+}
