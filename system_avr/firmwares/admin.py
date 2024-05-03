@@ -9,7 +9,8 @@ from .models import (
     ProductImage, 
     SmartRelay,
     Subjects,
-    ProductFile
+    ProductFile,
+    Order
     )
 from utils.config import (
     LENGTH,
@@ -58,6 +59,27 @@ class AdminClient(ImportExportModelAdmin, admin.ModelAdmin):
     list_filter = ['name',]
     search_fields = ['name',]
     ordering = ('id',)
+
+
+@admin.register(Order)
+class AdminOrder(admin.ModelAdmin):
+    """
+    
+    """
+    list_display = ['user', 'id_product', 'get_client', 'get_subject', 'name', 'created_at', 'file_schema']
+    list_filter = ['id_product']
+    search_fields = ['id_product']
+    ordering = ('id_product', )
+    list_per_page = 15
+
+    def get_client(self, obj: Order) -> str:
+        return obj.client if len(obj.client) < LENGTH else obj.client[:LENGTH]
+    
+    def get_subject(self, obj: Order) -> str:
+        return obj.client if len(obj.client) < LENGTH else obj.client[:LENGTH]
+    
+    get_client.short_description = 'Клиент'
+    get_subject.short_description = 'Объект'
 
 
 @admin.register(Subjects)
