@@ -10,6 +10,7 @@ from .models import (
     Product,
     Subjects,
     Client,
+    Order
     )
 from .forms import CreatedOrderForm
 from utils.slugify import slugify
@@ -210,6 +211,20 @@ class CreatedProductView(CreateView):
         return context
     
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        
         return super().form_valid(form)
+
+
+class OrderListView(ListView):
+    """
     
+    """
+    model = Order
+    template_name = 'orders/order_list.html'
+    context_object_name = 'orders'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title='Заявки'
+        )
+        return context
