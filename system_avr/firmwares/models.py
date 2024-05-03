@@ -120,7 +120,7 @@ class SmartRelay(models.Model):
     name = models.CharField(max_length=20, choices=TypeRelay, verbose_name='Модель')
 
     def __str__(self) -> str:
-        return f'{self.name}'
+        return f'{self.brend} - {self.name}'
     
     class Meta:
         db_table = 'smartrelay'
