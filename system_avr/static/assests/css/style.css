@@ -53,6 +53,7 @@ ul {
 }
 
 li, .li-paginate {
+    min-width: 135px;
     list-style-type: none;
     margin-right: 20px;
     color: #e3ebeb;
@@ -101,6 +102,10 @@ li, .li-paginate {
 
 .justify-content-between {
     justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
 }
 
 .span {
