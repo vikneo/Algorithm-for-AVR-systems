@@ -95,6 +95,17 @@ p.product-date-detail {
 
 /* ======================= ORDERS ============================= */
 
+.orders {
+    min-width: 900px;
+    background: #3771a7;
+}
+
 table.orders td {
-    color: black;
+    padding: 5px;
+    text-align: center;
+    background: #878775;
+}
+
+tr.table-order td {
+    background: #6f777a;
 }

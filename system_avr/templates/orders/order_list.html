@@ -5,7 +5,7 @@
 
 <div>
     {% if orders %}
-    <table name="orders" border="1px" bgcolor="#3771a7" width="900px" cellpadding="5px">
+    <table class="orders">
         <caption>
             <h1>{{ title }}</h1>
         </caption>
@@ -15,18 +15,18 @@
             <td>Объект</td>
             <td>Шкаф</td>
             <td>Дата заявки</td>
-            <td>тип реле</td>
+            <td>Тип реле</td>
             <td>Файл</td>
         </tr>
         {% for order in orders %}
-        <tr>
+        <tr class="table-order">
             <td>{{ order.id_product }}</td>
             <td>{{ order.client }}</td>
             <td>{{ order.subject }}</td>
             <td>{{ order.name }}</td>
             <td>{{ order.created_at }}</td>
             <td>{{ order.relay }}</td>
-            <td><a href="{{ order.file_schema.url }}" target="_blank">Схема</a></td>
+            <td><a style="color: cyan;" href="{{ order.file_schema.url }}" target="_blank">Схема</a></td>
         </tr>
         {% endfor %}
     </table>
