@@ -228,6 +228,12 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     file_schema = file_schema = models.FileField(upload_to=order_file_path, verbose_name='Схема с описанием')
 
+    def __str__(self) -> str:
+        return f"{self.id_product} - {self.name}"
+    
+    def get_absolute_url(self):
+        return reverse_lazy('product:clients')
+
     class Meta:
         db_table = 'orders'
         verbose_name = 'заявку'
