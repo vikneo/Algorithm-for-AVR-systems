@@ -47,7 +47,8 @@ p.client-descript {
     background: #264b5d;
 }
 
-.box-subject, .box-short-detail {
+.box-subject,
+.box-short-detail {
     justify-content: space-between;
 }
 
@@ -108,4 +109,44 @@ table.orders td {
 
 tr.table-order td {
     background: #6f777a;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    padding: 3px 7px;
+    font-size: 16px;
+    background-color: #4745f5;
+    color: white;
+    border: none;
+}
+
+.dropdown-content {
+    position: absolute;
+    min-width: 100px;
+    display: none;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: #f1f1f1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    color: rgba(255, 0, 0, 0.904);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #4745f5;
 }
