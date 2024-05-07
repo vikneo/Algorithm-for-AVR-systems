@@ -83,7 +83,7 @@ class SearchView(ListView):
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
-        not_found = 'Нет ни одного совпадения'
+        not_found = 'отсутствует в реестре!'
         try:
             query = self.request.GET.get('search')
             search = slugify(query)
@@ -92,7 +92,7 @@ class SearchView(ListView):
                 Q(id_product=search)
             )
             if not result:
-                messages.info(self.request, not_found)
+                messages.info(self.request, f'Номер {search} {not_found}')
             return result
         except Exception as err:
             messages.info(self.request, not_found)
