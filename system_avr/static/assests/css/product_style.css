@@ -111,6 +111,10 @@ tr.table-order td {
     background: #6f777a;
 }
 
+.table-order:hover td {
+    background-color: #474c50;
+}
+
 .dropdown {
     position: relative;
 }
