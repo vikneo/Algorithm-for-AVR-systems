@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block content %}
 {% block title %} <title>{{ title }}</title> {% endblock %}
@@ -26,7 +27,19 @@
             <td>{{ order.name }}</td>
             <td>{{ order.created_at }}</td>
             <td>{{ order.relay }}</td>
-            <td><a style="color: cyan;" href="{{ order.file_schema.url }}" target="_blank">Схема</a></td>
+            <td class="dropdown">
+                <button class="dropbtn" type="button">Схема ↓</button>
+                <ul class="dropdown-content">
+                    <li>
+                        <a href="{{ order.file_schema.url }}"
+                            target="_blank">Открыть</a>
+                    </li>
+                    <li>
+                        <a href="{{ order.file_schema.url }}"
+                            download="">Скачать</a>
+                    </li>
+                </ul>
+            </td>
         </tr>
         {% endfor %}
     </table>
