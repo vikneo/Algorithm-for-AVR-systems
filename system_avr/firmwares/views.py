@@ -87,12 +87,10 @@ class SearchView(ListView):
         try:
             query = self.request.GET.get('search')
             search = slugify(query)
-            print(search)
             result = Product.objects.filter(
                 # Q(slug__icontains=search) |
                 Q(id_product=search)
             )
-            print(result)
             if not result:
                 messages.info(self.request, not_found)
             return result
