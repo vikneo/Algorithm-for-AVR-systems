@@ -226,6 +226,7 @@ class Order(models.Model):
     relay = models.ForeignKey(SmartRelay, on_delete=models.CASCADE, verbose_name='Тип ПЛК')
     note = models.TextField(verbose_name='Примечание', default='Данных нет')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    reestr = models.BooleanField(default=False, verbose_name='Реестр')
     file_schema = file_schema = models.FileField(upload_to=order_file_path, verbose_name='Схема с описанием')
 
     def __str__(self) -> str:
