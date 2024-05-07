@@ -118,7 +118,7 @@ tr.table-order td {
 .dropbtn {
     padding: 3px 7px;
     font-size: 16px;
-    background-color: #4745f5;
+    background-color: #3771a7;
     color: white;
     border: none;
 }
@@ -148,5 +148,5 @@ tr.table-order td {
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #4745f5;
+    background-color: #3771a7;
 }
