@@ -18,6 +18,7 @@
             <td>Дата заявки</td>
             <td>Тип реле</td>
             <td>Файл</td>
+            <td>Реестр</td>
         </tr>
         {% for order in orders %}
         <tr class="table-order">
@@ -32,13 +33,20 @@
                 <ul class="dropdown-content">
                     <li>
                         <a href="{{ order.file_schema.url }}"
-                            target="_blank">Открыть</a>
+                        target="_blank">Открыть</a>
                     </li>
                     <li>
                         <a href="{{ order.file_schema.url }}"
-                            download="">Скачать</a>
+                        download="">Скачать</a>
                     </li>
                 </ul>
+            </td>
+            <td>
+                {% if order.reestr %}
+                <span>Добавлено</span>
+                {% else %}
+                <a href="#">Добавить</a>
+                {% endif %}
             </td>
         </tr>
         {% endfor %}
