@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     "import_export",
 ]
 
+CELERY_BROKER_URL = 'amqp://localhost'
+
 # email post messages
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = os.getenv('EMAIL_PORT')
