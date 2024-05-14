@@ -1,8 +1,11 @@
 from django.core.mail import send_mail
 
+from models import Order
+from system_avr.settings import EMAIL_HOST_USER
+
 from celery import task
 
-from models import Order
+
 
 
 @task
@@ -17,9 +20,10 @@ def order_created(order_id):
         Объект: {order.subject}.\n"
     
     mail_send = send_mail(
-        subject,
-        message,
-        'v.martynov@rineco.ru'
+        subject=subject,
+        message=message,
+        from_email=EMAIL_HOST_USER,
+        recipient_list=[EMAIL_HOST_USER, ]
     )
 
     return mail_send
