@@ -1,8 +1,9 @@
 from django.db.models.query import QuerySet
 from django.db.models import Q
 from django.forms import BaseModelForm
-from django.http import Http404, HttpResponse
-from django.shortcuts import render
+from django.http import Http404, HttpRequest, HttpResponse
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView
 
@@ -13,6 +14,7 @@ from .models import (
     Order
     )
 from .forms import CreatedOrderForm
+from .tasks import order_created
 from utils.slugify import slugify
 
 from typing import Any
@@ -197,7 +199,7 @@ class CreatedProductView(CreateView):
     """
     Представление для создания заявок
     """
-    model = Product
+    model = Order
     form_class = CreatedOrderForm
     template_name = 'orders/create_order.html'
 
@@ -209,7 +211,18 @@ class CreatedProductView(CreateView):
         return context
     
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        return super().form_valid(form)
+        order = Order.objects.create(
+            user=form.cleaned_data['user'],
+            id_product= form.cleaned_data['id_product'],
+            client=form.cleaned_data['client'],
+            subject=form.cleaned_data['subject'],
+            name=form.cleaned_data['name'],
+            relay=form.cleaned_data['relay'],
+            note=form.cleaned_data['note'],
+            file_schema=form.cleaned_data['file_schema']
+        )
+        # order_created.delay(order.id) TODO добавление асинхронной задачи для отправки письма при создании заявки
+        return redirect(reverse_lazy('product:orders'))
 
 
 class OrderListView(ListView):
