@@ -154,3 +154,17 @@ tr.table-order td {
 .dropdown:hover .dropbtn {
     background-color: #3771a7;
 }
+
+/* =============== Добавление зявки в реестр с помощью кнопки ================ */
+
+.not-reestr {
+    background: rgb(243, 161, 114);
+}
+
+.to-reestr {
+    background: rgb(114, 243, 114);
+}
+
+.btn-add {
+    padding: 3px;
+}

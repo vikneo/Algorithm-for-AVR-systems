@@ -73,11 +73,14 @@ li, .li-paginate {
 }
 
 .left-sidebar {
-    width: 22%;
+    width: 16%;
+    padding-left: 5px;
+    font-size: 11px;
 }
 
 .center-sidebar {
     width: 56%;
+    margin: 0 auto;
 }
 
 .right-sidebar {
