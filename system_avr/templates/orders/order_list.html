@@ -34,23 +34,24 @@
                 <button class="dropbtn" type="button">Схема ↓</button>
                 <ul class="dropdown-content">
                     <li>
-                        <a href="{{ order.file_schema.url }}"
-                        target="_blank">Открыть</a>
+                        <a href="{{ order.file_schema.url }}" target="_blank">Открыть</a>
                     </li>
                     <li>
-                        <a href="{{ order.file_schema.url }}"
-                        download="">Скачать</a>
+                        <a href="{{ order.file_schema.url }}" download="">Скачать</a>
                     </li>
                 </ul>
             </td>
             <td>
-                {% if order.reestr %}
-                <span class="btn-add to-reestr">Добавлено</span>
-                {% else %}
-                <a href="#">
-                    <span class="btn-add not-reestr">Добавить</span>
-                </a>
-                {% endif %}
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    {% if order.reestr %}
+                    <span class="btn-add to-reestr">Добавлено</span>
+                    {% else %}
+                    <a href="{% url 'product:order' order.pk %}">
+                        <span class="btn-add not-reestr">Добавить</span>
+                    </a>
+                    {% endif %}
+                </form>
             </td>
         </tr>
         {% endfor %}
