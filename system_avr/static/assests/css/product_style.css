@@ -163,8 +163,9 @@ tr.table-order td {
 
 .to-reestr {
     background: rgb(114, 243, 114);
+    color: #474c50;
 }
 
 .btn-add {
-    padding: 3px;
+    padding: 4px;
 }

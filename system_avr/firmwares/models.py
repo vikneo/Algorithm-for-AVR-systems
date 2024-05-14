@@ -138,13 +138,14 @@ class Product(models.Model):
         """
         READY = 1, 'Готов'
         CHEK = 2, 'Проверка'
-        NOT_READY = 3, ''
+        NOT_READY = 3, 'В работе'
     
     class Author(models.IntegerChoices):
         """
         Модель выбора авторов изделия
         """
         MBB = 1, 'Мартынов В.'
+        
     id_product = models.IntegerField(verbose_name='ID Продукта', db_index=True)
     subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Объект', related_name='subjects')
     name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
