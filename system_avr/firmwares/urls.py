@@ -10,7 +10,8 @@ from .views import (
     ClientListView,
     ClientAllSubjectsView,
     CreatedProductView,
-    OrderListView
+    OrderListView,
+    AddedOrderToReestr
     )
 
 app_name = 'product'
@@ -25,5 +26,6 @@ urlpatterns = [
     path('products/', ProductListView.as_view(), name='product_list'),
     path('created/', CreatedProductView.as_view(), name='created'),
     path('orders/', OrderListView.as_view(), name='orders'),
+    path('order/<int:pk>/', AddedOrderToReestr.as_view(), name='order'),
     path('search/', SearchView.as_view(), name='search'),
 ] 
