@@ -70,6 +70,7 @@ class CreatedOrderForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['user'].empty_label = 'Выберите автора'
         self.fields['relay'].empty_label = 'Выберите тип реле'
+        self.fields['note'].required = False
 
     class Meta:
         model = Order
