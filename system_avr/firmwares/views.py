@@ -5,7 +5,7 @@ from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import (
     Product,
@@ -239,3 +239,23 @@ class OrderListView(ListView):
             title='Заявки'
         )
         return context
+    
+
+class AddedOrderToReestr(UpdateView):
+    """
+    Добавление заявки в Реестр прошивок
+    """
+    model = Order
+    template_name = 'orders/order_to_reestr.html'
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title='Добавить заказ в реестр'
+        )
+        return context
+
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        print(self.request.GET.get('added'))
+        return redirect(reverse_lazy('product:orders'))
