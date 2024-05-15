@@ -20,9 +20,10 @@
 </head>
 
 <body>
-
-    {% include 'base/header.html' %}
-    {% block nav-breadcrumbs %}{% endblock %}
+    <div class="flex nav contaner">
+        {% include 'base/header.html' %}
+        {% block nav-breadcrumbs %}{% endblock %}
+    </div>
 
     {% block filter %}
     {% endblock %}
