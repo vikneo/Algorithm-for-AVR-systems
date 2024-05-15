@@ -104,15 +104,20 @@ p.product-date-detail {
 table.orders td {
     padding: 5px;
     text-align: center;
-    background: #878775;
+    color: black;
+}
+
+.tr-header {
+    background: #bfbfbc;
 }
 
 tr.table-order td {
-    background: #6f777a;
+    background: #d4eff9;
 }
 
 .table-order:hover td {
     background-color: #474c50;
+    color: #efe6d5;
 }
 
 .dropdown {
