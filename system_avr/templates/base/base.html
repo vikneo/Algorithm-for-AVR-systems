@@ -1,93 +1,118 @@
-{% include 'base/header.html' %}
-{% load i18n static %}
+{% load static i18n %}
 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block filter %}
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="{% static 'assests/fonts/Novartis-Lines.ttf' %}">
+    <link rel="stylesheet" href="{% static 'assests/fonts/Charlemagne-Bold.ttf' %}">
+    <link rel="stylesheet" href="{% static 'assests/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assests/css/product_style.css' %}">
+    <link rel="stylesheet" href="{% static 'assests/css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/nav_sidebar.css' %}">
+    <script src="{% static 'assests/js/search.js' %}" defer></script>
+    <script src="{% static 'admin/js/nav_sidebar.js' %}" defer></script>
 
-<div class="flex contaner block-row">
-    {% block left-sidebar %}
-    <div class="left-sidebar" style="padding-left: 5px;">
-        <div class="left-sidebar-nav">
-            <h2>ФИЛЬТР</h2>
-            <div class="flex filter-block mb-3">
-                <span class="flex filter-link-title">Клиенты</span>
-                <a class="filter-link" href="{% url 'product:clients' %}">Показать все</a>
+    {% block title %}{% endblock %}
+</head>
+
+<body>
+
+    {% include 'base/header.html' %}
+    {% block nav-breadcrumbs %}{% endblock %}
+
+    {% block filter %}
+    {% endblock %}
+
+    <div class="flex contaner block-row">
+        {% block left-sidebar %}
+        <div class="left-sidebar" style="padding-left: 5px;">
+            <div class="left-sidebar-nav">
+                <h2>ФИЛЬТР</h2>
+                <div class="flex filter-block mb-3">
+                    <span class="flex filter-link-title">Клиенты</span>
+                    <a class="filter-link" href="{% url 'product:clients' %}">Показать все</a>
+                </div>
+                <div class="flex filter-block mb-3">
+                    <span class="flex filter-link-title">Объекты</span>
+                    <a class="filter-link" href="{% url 'product:subject' %}">Показать все</a>
+                </div>
+                <div class="flex filter-block mb-3">
+                    <span class="flex filter-link-title">Продукты</span>
+                    <a class="filter-link" href="{% url 'product:product_list' %}">Показать все</a>
+                </div>
+                <hr>
+                <div>
+                    <a href="{% url 'product:created' %}">
+                        <div class="flex filter-block align-items-center">
+                            <h2>Создать заявку</h2>
+                            <span class="span-link">→</span>
+                        </div>
+                    </a>
+                </div>
+                <hr>
+                <div>
+                    <a href="#">
+                        <div class="flex filter-block align-items-center">
+                            <h2>Реестр прошивок</h2>
+                            <span class="span-link">→</span>
+                        </div>
+                    </a>
+                </div>
+                <hr>
             </div>
-            <div class="flex filter-block mb-3">
-                <span class="flex filter-link-title">Объекты</span>
-                <a class="filter-link" href="{% url 'product:subject' %}">Показать все</a>
-            </div>
-            <div class="flex filter-block mb-3">
-                <span class="flex filter-link-title">Продукты</span>
-                <a class="filter-link" href="{% url 'product:product_list' %}">Показать все</a>
-            </div>
-            <hr>
-            <div>
-                <a href="{% url 'product:created' %}">
-                    <div class="flex filter-block align-items-center">
-                        <h2>Создать заявку</h2>
-                        <span class="span-link">→</span>
-                    </div>
-                </a>
-            </div>
-            <hr>
-            <div>
-                <a href="#">
-                    <div class="flex filter-block align-items-center">
-                        <h2>Реестр прошивок</h2>
-                        <span class="span-link">→</span>
-                    </div>
-                </a>
-            </div>
-            <hr>
         </div>
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
+
+        {% block right-sidebar %}
+        <!-- <div class="right-sidebar">
+            <div class="advertisement-box">
+                <img class="advertisement" src="{% static 'assests/img/default/реклама.jpg' %}" alt="">
+            </div>
+        </div> -->
+        {% endblock %}
     </div>
-    {% endblock %}
 
-    {% block content %}
-    {% endblock %}
-
-    {% block right-sidebar %}
-    <!-- <div class="right-sidebar">
-        <div class="advertisement-box">
-            <img class="advertisement" src="{% static 'assests/img/default/реклама.jpg' %}" alt="">
-        </div>
-    </div> -->
-    {% endblock %}
-</div>
-
-<div class="flex" style="display: contents;">
-    {% if page_obj.has_other_pages %}
-    <div class="pos-page">
-        <nav class="page-list">
-            <ul>
-                {% if page_obj.has_previous %}
-                <li class="page-num li-paginate">
-                    <a href="?page={{ page_obj.previous_page_number }}">&lt;&lt;</a>
-                </li>
-                {% endif %}
-                {% for page in paginator.page_range %}
-                {% if page_obj.number == page %}
-                <li class="page-num page-num-selected li-paginate">{{ page }}</li>
-                {% elif page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %} <li
-                    class="page-num li-paginate">
-                    <a href="?page={{ page }}">
-                        {{ page }}</a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
-                    {% if page_obj.has_next %}
+    <div class="flex" style="display: contents;">
+        {% if page_obj.has_other_pages %}
+        <div class="pos-page">
+            <nav class="page-list">
+                <ul>
+                    {% if page_obj.has_previous %}
                     <li class="page-num li-paginate">
-                        <a href="?page={{ page_obj.next_page_number }}">&gt;&gt;</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">&lt;&lt;</a>
                     </li>
                     {% endif %}
-            </ul>
-        </nav>
+                    {% for page in paginator.page_range %}
+                    {% if page_obj.number == page %}
+                    <li class="page-num page-num-selected li-paginate">{{ page }}</li>
+                    {% elif page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %} <li
+                        class="page-num li-paginate">
+                        <a href="?page={{ page }}">
+                            {{ page }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                        <li class="page-num li-paginate">
+                            <a href="?page={{ page_obj.next_page_number }}">&gt;&gt;</a>
+                        </li>
+                        {% endif %}
+                </ul>
+            </nav>
+        </div>
+        {% else %}
+        <hr>
+        {% endif %}
     </div>
-    {% else %}
-    <hr>
-    {% endif %}
-</div>
 
-{% include 'base/footer.html' %}
+    {% include 'base/footer.html' %}
+</body>
+
+</html>
