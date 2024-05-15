@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from .models import Product, Subjects, Client, Order
+from .models import Product, ProductFile, Subjects, Client, Order
 from .forms import CreatedOrderForm
 from .tasks import order_created
 from utils.slugify import slugify
@@ -252,7 +252,7 @@ class AddedOrderToReestr(UpdateView):
                 client=client[0], name=form.cleaned_data.get("subject")
             )
 
-            Product.objects.create(
+            product = Product.objects.create(
                 id_product=form.cleaned_data.get("id_product"),
                 subject=subject[0],
                 name=form.cleaned_data.get("subject"),
@@ -261,6 +261,11 @@ class AddedOrderToReestr(UpdateView):
                 date_order=datetime.today(),
                 relay=form.cleaned_data.get("relay"),
                 note=form.cleaned_data.get("note"),
+            )
+
+            ProductFile.objects.create(
+                product=product,
+                file_schema=form.cleaned_data["file_schema"]
             )
 
             Order.objects.update(
@@ -275,3 +280,5 @@ class AddedOrderToReestr(UpdateView):
                 file_schema=form.cleaned_data["file_schema"],
             )
         return redirect(reverse_lazy("product:orders"))
+
+# TODO добавить роли пользователям
