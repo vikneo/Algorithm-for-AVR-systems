@@ -132,7 +132,7 @@ class ProductListView(ListView):
         return Product.objects.all().order_by("-created_at")
 
 
-class ProductView(DetailView):
+class ProducDetailtView(DetailView):
     """
     Представление продукта выбранного объекта
     """
