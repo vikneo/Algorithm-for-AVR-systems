@@ -80,7 +80,8 @@ li, .li-paginate {
 
 .center-sidebar {
     width: 56%;
-    margin: 0 auto;
+    margin-left: 50px;
+    /* margin: 0 auto; */
 }
 
 .right-sidebar {
@@ -285,9 +286,10 @@ li, .li-paginate {
 }
 
 .filter-link {
-    padding: 5px;
+    padding: 5px 8px;
     background: #e9e9e9;
-    border-radius: 5px;
+    font-size: 15px;
+    border-radius: 0 20px 20px 0;
     color: #0719f1;
 }
 

@@ -129,7 +129,7 @@ class ProductListView(ListView):
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
-        return Product.objects.all().order_by("-date_ready")
+        return Product.objects.all().order_by("-created_at")
 
 
 class ProductView(DetailView):
@@ -255,7 +255,7 @@ class AddedOrderToReestr(UpdateView):
             product = Product.objects.create(
                 id_product=form.cleaned_data.get("id_product"),
                 subject=subject[0],
-                name=form.cleaned_data.get("subject"),
+                name=form.cleaned_data.get("name"),
                 status=3,
                 author=1,
                 date_order=datetime.today(),
