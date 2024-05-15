@@ -205,7 +205,7 @@ class ProductFile(models.Model):
         verbose_name='Алгоритм',
         related_name='products',
         )
-    file_config = models.FileField(upload_to=product_file_path, verbose_name='Конфигурация')
+    file_config = models.FileField(upload_to=product_file_path, verbose_name='Конфигурация', blank=True, null=True)
     file_schema = models.FileField(upload_to=product_file_path, verbose_name='Схема с описанием')
 
     def get_absolute_url(self) -> str:
