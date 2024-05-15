@@ -147,6 +147,17 @@ class ProducDetailtView(DetailView):
         return context
 
 
+class ProductUpdateView(UpdateView):
+    """
+    Обновление данных для продукта:
+    - установить дату создания файла конфигурации.
+    - установить дату проверки продукта.
+    - изменить статус продукта.
+    """
+    # TODO дописать логику обновления данных
+    pass
+
+
 class ClientListView(ListView):
     """
     Представление всех клиентов
@@ -280,5 +291,3 @@ class AddedOrderToReestr(UpdateView):
                 file_schema=form.cleaned_data["file_schema"],
             )
         return redirect(reverse_lazy("product:orders"))
-
-# TODO добавить роли пользователям
