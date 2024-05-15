@@ -14,6 +14,7 @@ from .models import (
 @receiver(pre_save, sender=Client)
 @receiver(pre_save, sender=Subjects)
 @receiver(pre_save, sender=SmartRelay)
+@receiver(pre_save, sender=Product)
 def get_slugify_save(sender, instance, **kwargs) -> None:
     """
     Перед сохранением созданной записи в БД проверяется поле "slug",
