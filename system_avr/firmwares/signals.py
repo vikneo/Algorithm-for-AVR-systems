@@ -8,17 +8,26 @@ from .models import (
     Subjects,
     Product,
     SmartRelay,
-    ProcessedImageField,
+    ProductImage,
 )
 
-@receiver(pre_save, Client)
-@receiver(pre_save, Subjects)
-@receiver(pre_save, SmartRelay)
-def get_slugify(instance, **kwargs) -> None:
+@receiver(pre_save, sender=Client)
+@receiver(pre_save, sender=Subjects)
+@receiver(pre_save, sender=SmartRelay)
+def get_slugify_save(sender, instance, **kwargs) -> None:
     """
     Перед сохранением созданной записи в БД проверяется поле "slug",
-    если поле с пустым значчение, то метод "get_slug" заполняет поле
+    если поле с пустым значчение, то метод "get_slug_save" заполняет поле
     """
     if not instance.slug:
         instance.slug = slugify(instance.name)
 
+
+@receiver(pre_save, sender=Subjects)
+def get_photo_save(sender, instance, **kwargs) -> None:
+    """
+    Перед сохранением записи модели "Subjects", проверяется поле "photo",
+    если поле пустое, метод "get_photo_save" добавляет изображение по умоолчанию
+    """
+    if not instance.photo:
+        instance.photo = '../media/default.PNG'
