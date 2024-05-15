@@ -17,7 +17,15 @@ class CreatedOrderForm(forms.ModelForm):
     """
     Форма для создания заявок для систем АВР
     """
-
+    user = forms.CharField(
+        label="Автор",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-input",
+                "placeholder": "Имя Фамилия",
+            },
+        ),
+    )
     id_product = forms.CharField(
         label="ID проекта",
         widget=forms.TextInput(
