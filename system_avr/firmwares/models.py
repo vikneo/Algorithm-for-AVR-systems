@@ -79,6 +79,8 @@ class Subjects(models.Model):
     slug = models.SlugField(max_length=120, verbose_name='URL', unique=True)
     photo = ProcessedImageField(
         verbose_name='Основное фото',
+        blank=True,
+        null=True,
         upload_to=subject_images_directory_path,
         options={'quantity': 90},
         processors=[ResizeToFill(600, 300)]
@@ -145,7 +147,7 @@ class Product(models.Model):
         Модель выбора авторов изделия
         """
         MBB = 1, 'Мартынов В.'
-        
+
     id_product = models.IntegerField(verbose_name='ID Продукта', db_index=True)
     subject = models.ForeignKey(Subjects, on_delete=models.CASCADE, verbose_name='Объект', related_name='subjects')
     name = models.CharField(max_length=100, verbose_name='Название', db_index=True)
