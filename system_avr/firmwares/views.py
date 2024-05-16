@@ -1,7 +1,7 @@
 from django.db.models.query import QuerySet
 from django.db.models import Q
 from django.forms import BaseModelForm
-from django.http import Http404, HttpRequest, HttpResponse
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -154,6 +154,7 @@ class ProductUpdateView(UpdateView):
     - установить дату проверки продукта.
     - изменить статус продукта.
     """
+
     # TODO дописать логику обновления данных
     pass
 
@@ -248,6 +249,7 @@ class AddedOrderToReestr(UpdateView):
 
     model = Order
     template_name = "orders/order_to_reestr.html"
+    success_url = reverse_lazy("product:orders")
     fields = "__all__"
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
@@ -258,36 +260,34 @@ class AddedOrderToReestr(UpdateView):
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         reestr = form.cleaned_data.get("reestr")
         if reestr:
-            client = Client.objects.get_or_create(name=form.cleaned_data.get("client"))
-            subject = Subjects.objects.get_or_create(
-                client=client[0], name=form.cleaned_data.get("subject")
-            )
+            try:
+                client = Client.objects.get_or_create(
+                    name=form.cleaned_data.get("client")
+                )
+                subject = Subjects.objects.get_or_create(
+                    client=client[0], name=form.cleaned_data.get("subject")
+                )
+                product = Product.objects.create(
+                    id_product=form.cleaned_data.get("id_product"),
+                    subject=subject[0],
+                    name=form.cleaned_data.get("name"),
+                    status=3,
+                    author=1,
+                    date_order=datetime.today(),
+                    relay=form.cleaned_data.get("relay"),
+                    note=form.cleaned_data.get("note"),
+                )
 
-            product = Product.objects.create(
-                id_product=form.cleaned_data.get("id_product"),
-                subject=subject[0],
-                name=form.cleaned_data.get("name"),
-                status=3,
-                author=1,
-                date_order=datetime.today(),
-                relay=form.cleaned_data.get("relay"),
-                note=form.cleaned_data.get("note"),
-            )
+                ProductFile.objects.create(
+                    product=product, file_schema=form.cleaned_data["file_schema"]
+                )
+            except Exception as err:
+                messages.warning(
+                    self.request,
+                    f'Заявка под номером ID-{form.cleaned_data.get("id_product")} существует в "Реестр прошивок!"\n \
+                    За помощью обратитесь к администратору!',
+                )
+                return HttpResponseRedirect(self.request.META.get("HTTP_REFERER"))
 
-            ProductFile.objects.create(
-                product=product,
-                file_schema=form.cleaned_data["file_schema"]
-            )
-
-            Order.objects.update(
-                user=form.cleaned_data["user"],
-                id_product=form.cleaned_data["id_product"],
-                client=form.cleaned_data["client"],
-                subject=form.cleaned_data["subject"],
-                name=form.cleaned_data["name"],
-                relay=form.cleaned_data["relay"],
-                note=form.cleaned_data["note"],
-                reestr=form.cleaned_data["reestr"],
-                file_schema=form.cleaned_data["file_schema"],
-            )
-        return redirect(reverse_lazy("product:orders"))
+            return super().form_valid(form)
+        return HttpResponseRedirect(self.request.META.get("HTTP_REFERER"))
