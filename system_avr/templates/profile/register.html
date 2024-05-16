@@ -1,4 +1,16 @@
 {% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block nav-breadcrumbs %}
+<nav aria-label="{% translate 'Breadcrumbs' %}" class="pos">
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'product:clients' %}">{% translate 'Home' %}</a>
+        {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+    {% endblock %}
+</nav>
+{% endblock %}
 
 {% block content %}
 {% block title %} <title>{{ title }}</title> {% endblock %}
