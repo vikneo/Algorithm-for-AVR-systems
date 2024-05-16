@@ -34,7 +34,13 @@
         </tr>
         {% for order in orders %}
         <tr class="table-order">
-            <td>{{ order.id_product }}</td>
+            <td>
+                {% if order.reestr %}
+                <a class="a-active" href="#">{{ order.id_product }}</a>
+                {% else %}
+                {{ order.id_product }}
+                {% endif %}
+            </td>
             <td>{{ order.user }}</td>
             <td>{{ order.client }}</td>
             <td>{{ order.subject|truncatechars:19 }}</td>
