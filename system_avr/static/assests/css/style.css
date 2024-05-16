@@ -420,7 +420,6 @@ li, .li-paginate {
 
 .message {
     padding: 13px 19px;
-    font-size: 20px;
     outline: 1px solid red;
     border-radius: 8px;
     background: #9eeaf9;
@@ -428,8 +427,9 @@ li, .li-paginate {
 
 .advant-box {
     margin-bottom: 50px;
+    font-size: 20px;
     /* background: #e9e4e4; */
-    color: #055160;
+    color: #2d4547;
 }
 
 .container-fluid {
@@ -452,5 +452,5 @@ li, .li-paginate {
 } */
 
 .alert-dismissible {
-    padding-right: 3rem
+    padding: 10px
 }
