@@ -18,3 +18,13 @@ function searchID() {
         form.onsubmit = function () { return false;}
     }
 }
+
+function addToReestr () {
+    let answer = confirm('Добавить заявку в Реестр прошивок?')
+
+    if (answer) {
+        return true;
+    } else {
+        return false;
+    }
+}

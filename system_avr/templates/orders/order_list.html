@@ -58,7 +58,7 @@
                     {% if order.reestr %}
                     <span class="btn-add to-reestr">Добавлено</span>
                     {% else %}
-                    <a href="{% url 'product:order' order.pk %}">
+                    <a id="addedLink" href="{% url 'product:order' order.pk %}" type="submit" onclick="return addToReestr();">
                         <span class="btn-add not-reestr">Добавить</span>
                     </a>
                     {% endif %}
