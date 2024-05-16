@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import Product, ProductFile, Subjects, Client, Order
-from .forms import CreatedOrderForm
+from .forms import CreatedOrderForm, AddOrderToReestrForm
 from .tasks import order_created
 from utils.slugify import slugify
 
@@ -248,9 +248,9 @@ class AddedOrderToReestr(UpdateView):
     """
 
     model = Order
+    form_class = AddOrderToReestrForm
     template_name = "orders/order_to_reestr.html"
     success_url = reverse_lazy("product:orders")
-    fields = "__all__"
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
