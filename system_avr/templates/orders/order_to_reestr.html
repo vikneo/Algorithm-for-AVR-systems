@@ -14,10 +14,12 @@
 </nav>
 {% endblock %}
 
+
 {% block content %}
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
 <div class="flex form-container align-items-center flex-direction-column">
+    {% include 'messages/message.html' %}
     <div class="flex auth-pos">
         <h1>{{ title }}</h1>
     </div>

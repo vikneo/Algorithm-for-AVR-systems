@@ -2,9 +2,20 @@
     min-width: 50%;
 }
 
-.form-input {
+.form-input, div.form-label select {
     min-height: 22px;
     min-width: 300px;
+    /* background: #f7fbb7; */
+}
+/* 
+.form-input:hover {
+    background: #3f576e;
+    color: #f7fbb7;
+} */
+
+.form-chek-box {
+    width: 20px;
+    height: 20px;
 }
 
 .form-label {
