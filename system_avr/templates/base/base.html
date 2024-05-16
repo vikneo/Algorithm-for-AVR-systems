@@ -33,17 +33,13 @@
         <div class="left-sidebar" style="padding-left: 5px;">
             <div class="left-sidebar-nav">
                 <h2>ФИЛЬТР</h2>
-                <div class="flex filter-block mb-3">
-                    <span class="flex filter-link-title">Клиенты</span>
-                    <a class="filter-link" href="{% url 'product:clients' %}">Показать все</a>
-                </div>
-                <div class="flex filter-block mb-3">
-                    <span class="flex filter-link-title">Объекты</span>
-                    <a class="filter-link" href="{% url 'product:subjects' %}">Показать все</a>
-                </div>
-                <div class="flex filter-block mb-3">
-                    <span class="flex filter-link-title">Продукты</span>
-                    <a class="filter-link" href="{% url 'product:product_list' %}">Показать все</a>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="Filter()">Сортировать по:</button>
+                    <div id="filterSet" class="dropdown-content">
+                        <a class="filter-link" href="{% url 'product:clients' %}">Клиенты</a>
+                        <a class="filter-link" href="{% url 'product:subjects' %}">Объекты</a>
+                        <a class="filter-link" href="{% url 'product:product_list' %}">Продукты</a>
+                    </div>
                 </div>
                 <hr>
                 <div>
