@@ -101,6 +101,10 @@ p.product-date-detail {
     background: #3771a7;
 }
 
+.a-active:hover {
+    color: #2b52e2;
+}
+
 table.orders td {
     padding: 5px;
     text-align: center;

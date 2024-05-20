@@ -36,7 +36,10 @@
         <tr class="table-order">
             <td>
                 {% if order.reestr %}
-                <a class="a-active" href="#">{{ order.id_product }}</a>
+                <input type="text" id="folderPath" value="\\nas4\montel-project\!РЕЕСТР\ID" style="display: none;">
+                <button class="a-active" id="number_id" type="submit" onclick="OpenDir()">{{ order.id_product }}</button>
+                <!-- <form action="#">
+                </form> -->
                 {% else %}
                 {{ order.id_product }}
                 {% endif %}
