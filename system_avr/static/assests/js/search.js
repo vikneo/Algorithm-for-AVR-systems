@@ -51,7 +51,7 @@ function handleClick(e) {
     let folderPath = folderPathInput.value.trim();
     let currentButton = e.currentTarget;
     let copyfolder = `${folderPath}${currentButton.innerText}\\`
-    
+
     navigator.clipboard.writeText(copyfolder).then(function () {
         console.log('Текст успешно скопирован в буфер обмена');
     }, function (err) {
@@ -60,9 +60,9 @@ function handleClick(e) {
     
 }
 
-function OpenDir() {
+function CopyPath() {
     let buttons = document.querySelectorAll('.a-active')
-    
+
     buttons.forEach(button => {
         button.addEventListener('click', handleClick);
     });
