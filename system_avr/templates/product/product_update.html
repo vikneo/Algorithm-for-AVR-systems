@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block nav-breadcrumbs %}
+<nav aria-label="{% translate 'Breadcrumbs' %}" class="pos">
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'product:clients' %}">{% translate 'Home' %}</a>
+        &rsaquo; 
+        <a href="{% url 'product:client-subjects' product.subject.client.slug %}">{{ product.subject.client }}</a>
+        &rsaquo; 
+        <a href="{% url 'product:subject_detail' product.subject.slug %}">{{ product.subject }}</a>
+        &rsaquo;
+        <a href="{% url 'product:product_detail' product.slug %}">{{ product.name }}</a>
+        {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+    {% endblock %}
+</nav>
+{% endblock %}
+
+
+{% block content %}
+{% block title %} <title>{{ title }}</title> {% endblock %}
+
+<div class="flex form-container align-items-center flex-direction-column">
+    {% include 'messages/message.html' %}
+    <div class="flex auth-pos">
+        <h1>{{ title }}</h1>
+    </div>
+    <form class="form-block" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-error"><br>{{ form.non_field_errors }}</div>
+        {% for f in form %}
+        <div class="flex mb-3 form-label align-items-center">
+            <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}
+        </div>
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <span id="span1"></span><br>
+        <div class="flex form-auth-btn">
+            <button id="confirmbtn" type="submit" class="btn btn-primary">Добавить в Реестр</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
