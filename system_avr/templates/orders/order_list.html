@@ -37,7 +37,9 @@
             <td>
                 {% if order.reestr %}
                 <input type="text" id="folderPath" value="\\nas4\montel-project\!РЕЕСТР\ID" style="display: none;">
-                <button class="a-active" id="number_id" type="submit" onclick="OpenDir()">{{ order.id_product }}</button>
+                <button class="a-active" id="number_id" type="submit" onclick="OpenDir()">
+                    {{ order.id_product }}
+                </button>
                 <!-- <form action="#">
                 </form> -->
                 {% else %}
@@ -67,9 +69,14 @@
                     {% if order.reestr %}
                     <span class="btn-add to-reestr">Добавлено</span>
                     {% else %}
-                    <a id="addedLink" href="{% url 'product:order' order.pk %}" type="submit" onclick="return addToReestr();">
+                    {% if user.profile.roles.first.role == 'Программист' %}
+                    <a id="addedLink" href="{% url 'product:order' order.pk %}" type="submit"
+                        onclick="return addToReestr();">
                         <span class="btn-add not-reestr">Добавить</span>
                     </a>
+                    {% else %}
+                    <span class="btn-add not-reestr">Добавить</span>
+                    {% endif %}
                     {% endif %}
                 </form>
             </td>
