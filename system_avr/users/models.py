@@ -17,3 +17,25 @@ class Profile(models.Model):
         db_table = 'profiles'
         verbose_name = 'profile'
         verbose_name_plural = 'profiles'
+
+
+class Role(models.Model):
+    """
+    Класс описывает роль сотрудника компании
+    """
+    class StatusRole(models.TextChoices):
+        """
+        Набор ролей для сотрудников
+        """
+        CRC = 'Схемотехник'
+        DSG = 'Конструктор'
+        PRM = 'Программист'
+        SLR = 'Отсутствует'
+
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Профиль', related_name='roles')
+    role = models.CharField(max_length=15, verbose_name='Роль', choices=StatusRole, blank=True, default=StatusRole.SLR)
+
+    class Meta:
+        db_table = 'roles'
+        verbose_name = 'роль'
+        verbose_name_plural = 'роли'

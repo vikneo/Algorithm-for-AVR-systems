@@ -139,7 +139,7 @@ class Product(models.Model):
         Модель вариантов статуса готовности изделия
         """
         READY = 1, 'Готов'
-        CHEK = 2, 'Проверка'
+        CHECK = 2, 'Проверка'
         NOT_READY = 3, 'В работе'
     
     class Author(models.IntegerChoices):
