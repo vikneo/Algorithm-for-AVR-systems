@@ -7,7 +7,7 @@ from django.views.generic import CreateView, DetailView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
-from .models import Profile
+from .models import Profile, Role
 from .forms import RegisterUserForm, UserFormAuth
 
 
@@ -25,19 +25,26 @@ class RegisterUserView(CreateView):
         )
         return context
     
+    def get_username(self, form):
+        username = form.cleaned_data.get('email')
+        return username
+    
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         user = form.save()
-        username = form.cleaned_data.get('username')
-        password = form.cleaned_data.get('password')
+        user.username = self.get_username(form)
+        user.email = form.cleaned_data.get('email')
+        user.save()
 
-        Profile.objects.create(
+        profile = Profile.objects.create(
             user=user,
         )
+        Role.objects.create(
+            profile=profile,
+        )
 
-        user_auth = authenticate(username=username, password=password)
-        login(self.request, user_auth)
+        login(self.request, user)
 
-        return redirect(reverse_lazy('product:subject'))
+        return redirect(reverse_lazy('product:clients'))
 
 
 class LoginUserView(LoginView):
