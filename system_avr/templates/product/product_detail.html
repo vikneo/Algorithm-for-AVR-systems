@@ -27,6 +27,18 @@
         </p>
         <div class="flex roduct-box-detail">
             <p class="flex product-date-detail">
+                <span class="flex product-title-date">ID Проекта:</span>
+                {{ product.id_product }}
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Клиент:</span>
+                {{ product.subject.client.name }}
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Объект:</span>
+                {{ product.subject }}
+            </p>
+            <p class="flex product-date-detail">
                 <span class="flex product-title-date">Дата заявки:</span>
                 {{ product.date_order }}
             </p>
@@ -39,13 +51,21 @@
                 {{ product.date_check }}
             </p>
             <p class="flex product-date-detail">
+                <span class="flex product-title-date">Автор:</span>
+                {{ product.get_author_display }}
+            </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Тип реле:</span>
+                {{ product.relay }}
+            </p>
+            <p class="flex product-date-detail">
                 <span class="flex product-title-date">Статус проверки:</span>
                 <span {% if product.status == 1 %}class="color-status-green"{% else %}class="color-status-yellow"{% endif %}>
                     {{ product.get_status_display }}
                 </span>
             </p>
             <p class="flex product-date-detail">
-                <span class="flex product-title-date">Описание АВР:</span>
+                <span class="flex product-title-date">Схема подключения:</span>
                 <button>Открыть</button>
             </p>
             {% if user.is_staff %}
@@ -56,7 +76,7 @@
             {% else %}
             <p class="flex product-date-detail">
                 <span class="flex product-title-date">Файл конфигурации:</span>
-                <a style="color: #ff9c9c;" href="#">Авторизация</a>
+                <span style="color: #ff9c9c;" href="#">Недостаточно прав</span>
             </p>
             {% endif %}
         </div>
