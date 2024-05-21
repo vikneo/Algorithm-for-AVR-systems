@@ -154,9 +154,18 @@ class ProductUpdateView(UpdateView):
     - установить дату проверки продукта.
     - изменить статус продукта.
     """
+    model = Product
+    template_name = "product/product_update.html"
+    fields = "__all__"
+    success_url = reverse_lazy('product:product_detail')
+    
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update(
+            title=f"Изменить - {self.model.objects.get(slug=self.kwargs['slug'])}"
+        )
 
-    # TODO дописать логику обновления данных
-    pass
+        return context
 
 
 class ClientListView(ListView):
