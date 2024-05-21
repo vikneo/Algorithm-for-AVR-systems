@@ -27,10 +27,10 @@ class Role(models.Model):
         """
         Набор ролей для сотрудников
         """
-        CRC = 'Схемотехник'
-        DSG = 'Конструктор'
-        PRM = 'Программист'
-        SLR = 'Отсутствует'
+        CRC = ('Схемотехник', 'Схемотехник')
+        DSG = ('Конструктор', 'Конструктор')
+        PRM = ('Программист', 'Программист')
+        SLR = ('Отсутствует', 'Отсутствует')
 
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Профиль', related_name='roles')
     role = models.CharField(max_length=15, verbose_name='Роль', choices=StatusRole, blank=True, default=StatusRole.SLR)

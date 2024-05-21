@@ -1,7 +1,6 @@
 from django.contrib import admin
-from django.contrib.auth.models import User
 
-from users.models import Profile
+from users.models import Profile, Role
 
 
 @admin.action(description='В архив')
@@ -20,15 +19,27 @@ def remove_archived(modeladmin, request, queryset) -> None:
     queryset.update(archived=False)
 
 
+class RoleTabular(admin.TabularInline):
+    model = Role
+    verbose_name = 'роль'
+    verbose_name_plural = 'роли'
+    extra = 0
+
+
 @admin.register(Profile)
 class AdminProfile(admin.ModelAdmin):
     """
     Регистрация моделли "Profile"
     """
+    inlines = [
+        RoleTabular,
+    ]
+    
     actions = [
         mark_archived,
         remove_archived
     ]
+
     list_display = ['get_username', 'get_firstname', 'get_last_name', 'phone', 'get_email', 'archived']
     search_fields = ['phone', 'get_email']
     fieldsets = [
@@ -61,3 +72,13 @@ class AdminProfile(admin.ModelAdmin):
     get_firstname.short_description = 'Имя'
     get_last_name.short_description = 'Фамилия'
     get_email.short_description = 'Почта'
+
+
+@admin.register(Role)
+class AdminRole(admin.ModelAdmin):
+    """
+    Регистрация  класса Role  в админ панели
+    """
+    list_display = ['profile', 'role']
+    list_filter = ['role']
+    search_fields = ['role']
