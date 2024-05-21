@@ -10,12 +10,12 @@ class RegisterUserForm(UserCreationForm):
     """
     User register form
     """
-    username = forms.CharField(
-        label='Логин',
-        widget=forms.TextInput(
+    email = forms.CharField(
+        label='Почта',
+        widget=forms.EmailInput(
             attrs={
                 'class': 'form-input',
-                'placeholder': 'Поле для ввода',
+                'placeholder': 'Ваш email',
             },
         ),
     )
@@ -40,7 +40,7 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['email', 'password1', 'password2']
 
 
 
@@ -53,7 +53,7 @@ class UserFormAuth(AuthenticationForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-input',
-                'placeholder': 'Введите ваш логин',
+                'placeholder': 'Логин/Email',
             },
         ),
     )
