@@ -156,8 +156,8 @@ class ProductUpdateView(UpdateView):
     """
     model = Product
     template_name = "product/product_update.html"
+    context_object_name = 'product'
     fields = "__all__"
-    success_url = reverse_lazy('product:product_detail')
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
@@ -166,6 +166,9 @@ class ProductUpdateView(UpdateView):
         )
 
         return context
+    
+    def get_success_url(self) -> str:
+        return reverse_lazy('product:product_detail', kwargs={'slug': self.kwargs['slug']})
 
 
 class ClientListView(ListView):
