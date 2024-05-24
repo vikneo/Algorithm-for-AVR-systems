@@ -26,9 +26,14 @@
             <div class="product-description">
                 <span>Тип АВР - </span>{{ product.descriiption }}
             </div>
-            <div class="product-title">
-                <a style="padding-right: 50px;" href="{% url 'product:subject-products' product.id_product %}">ID {{ product.id_product}}</a>
-                <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
+            <div class="flex product-title justify-content-between">
+                <div>
+                    <a style="padding-right: 50px;" href="{% url 'product:subject-products' product.id_product %}">ID {{ product.id_product}}</a>
+                    <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
+                </div>
+                <span {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
+                    {{ product.get_status_display }}
+                </span>
             </div>
             <div class="flex box-short-detail">
                 <div class="product-name">
