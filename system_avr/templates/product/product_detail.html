@@ -84,8 +84,10 @@
         </div>
     </div>
     <hr>
-    <div class="">
-        <a href="{% url 'product:product_update' product.slug %}">Редактировать</a>
+    <div class="btn-block">
+        {% if user.profile.roles.first.role == 'Программист' %}
+        <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
+        {% endif %}
     </div>
 </div>
 
