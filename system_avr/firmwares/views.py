@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import Product, ProductFile, Subjects, Client, Order
-from .forms import CreatedOrderForm, AddOrderToReestrForm
+from .forms import CreatedOrderForm, AddOrderToReestrForm, ProductUpdateForm
 from .tasks import order_created
 from utils.slugify import slugify
 
@@ -157,7 +157,7 @@ class ProductUpdateView(UpdateView):
     model = Product
     template_name = "product/product_update.html"
     context_object_name = 'product'
-    fields = "__all__"
+    form_class = ProductUpdateForm
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
