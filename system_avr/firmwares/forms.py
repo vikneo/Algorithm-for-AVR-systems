@@ -171,3 +171,41 @@ class AddOrderToReestrForm(forms.ModelForm):
             'reestr',
             'file_schema',
         ]
+
+
+class ProductUpdateForm(forms.ModelForm):
+    """
+    Форма для редактирования Продукта
+    """
+    id_product = forms.CharField(
+        label='ID Продукта',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-input',
+            }
+        )
+    )
+    subject = forms.CharField(
+        label='Объект',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-input',
+            }
+        )
+    )
+
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.fields['subject'].input_value = kwargs['instance'].subject.id
+        print(self.fields['subject'].input_value)
+
+    class Meta:
+        model = Product
+        fields = [
+            'id_product',
+            'subject',
+            'name',
+            'relay',
+            'note',
+
+        ]
