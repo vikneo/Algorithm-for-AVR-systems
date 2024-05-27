@@ -162,7 +162,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     archive = models.BooleanField(default=True, verbose_name='Доступ')
-    note = models.TextField(verbose_name='ОПримечание', blank=True, default="Данных нет")
+    note = models.TextField(verbose_name='Примечание', blank=True, default="Данных нет")
 
 
     def __str__(self) -> str:
