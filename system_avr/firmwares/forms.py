@@ -1,4 +1,8 @@
+from typing import Any, Mapping
 from django import forms
+from django.core.files.base import File
+from django.db.models.base import Model
+from django.forms.utils import ErrorList
 
 from .models import (
     Product,
@@ -185,27 +189,65 @@ class ProductUpdateForm(forms.ModelForm):
             }
         )
     )
-    subject = forms.CharField(
-        label='Объект',
+    name = forms.CharField(
+        label='Название',
         widget=forms.TextInput(
             attrs={
                 'class': 'form-input',
             }
         )
     )
+    date_order = forms.DateField(
+        label='Дата заказа',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-input',
+            }
+        )
+    )
+    date_ready = forms.DateField(
+        label='Дата готовности',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-input',
+            }
+        )
+    )
+    date_check = forms.DateField(
+        label='Дата проверки',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-input',
+            }
+        )
+    )
+    note = forms.CharField(
+        label='Примечание',
+        widget=forms.Textarea(
+            attrs={
+                'class': 'form-input',
+                'rows': 7,
+                'cols': 20,
+                "placeholder": "Примечание",
+            },
+        ),
+    )
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.fields['subject'].input_value = kwargs['instance'].subject.id
-        print(self.fields['subject'].input_value)
+        self.fields['date_ready'].required = False
+        self.fields['date_check'].required = False
 
     class Meta:
         model = Product
         fields = [
             'id_product',
-            'subject',
             'name',
             'relay',
+            'date_order',
+            'date_ready',
+            'date_check',
+            'status',
+            'author',
             'note',
-
         ]
