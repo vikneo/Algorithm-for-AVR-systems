@@ -131,6 +131,10 @@ li, .li-paginate {
     margin-bottom: 1.5em;
 }
 
+.mb-2 {
+    margin-bottom: 1.0em;
+}
+
 /* ====================== Header ============================= */
 
 .wrap {
