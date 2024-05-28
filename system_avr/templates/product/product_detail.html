@@ -6,9 +6,9 @@
     {% block breadcrumbs %}
     <div class="breadcrumbs">
         <a href="{% url 'product:clients' %}">{% translate 'Home' %}</a>
-        &rsaquo; 
+        &rsaquo;
         <a href="{% url 'product:client-subjects' product.subject.client.slug %}">{{ product.subject.client }}</a>
-        &rsaquo; 
+        &rsaquo;
         <a href="{% url 'product:subject_detail' product.subject.slug %}">{{ product.subject }}</a>
         {% if title %} &rsaquo; {{ title }}{% endif %}
     </div>
@@ -21,7 +21,14 @@
 
 <div class="center-sidebar">
     <div class="flex section">
-        <h1>{{ product.name }}</h1>
+        <div class="flex justify-content-between align-items-center">
+            <h1>{{ product.name }}</h1>
+            <div class="btn-block">
+                {% if user.profile.roles.first.role == 'Программист' %}
+                <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
+                {% endif %}
+            </div>
+        </div>
         <p class="client-descript">
             Тип АВР - {{ product.descriiption }}
         </p>
@@ -60,7 +67,7 @@
             </p>
             <p class="flex product-date-detail">
                 <span class="flex product-title-date">Статус проверки:</span>
-                <span {% if product.status == 1 %}class="color-status-green"{% else %}class="color-status-yellow"{% endif %}>
+                <span {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
                     {{ product.get_status_display }}
                 </span>
             </p>
@@ -80,14 +87,19 @@
             </p>
             {% endif %}
         </div>
-        <div class="flex">
-        </div>
     </div>
     <hr>
-    <div class="btn-block">
-        {% if user.profile.roles.first.role == 'Программист' %}
-        <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
-        {% endif %}
+    <div class="flex justify-content-between align-items-center">
+        <div class="flex roduct-box-detail">
+            <p class="flex product-date-detail">
+                <strong class="">{{ product.note }}</strong>
+            </p>
+        </div>
+        <div class="btn-block">
+            {% if user.profile.roles.first.role == 'Программист' %}
+            <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 
