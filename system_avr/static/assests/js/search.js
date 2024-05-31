@@ -52,12 +52,24 @@ function handleClick(e) {
     let currentButton = e.currentTarget;
     let copyfolder = `${folderPath}${currentButton.innerText}\\`
 
-    navigator.clipboard.writeText(copyfolder).then(function () {
-        console.log('Текст успешно скопирован в буфер обмена');
+    navigator.clipboard.writeText(copyfolder).then(function (event) {
+        const td = document.querySelector('.td');
+        const span = document.createElement('span');
+        span.classList.add('visit');
+        span.textContent = 'Copy';
+        const img = document.createElement('img');
+        img.src = 'https://w7.pngwing.com/pngs/225/673/png-transparent-check-mark-tick.png';
+        img.width = 30;
+        img.alt = 'OK';
+        // span.appendChild(img);
+        td.appendChild(span);
+        console.log(this)
+        
     }, function (err) {
         console.error('Произошла ошибка при копировании текста: ', err);
     });
-    
+
+    setTimeout(() => {location.reload();}, 5000);
 }
 
 function CopyPath() {
