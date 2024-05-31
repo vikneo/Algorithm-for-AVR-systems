@@ -34,9 +34,8 @@
         </tr>
         {% for order in orders %}
         <tr class="table-order">
-            <td>
+            <td class="td">
                 {% if order.reestr %}
-                <span class="visit"></span>
                 <input type="text" id="folderPath" value="\\nas4\montel-project\!РЕЕСТР\ID" style="display: none;">
                 <button class="a-active" id="number_id" type="submit" onclick="CopyPath()">
                     {{ order.id_product }}
