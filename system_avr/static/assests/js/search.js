@@ -56,7 +56,7 @@ function handleClick(e) {
         const td = document.querySelector('.td');
         const span = document.createElement('span');
         span.classList.add('visit');
-        span.textContent = 'Copy';
+        span.textContent = 'Путь скопирован';
         const img = document.createElement('img');
         img.src = 'https://w7.pngwing.com/pngs/225/673/png-transparent-check-mark-tick.png';
         img.width = 30;
