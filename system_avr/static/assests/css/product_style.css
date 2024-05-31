@@ -101,6 +101,17 @@ p.product-date-detail {
     background: #3771a7;
 }
 
+.visit {
+    position: absolute;
+    top: 25em;
+    left: 19em;
+    padding: 5px;
+    outline: 1px solid red;
+    border-radius: 11px;
+    background: black;
+    color: cornsilk;
+}
+
 .a-active:hover {
     color: #2b52e2;
 }
