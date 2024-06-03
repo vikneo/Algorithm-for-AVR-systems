@@ -221,6 +221,17 @@ class ProductUpdateForm(forms.ModelForm):
             }
         )
     )
+    descriiption = forms.CharField(
+        label='Описание',
+        widget=forms.Textarea(
+            attrs={
+                'class': 'form-input',
+                'rows': 7,
+                'cols': 20,
+                "placeholder": "Тип АВР",
+            },
+        ),
+    )
     note = forms.CharField(
         label='Примечание',
         widget=forms.Textarea(
@@ -249,5 +260,6 @@ class ProductUpdateForm(forms.ModelForm):
             'date_check',
             'status',
             'author',
+            'descriiption',
             'note',
         ]
