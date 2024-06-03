@@ -75,6 +75,14 @@
                 <span class="flex product-title-date">Схема подключения:</span>
                 <a class="file-link" href="{{ product.products.first.file_schema.url }}" target="_blank">Открыть</a>
             </p>
+            <p class="flex product-date-detail">
+                <span class="flex product-title-date">Таблица для передачи данных</span>
+                {% if product.products.first.file_address_table %}
+                <a class="file-link" href="{{ product.products.first.file_address_table.url }}" target="_blank">Открыть</a>
+                {% else %}
+                <strong class="file-error">Передачи данных нет</strong>
+                {% endif %}
+            </p>
             {% if user.is_staff and user.profile.roles.first.role == 'Программист' %}
             <p class="flex product-date-detail">
                 <span class="flex product-title-date">Файл конфигурации:</span>
