@@ -22,6 +22,8 @@ p.client-descript {
     box-shadow: 6px 6px 8px 1px #efe6d5;
 }
 
+/* ============= Style for the Product =========================== */
+
 .product-title {
     padding: 16px;
     font-size: 30px;
@@ -79,6 +81,14 @@ p.product-date-detail {
     justify-content: center;
     font-size: 22px;
     align-items: center;
+}
+
+.file-link {
+    color: #d4f892;
+}
+
+.file-error {
+    color: #ec3f33;
 }
 
 .color-status-green,
