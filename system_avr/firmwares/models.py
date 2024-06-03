@@ -207,6 +207,7 @@ class ProductFile(models.Model):
         )
     file_config = models.FileField(upload_to=product_file_path, verbose_name='Конфигурация', blank=True, null=True)
     file_schema = models.FileField(upload_to=product_file_path, verbose_name='Схема с описанием')
+    file_address_table = models.FileField(upload_to=product_file_path, verbose_name='Передача данных', blank=True, null=True)
 
     def get_absolute_url(self) -> str:
         return reverse_lazy('product:clients')
