@@ -32,6 +32,11 @@ def get_slugify_product_save(sender, instance, **kwargs) -> None:
     if not instance.slug:
         name_slug = f'{instance.subject.name}_{instance.name}_{instance.id_product}'
         instance.slug = slugify(name_slug)
+    
+    if instance.date_check:
+        instance.status = 1
+    elif instance.date_ready:
+        instance.status = 2
 
 
 @receiver(pre_save, sender=Subjects)
