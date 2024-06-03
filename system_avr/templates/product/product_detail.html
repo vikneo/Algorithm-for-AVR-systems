@@ -73,12 +73,16 @@
             </p>
             <p class="flex product-date-detail">
                 <span class="flex product-title-date">Схема подключения:</span>
-                <button>Открыть</button>
+                <a class="file-link" href="{{ product.products.first.file_schema.url }}" target="_blank">Открыть</a>
             </p>
-            {% if user.is_staff %}
+            {% if user.is_staff and user.profile.roles.first.role == 'Программист' %}
             <p class="flex product-date-detail">
                 <span class="flex product-title-date">Файл конфигурации:</span>
-                <a style="color: #abbaff;" href="#">Скачать</a>
+                {% if product.products.first.file_config %}
+                <a style="color: #abbaff;" href="{{ product.products.first.file_config.url }}">Скачать</a>
+                {% else %}
+                <strong class="file-error">еще не готов!</strong>
+                {% endif %}
             </p>
             {% else %}
             <p class="flex product-date-detail">
