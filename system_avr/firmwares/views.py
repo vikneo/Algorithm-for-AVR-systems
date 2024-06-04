@@ -167,6 +167,20 @@ class ProductUpdateView(UpdateView):
 
         return context
     
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        obj = form.save()
+        product = Product.objects.get(id=obj.id)
+        file_config = form.cleaned_data.get('file_config')
+        file_schema = form.cleaned_data.get('file_schema')
+        file_address_table = form.cleaned_data.get('file_address_table')
+        ProductFile.objects.create(
+            product=product,
+            file_config=file_config,
+            file_schema=file_schema,
+            file_address_table=file_address_table
+        )
+        return super().form_valid(form)
+    
     def get_success_url(self) -> str:
         return reverse_lazy('product:product_detail', kwargs={'slug': self.kwargs['slug']})
 
