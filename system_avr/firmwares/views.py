@@ -170,9 +170,9 @@ class ProductUpdateView(UpdateView):
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         obj = form.save()
         product = Product.objects.get(id=obj.id)
-        file_config = form.cleaned_data.get('file_config')
-        file_schema = form.cleaned_data.get('file_schema')
-        file_address_table = form.cleaned_data.get('file_address_table')
+        file_config = self.request.FILES.get('file_config')
+        file_schema = self.request.FILES.get('file_schema')
+        file_address_table = self.request.FILES.get('file_address_table')
         ProductFile.objects.create(
             product=product,
             file_config=file_config,
