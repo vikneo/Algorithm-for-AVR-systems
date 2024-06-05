@@ -2,7 +2,7 @@ from firmwares.models import Product
 
 
 # константа для среза фраз
-LENGTH = 25
+LENGTH = 20
 
 # константа для определения кол-ва символов в ID продукта
 COUNT_SYMBOL = 4
