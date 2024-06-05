@@ -4,8 +4,6 @@ from django.urls import reverse, reverse_lazy
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
-from users.models import Profile
-
 
 def product_images_directory_path(instance: 'ProductImage', filename: str) -> str:
     """
@@ -169,7 +167,7 @@ class Product(models.Model):
         return f'{self.name}'
     
     def get_absolute_url(self):
-        return reverse('product_detail', kwargs={'slug': self.kwargs['slug']})
+        return reverse('product:product_update', kwargs={'slug': self.slug})
 
     class Meta:
         db_table = 'products'
