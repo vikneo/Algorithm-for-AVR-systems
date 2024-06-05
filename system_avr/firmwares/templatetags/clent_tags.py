@@ -2,7 +2,7 @@ from django import template
 from django.http import HttpResponse
 from django.core.cache import cache
 
-from ..models import Client
+from ..models import Client, Product
 
 register = template.Library()
 
@@ -17,3 +17,12 @@ def client_main() -> dict:
         return {'clients': clients}
     except Exception as err:
         HttpResponse(f"Клиентов пока нет. Описание ощибки: {err}") # TODO заменитьна логи
+
+
+@register.filter
+def get_id_product(id_order):
+    """
+    По номеру id_product заявки, возвращает id_product из модели Продуктов
+    """
+    product = Product.objects.get(id_product=id_order)
+    return product
