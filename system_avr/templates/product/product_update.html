@@ -37,8 +37,9 @@
         <div class="form-error">{{ f.errors }}</div>
         {% endfor %}
         <span id="span1"></span><br>
-        <div class="flex form-auth-btn">
+        <div class="flex form-auth-btn justify-content-between">
             <button id="confirmbtn" type="submit" class="btn btn-primary">Сохранить</button>
+            <a type="submit" class="btn btn-primary" href="{% url 'admin:firmwares_product_change' object.id %}">Добавить файлы</a>
         </div>
     </form>
 </div>
