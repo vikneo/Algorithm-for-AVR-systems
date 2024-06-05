@@ -40,6 +40,8 @@ def get_slugify_product_save(sender, instance, **kwargs) -> None:
         instance.status = 1
     elif instance.date_ready:
         instance.status = 2
+    else: 
+        instance.status = 3
 
 
 @receiver(pre_save, sender=Subjects)
