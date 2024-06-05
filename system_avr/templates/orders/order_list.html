@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
+{% load clent_tags %}
 
 {% block nav-breadcrumbs %}
 <nav aria-label="{% translate 'Breadcrumbs' %}" class="pos">
@@ -67,7 +68,11 @@
                 <form action="#" method="post">
                     {% csrf_token %}
                     {% if order.reestr %}
-                    <span class="btn-add to-reestr">Добавлено</span>
+                    {% with product=order.id_product|get_id_product %}
+                    <a href="{% url 'product:product_detail' product.slug %}" type="submit">
+                        <span class="btn-add to-reestr">Добавлено</span>
+                    </a>
+                    {% endwith %}
                     {% else %}
                     {% if user.profile.roles.first.role == 'Программист' %}
                     <a id="addedLink" href="{% url 'product:order' order.pk %}" type="submit"
