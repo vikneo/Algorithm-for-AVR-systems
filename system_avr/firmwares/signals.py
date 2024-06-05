@@ -68,7 +68,7 @@ def check_date(sender, instance, **kwargs) -> None:
                 f"Проверьте поле 'Дата готовности' - ({instance.date_ready})"
             )
     if instance.date_check:
-        if current_date < instance.date_check:
+        if current_date.date() < instance.date_check:
             raise ValueError(
                 f"Проверьте поле 'Дата проверки' - ({instance.date_check})"
             )
