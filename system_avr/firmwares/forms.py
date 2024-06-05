@@ -243,33 +243,33 @@ class ProductUpdateForm(forms.ModelForm):
             },
         ),
     )
-    file_config = forms.CharField(
-        label='Файл конфигурации',
-        required=False,
-        widget=forms.ClearableFileInput(
-            attrs={
-                'class': 'form-input',
-            },
-        ),
-    )
-    file_schema = forms.CharField(
-        label='Схема',
-        required=False,
-        widget=forms.ClearableFileInput(
-            attrs={
-                'class': 'form-input',
-            },
-        ),
-    )
-    file_address_table = forms.CharField(
-        label='Таблица для передачи данных',
-        required=False,
-        widget=forms.ClearableFileInput(
-            attrs={
-                'class': 'form-input',
-            },
-        ),
-    )
+    # file_config = forms.CharField(
+    #     label='Файл конфигурации',
+    #     required=False,
+    #     widget=forms.ClearableFileInput(
+    #         attrs={
+    #             'class': 'form-input',
+    #         },
+    #     ),
+    # )
+    # file_schema = forms.CharField(
+    #     label='Схема',
+    #     required=False,
+    #     widget=forms.ClearableFileInput(
+    #         attrs={
+    #             'class': 'form-input',
+    #         },
+    #     ),
+    # )
+    # file_address_table = forms.CharField(
+    #     label='Таблица для передачи данных',
+    #     required=False,
+    #     widget=forms.ClearableFileInput(
+    #         attrs={
+    #             'class': 'form-input',
+    #         },
+    #     ),
+    # )
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -289,7 +289,7 @@ class ProductUpdateForm(forms.ModelForm):
             'author',
             'descriiption',
             'note',
-            'file_config',
-            'file_schema',
-            'file_address_table'
+            # 'file_config',
+            # 'file_schema',
+            # 'file_address_table'
         ]
