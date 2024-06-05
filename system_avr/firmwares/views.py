@@ -167,6 +167,13 @@ class ProductUpdateView(UpdateView):
 
         return context
     
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        try:
+            return super().form_valid(form)
+        except Exception as err:
+            messages.warning(self.request, err)
+            return HttpResponseRedirect(self.request.META.get("HTTP_REFERER"))
+    
     def get_success_url(self) -> str:
         return reverse_lazy('product:product_detail', kwargs={'slug': self.kwargs['slug']})
 
