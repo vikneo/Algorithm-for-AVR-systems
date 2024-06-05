@@ -133,7 +133,7 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
         open_access
     ]
     list_per_page = 40
-    list_display = ['get_id_product', 'get_subject', 'get_name', 'status', 'relay', 'archive']
+    list_display = ['get_id_product', 'get_client', 'get_subject', 'get_name', 'status', 'relay', 'archive']
     prepopulated_fields = {'slug': ('name',)}
     list_filter = ['id_product']
     search_fields = ['id_product', 'name',]
@@ -145,6 +145,13 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
         """
         product_id = str(obj.id_product)
         return get_count_for_id(product_id)
+    
+    def get_client(self, obj: Product) -> str:
+        """
+        Возращает строку с именем Клиента
+        """
+        client = obj.subject.client.name
+        return client if len(client) < LENGTH else client[:LENGTH] + '...'
 
     def get_subject(self, obj: Product) -> str:
         """
@@ -163,6 +170,7 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
     get_subject.short_description = 'объект'
     get_name.short_description = 'название'
     get_id_product.short_description = 'ID Продукт'
+    get_client.short_description = 'клиент'
 
 
 class AdminSmartRelay(admin.ModelAdmin):
