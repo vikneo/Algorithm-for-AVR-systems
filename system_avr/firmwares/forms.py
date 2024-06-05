@@ -152,7 +152,7 @@ class AddOrderToReestrForm(forms.ModelForm):
     )
     file_schema = forms.CharField(
         label='Схема',
-        widget=forms.ClearableFileInput(
+        widget=forms.TextInput(
             attrs={
                 'class': 'form-input',
             },
