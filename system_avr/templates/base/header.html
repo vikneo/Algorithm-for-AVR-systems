@@ -40,42 +40,18 @@
 </div>
 <div class="flex header-menu-nav">
     <ul class="flex">
+        {% for menu in menu.menu %}
         <li class="flex li-paginate li-menu justify-content-center align-items-center">
             <div class="dropdown">
-                <button class="dropbtn" onclick="Filter()">Главная</button>
+                <button class="dropbtn" onclick="Filter()">{{ menu.name }}</button>
                 <div id="filterSet" class="dropdown-content">
-                    <a class="filter-link" href="{% url 'product:clients' %}">Клиенты</a>
-                    <a class="filter-link" href="{% url 'product:subjects' %}">Объекты</a>
-                    <a class="filter-link" href="{% url 'product:product_list' %}">Продукты</a>
+                    {% for link in menu.links %}
+                    <a class="filter-link" href="{% url link.url %}">{{ link.link }}</a>
+                    {% endfor %}
                 </div>
             </div>
         </li>
-        <li class="flex li-paginate li-menu justify-content-center align-items-center">
-            <div class="dropdown">
-                <button class="dropbtn" onclick="Filter()">Заявки</button>
-                <div id="filterSet" class="dropdown-content">
-                    <a class="filter-link" href="{% url 'product:orders' %}">Смотреть</a>
-                    <a class="filter-link" href="{% url 'product:created' %}">Создать</a>
-                </div>
-            </div>
-        </li>
-        <li class="flex li-paginate li-menu justify-content-center align-items-center">
-            <div class="dropdown">
-                <button class="dropbtn" onclick="Filter()">Монтел</button>
-                <div id="filterSet" class="dropdown-content">
-                    <a class="filter-link" href="#">Табель</a>
-                    <a class="filter-link" href="#">Производство</a>
-                </div>
-            </div>
-        </li>
-        <li class="flex li-paginate li-menu justify-content-center">
-            <p>меню, с контактами</p>
-        </li>
-        <li class="flex li-paginate li-menu justify-content-center">
-            <p>
-                <a target="_blank" href="#">Реестр прошивок</a>
-            </p>
-        </li>
+        {% endfor %}
     </ul>
 </div>
 <div class="heared-searchWrap">
