@@ -53,8 +53,8 @@ class MenuMixin:
             {
                 "name": "Монтел",
                 "links": [
-                    {"link": "Табель", "url": "#"},
-                    {"link": "Производство", "url": "#"},
+                    {"link": "Табель", "url": "product:clients"},
+                    {"link": "Производство", "url": "product:clients"},
                 ],
             },
         ]
@@ -72,6 +72,6 @@ class MenuMixin:
 
         context = kwargs
         context.update(
-            self.__menu__(),
+            menu=self.__menu__(),
         )
         return context
