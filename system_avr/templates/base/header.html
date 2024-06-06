@@ -43,13 +43,23 @@
         <li class="flex li-paginate li-menu justify-content-center">
             <p>меню, с контактами</p>
         </li>
-        <li class="flex li-paginate li-menu justify-content-center">
-            <p>
-                <a href="{% url 'product:orders' %}">Заявки</a>
-            </p>
+        <li class="flex li-paginate li-menu justify-content-center align-items-center">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="Filter()">Заявки</button>
+                <div id="filterSet" class="dropdown-content">
+                    <a class="filter-link" href="{% url 'product:orders' %}">Смотреть</a>
+                    <a class="filter-link" href="{% url 'product:created' %}">Создать</a>
+                </div>
+            </div>
         </li>
-        <li class="flex li-paginate li-menu justify-content-center">
-            <p>меню, с контактами</p>
+        <li class="flex li-paginate li-menu justify-content-center align-items-center">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="Filter()">Монтел</button>
+                <div id="filterSet" class="dropdown-content">
+                    <a class="filter-link" href="#">Табель</a>
+                    <a class="filter-link" href="#">Производство</a>
+                </div>
+            </div>
         </li>
         <li class="flex li-paginate li-menu justify-content-center">
             <p>меню, с контактами</p>
