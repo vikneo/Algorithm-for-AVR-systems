@@ -8,7 +8,6 @@ def product(request):
     Контекстный процессор позволяет воспользоваться переменной "product"
     для вывода "..." в шаблонах сайта.
     """
-    print(request)
     products = Product.objects.all()
     return {
         'products': products,
