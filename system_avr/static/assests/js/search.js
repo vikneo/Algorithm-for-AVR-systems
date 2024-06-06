@@ -64,12 +64,12 @@ function handleClick(e) {
         // span.appendChild(img);
         td.appendChild(span);
         console.log(this)
-        
+
     }, function (err) {
         console.error('Произошла ошибка при копировании текста: ', err);
     });
 
-    setTimeout(() => {location.reload();}, 5000);
+    setTimeout(() => { location.reload(); }, 5000);
 }
 
 function CopyPath() {
