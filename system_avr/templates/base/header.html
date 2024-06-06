@@ -40,8 +40,15 @@
 </div>
 <div class="flex header-menu-nav">
     <ul class="flex">
-        <li class="flex li-paginate li-menu justify-content-center">
-            <p>меню, с контактами</p>
+        <li class="flex li-paginate li-menu justify-content-center align-items-center">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="Filter()">Главная</button>
+                <div id="filterSet" class="dropdown-content">
+                    <a class="filter-link" href="{% url 'product:clients' %}">Клиенты</a>
+                    <a class="filter-link" href="{% url 'product:subjects' %}">Объекты</a>
+                    <a class="filter-link" href="{% url 'product:product_list' %}">Продукты</a>
+                </div>
+            </div>
         </li>
         <li class="flex li-paginate li-menu justify-content-center align-items-center">
             <div class="dropdown">
