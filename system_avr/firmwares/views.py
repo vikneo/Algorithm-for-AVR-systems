@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .models import Product, ProductFile, Subjects, Client, Order
+from .mixins import MenuMixin
 from .forms import CreatedOrderForm, AddOrderToReestrForm, ProductUpdateForm
 from .tasks import order_created
 from utils.slugify import slugify
@@ -16,7 +17,7 @@ from typing import Any
 from datetime import datetime
 
 
-class SubjectListView(ListView):
+class SubjectListView(MenuMixin, ListView):
     """
     Представление всех объектов
     """
@@ -27,7 +28,10 @@ class SubjectListView(ListView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title="Объекты")
+        context.update(
+            title="Объекты",
+            menu=self.get_menu()
+            )
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
@@ -37,7 +41,7 @@ class SubjectListView(ListView):
         return Subjects.objects.filter(archive=True)
 
 
-class SubjectDetailView(ListView):
+class SubjectDetailView(MenuMixin, ListView):
     """
     Представление Всех продуктов на странице Объекта
     """
@@ -50,6 +54,7 @@ class SubjectDetailView(ListView):
         context = super().get_context_data(*args, **kwargs)
         context.update(
             title=self.model.objects.get(slug=self.kwargs["slug"]),
+            menu=self.get_menu()
         )
         return context
 
@@ -60,7 +65,7 @@ class SubjectDetailView(ListView):
         return Product.objects.filter(subject__slug=self.kwargs["slug"])
 
 
-class SearchView(ListView):
+class SearchView(MenuMixin, ListView):
     """
     Представение поискового запроса
     """
@@ -77,6 +82,7 @@ class SearchView(ListView):
 
         context.update(
             title="Результат поиска",
+            menu=self.get_menu()
         )
         return context
 
@@ -96,7 +102,7 @@ class SearchView(ListView):
             messages.info(self.request, not_found)
 
 
-class SubjectAllProductsListView(ListView):
+class SubjectAllProductsListView(MenuMixin, ListView):
     """ """
 
     model = Product
@@ -107,6 +113,7 @@ class SubjectAllProductsListView(ListView):
         context = super().get_context_data(**kwargs)
         context.update(
             title=f"ID-{self.model.objects.filter(id_product=self.kwargs['id_product'])[0].id_product}",
+            menu=self.get_menu()
         )
         return context
 
@@ -114,7 +121,7 @@ class SubjectAllProductsListView(ListView):
         return self.model.objects.filter(id_product=self.kwargs["id_product"])
 
 
-class ProductListView(ListView):
+class ProductListView(MenuMixin, ListView):
     """
     Представление списка всех продуктов
     """
@@ -125,14 +132,17 @@ class ProductListView(ListView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title="Все продукты")
+        context.update(
+            title="Все продукты",
+            menu=self.get_menu()
+            )
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
         return Product.objects.all().order_by("-created_at")
 
 
-class ProducDetailtView(DetailView):
+class ProducDetailtView(MenuMixin, DetailView):
     """
     Представление продукта выбранного объекта
     """
@@ -143,11 +153,14 @@ class ProducDetailtView(DetailView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title=kwargs["object"])
+        context.update(
+            title=kwargs["object"],
+            menu=self.get_menu()
+            )
         return context
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(MenuMixin, UpdateView):
     """
     Обновление данных для продукта:
     - установить дату создания файла конфигурации.
@@ -162,7 +175,8 @@ class ProductUpdateView(UpdateView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         context.update(
-            title=f"Изменить - {self.model.objects.get(slug=self.kwargs['slug'])}"
+            title=f"Изменить - {self.model.objects.get(slug=self.kwargs['slug'])}",
+            menu=self.get_menu()
         )
 
         return context
@@ -178,7 +192,7 @@ class ProductUpdateView(UpdateView):
         return reverse_lazy('product:product_detail', kwargs={'slug': self.kwargs['slug']})
 
 
-class ClientListView(ListView):
+class ClientListView(MenuMixin, ListView):
     """
     Представление всех клиентов
     """
@@ -189,7 +203,10 @@ class ClientListView(ListView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title="Клиенты")
+        context.update(
+            title="Клиенты",
+            menu=self.get_menu()
+            )
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
@@ -199,7 +216,7 @@ class ClientListView(ListView):
         return Client.objects.filter(id=client_id, archive=True)
 
 
-class ClientAllSubjectsView(ListView):
+class ClientAllSubjectsView(MenuMixin, ListView):
     """
     Предаставление всех объектов от данного клиента
     """
@@ -212,6 +229,7 @@ class ClientAllSubjectsView(ListView):
         context = super().get_context_data(**kwargs)
         context.update(
             title=self.model.objects.get(slug=self.kwargs["slug"]).name,
+            menu=self.get_menu()
         )
         return context
 
@@ -219,7 +237,7 @@ class ClientAllSubjectsView(ListView):
         return Subjects.objects.filter(client__slug=self.kwargs["slug"])
 
 
-class CreatedProductView(CreateView):
+class CreatedProductView(MenuMixin, CreateView):
     """
     Представление для создания заявок
     """
@@ -230,7 +248,10 @@ class CreatedProductView(CreateView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title="Заявка на АВР")
+        context.update(
+            title="Заявка на АВР",
+            menu=self.get_menu()
+            )
         return context
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
@@ -248,7 +269,7 @@ class CreatedProductView(CreateView):
         return redirect(reverse_lazy("product:orders"))
 
 
-class OrderListView(ListView):
+class OrderListView(MenuMixin, ListView):
     """ """
 
     model = Order
@@ -257,11 +278,14 @@ class OrderListView(ListView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title="Заявки")
+        context.update(
+            title="Заявки",
+            menu=self.get_menu()
+            )
         return context
 
 
-class AddedOrderToReestr(UpdateView):
+class AddedOrderToReestr(MenuMixin, UpdateView):
     """
     Добавление заявки в Реестр прошивок
     """
@@ -273,7 +297,10 @@ class AddedOrderToReestr(UpdateView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context.update(title="Добавить заказ в реестр")
+        context.update(
+            title="Добавить заказ в реестр",
+            menu=self.get_menu()
+            )
         return context
 
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
