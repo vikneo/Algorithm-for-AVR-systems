@@ -98,7 +98,8 @@ p.product-date-detail {
 }
 
 .color-status-green,
-.color-status-yellow {
+.color-status-yellow,
+.color-status-red {
     font-size: 20px;
 }
 
@@ -108,6 +109,10 @@ p.product-date-detail {
 
 .color-status-yellow {
     color: yellow;
+}
+
+.color-status-red {
+    color: rgb(226, 17, 17);
 }
 
 /* ======================= ORDERS ============================= */

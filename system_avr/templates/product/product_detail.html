@@ -68,7 +68,7 @@
                 </p>
                 <p class="flex product-date-detail">
                     <span class="flex product-title-date">Статус проверки:</span>
-                    <span class="status_def" {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
+                    <span class="status_def">
                         {{ product.get_status_display }}
                     </span>
                 </p>
@@ -79,7 +79,8 @@
                 <p class="flex product-date-detail">
                     <span class="flex product-title-date">Таблица для передачи данных</span>
                     {% if product.products.first.file_address_table %}
-                    <a class="file-link" href="{{ product.products.first.file_address_table.url }}" target="_blank">Открыть</a>
+                    <a class="file-link" href="{{ product.products.first.file_address_table.url }}"
+                        target="_blank">Открыть</a>
                     {% else %}
                     <strong class="file-error">Передачи данных нет</strong>
                     {% endif %}
@@ -88,7 +89,8 @@
                 <p class="flex product-date-detail">
                     <span class="flex product-title-date">Файл конфигурации:</span>
                     {% if product.products.last.file_config %}
-                    <a style="color: #abbaff;" href="{{ product.products.last.file_config.url }}" download="">Скачать</a>
+                    <a style="color: #abbaff;" href="{{ product.products.last.file_config.url }}"
+                        download="">Скачать</a>
                     {% else %}
                     <strong class="file-error">еще не готов!</strong>
                     {% endif %}
