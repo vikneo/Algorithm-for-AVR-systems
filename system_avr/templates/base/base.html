@@ -32,7 +32,7 @@
         {% block left-sidebar %}
         <div class="left-sidebar" style="padding-left: 5px;">
             <div class="left-sidebar-nav">
-                <h2>ФИЛЬТР</h2>
+                <h2 class="h2">ФИЛЬТР</h2>
                 <div class="dropdown">
                     <button class="dropbtn" onclick="Filter()">Сортировать по:</button>
                     <div id="filterSet" class="dropdown-content">
@@ -45,7 +45,7 @@
                 <div>
                     <a href="{% url 'product:created' %}">
                         <div class="flex filter-block align-items-center">
-                            <h2>Создать заявку</h2>
+                            <h2 class="h2">Создать заявку</h2>
                             <span class="span-link">→</span>
                         </div>
                     </a>
@@ -54,7 +54,7 @@
                 <div>
                     <a href="{% url 'product:product_list' %}">
                         <div class="flex filter-block align-items-center">
-                            <h2>Реестр прошивок</h2>
+                            <h2 class="h2">Реестр прошивок</h2>
                             <span class="span-link">→</span>
                         </div>
                     </a>
