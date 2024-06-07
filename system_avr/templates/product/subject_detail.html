@@ -31,7 +31,7 @@
                     <a style="padding-right: 50px;" href="{% url 'product:subject-products' product.id_product %}">ID {{ product.id_product}}</a>
                     <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
                 </div>
-                <span {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
+                <span class="status_def" {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
                     {{ product.get_status_display }}
                 </span>
             </div>
