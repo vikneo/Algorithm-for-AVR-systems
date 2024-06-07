@@ -273,6 +273,7 @@ class ProductUpdateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
+        self.fields['note'].required = False
         self.fields['date_ready'].required = False
         self.fields['date_check'].required = False
 

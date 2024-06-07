@@ -48,7 +48,7 @@
                 {% endif %}
             </td>
             <td>{{ order.user }}</td>
-            <td>{{ order.client }}</td>
+            <td>{{ order.client|truncatechars:19 }}</td>
             <td>{{ order.subject|truncatechars:19 }}</td>
             <td>{{ order.name }}</td>
             <td>{{ order.created_at }}</td>
