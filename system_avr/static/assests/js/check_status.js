@@ -1,10 +1,10 @@
 const spanStatus = document.querySelectorAll('.status_def');
 
 spanStatus.forEach(stat => {
-    if (stat.innerText === "В работе") {
+
+    if (stat.id === "3") {
         stat.classList.add("color-status-yellow");
-        
-    } else if (stat.innerText === 'Проверка') {
+    } else if (stat.id === "2") {
         stat.classList.add("color-status-red");
     } else {
         stat.classList.add("color-status-green");
