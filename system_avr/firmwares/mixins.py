@@ -54,9 +54,16 @@ class MenuMixin:
                 "name": "Монтэл",
                 "links": [
                     {"link": "Bitrix", "url": "https://rinecogroup.bitrix24.ru/stream/"},
-                    {"link": "Производство", "url": "product:clients"},
+                    {"link": "Производство", "url": "product:orders"},
                 ],
             },
+            {
+                "name": "Цифровое оборудование",
+                "links": [
+                    {"link": "Термомониторинг", "url": "product:orders"},
+                    {"link": "Инструкции", "url": "product:orders"}
+                ]
+            }
         ]
         return menu
     
