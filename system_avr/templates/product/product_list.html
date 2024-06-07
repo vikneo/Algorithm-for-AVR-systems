@@ -33,7 +33,7 @@
                         {{ product|truncatechars:23 }}
                     </a>
                 </div>
-                <span class="status_def">
+                <span class="status_def" id="{{ product.status }}">
                     {{ product.get_status_display }}
                 </span>
             </div>

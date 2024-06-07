@@ -31,7 +31,7 @@
                     <a style="padding-right: 50px;" href="{% url 'product:subject-products' product.id_product %}">ID {{ product.id_product}}</a>
                     <a class="product-title" href="{% url 'product:product_detail' product.slug %}">{{ product }}</a>
                 </div>
-                <span class="status_def">
+                <span class="status_def" id="{{ product.status }}">
                     {{ product.get_status_display }}
                 </span>
             </div>
