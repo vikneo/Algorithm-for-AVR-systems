@@ -4,8 +4,9 @@
 }
 
 html {
-    --gr-bg: #4b6689eb;
+    --gr-bg: #4b668996;
     --h2-clr: #264b5d;
+    --lbl-blue: rgb(35, 35, 245);
 }
 
 body {
@@ -242,7 +243,14 @@ li, .li-paginate {
 }
 
 .img-tumbleweed {
-    opacity: 0.6;
+    margin: 0 auto;
+    background: var(--h2-clr);
+    opacity: 1;
+}
+
+.img-p1 {
+    padding: 10px;
+    border-radius: 2em;
 }
 
 .justify-for-else, .img-tumbleweed {
