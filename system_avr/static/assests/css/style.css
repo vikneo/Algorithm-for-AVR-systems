@@ -3,18 +3,29 @@
     src: url('../fonts/Novartis-Lines.ttf') format('truetype');
 }
 
+html {
+    --gr-bg: #4b6689eb;
+    --h2-clr: #264b5d;
+}
+
 body {
     margin: 0;
-    background-color: #363434;
+    /* background-color: #363434; */
     color: #fdfdff;
-    background: #3f576e;
-    /* background-image: url('../img/programming.jpg'); */
+    /* background: #3f576e; */
+    background-image: url('../img/500кв.jpg');
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
 }
 
 marquee {
      padding-top: 5px;
     font-size: 20px;
+}
+
+h2.h2 {
+    color: var(--h2-clr);
 }
 
 .contaner {

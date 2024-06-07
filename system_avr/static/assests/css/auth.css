@@ -1,5 +1,6 @@
 .form-container {
     min-width: 50%;
+    background: var(--gr-bg);
 }
 
 .form-input, div.form-label select {
