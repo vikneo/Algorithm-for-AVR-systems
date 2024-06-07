@@ -51,9 +51,9 @@ class MenuMixin:
                 ],
             },
             {
-                "name": "Монтел",
+                "name": "Монтэл",
                 "links": [
-                    {"link": "Табель", "url": "product:clients"},
+                    {"link": "Bitrix", "url": "https://rinecogroup.bitrix24.ru/stream/"},
                     {"link": "Производство", "url": "product:clients"},
                 ],
             },

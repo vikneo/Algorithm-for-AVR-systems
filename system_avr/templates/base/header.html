@@ -46,7 +46,7 @@
                 <button class="dropbtn" onclick="Filter()">{{ menu.name }}</button>
                 <div id="filterSet" class="dropdown-content">
                     {% for link in menu.links %}
-                    <a class="filter-link" href="{% url link.url %}">{{ link.link }}</a>
+                    <a class="filter-link" href="{% if menu.name == 'Монтэл' %}{{ link.url }}{% else %}{% url link.url %}{% endif %}">{{ link.link }}</a>
                     {% endfor %}
                 </div>
             </div>
