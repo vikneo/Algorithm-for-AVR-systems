@@ -20,97 +20,99 @@
 {% block title %} <title>{{ title }}</title> {% endblock %}
 
 <div class="center-sidebar">
-    <div class="flex section">
+    <div class="block-product">
+        <div class="flex section">
+            <div class="flex justify-content-between align-items-center">
+                <h1>{{ product.name }}</h1>
+                <div class="btn-block">
+                    {% if user.profile.roles.first.role == 'Программист' %}
+                    <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
+                    {% endif %}
+                </div>
+            </div>
+            <p class="client-descript">
+                Тип АВР - {{ product.descriiption }}
+            </p>
+            <div class="flex roduct-box-detail">
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">ID Проекта:</span>
+                    {{ product.id_product }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Клиент:</span>
+                    {{ product.subject.client.name }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Объект:</span>
+                    {{ product.subject }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Дата заявки:</span>
+                    {{ product.date_order }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Дата готовности:</span>
+                    {{ product.date_ready }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Дата проверки:</span>
+                    {{ product.date_check }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Автор:</span>
+                    {{ product.get_author_display }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Тип реле:</span>
+                    {{ product.relay }}
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Статус проверки:</span>
+                    <span {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
+                        {{ product.get_status_display }}
+                    </span>
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Схема подключения:</span>
+                    <a class="file-link" href="{{ product.products.first.file_schema.url }}" target="_blank">Открыть</a>
+                </p>
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Таблица для передачи данных</span>
+                    {% if product.products.first.file_address_table %}
+                    <a class="file-link" href="{{ product.products.first.file_address_table.url }}" target="_blank">Открыть</a>
+                    {% else %}
+                    <strong class="file-error">Передачи данных нет</strong>
+                    {% endif %}
+                </p>
+                {% if user.is_staff and user.profile.roles.first.role == 'Программист' %}
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Файл конфигурации:</span>
+                    {% if product.products.last.file_config %}
+                    <a style="color: #abbaff;" href="{{ product.products.last.file_config.url }}" download="">Скачать</a>
+                    {% else %}
+                    <strong class="file-error">еще не готов!</strong>
+                    {% endif %}
+                </p>
+                {% else %}
+                <p class="flex product-date-detail">
+                    <span class="flex product-title-date">Файл конфигурации:</span>
+                    <span style="color: #ff9c9c;" href="#">Недостаточно прав</span>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+        <hr>
         <div class="flex justify-content-between align-items-center">
-            <h1>{{ product.name }}</h1>
+            <div class="flex roduct-box-detail">
+                <p class="flex product-date-detail">
+                    <strong class="">{{ product.note }}</strong>
+                </p>
+            </div>
             <div class="btn-block">
                 {% if user.profile.roles.first.role == 'Программист' %}
                 <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
                 {% endif %}
             </div>
-        </div>
-        <p class="client-descript">
-            Тип АВР - {{ product.descriiption }}
-        </p>
-        <div class="flex roduct-box-detail">
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">ID Проекта:</span>
-                {{ product.id_product }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Клиент:</span>
-                {{ product.subject.client.name }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Объект:</span>
-                {{ product.subject }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Дата заявки:</span>
-                {{ product.date_order }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Дата готовности:</span>
-                {{ product.date_ready }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Дата проверки:</span>
-                {{ product.date_check }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Автор:</span>
-                {{ product.get_author_display }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Тип реле:</span>
-                {{ product.relay }}
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Статус проверки:</span>
-                <span {% if product.status == 1 %}class="color-status-green" {% else %}class="color-status-yellow" {% endif %}>
-                    {{ product.get_status_display }}
-                </span>
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Схема подключения:</span>
-                <a class="file-link" href="{{ product.products.first.file_schema.url }}" target="_blank">Открыть</a>
-            </p>
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Таблица для передачи данных</span>
-                {% if product.products.first.file_address_table %}
-                <a class="file-link" href="{{ product.products.first.file_address_table.url }}" target="_blank">Открыть</a>
-                {% else %}
-                <strong class="file-error">Передачи данных нет</strong>
-                {% endif %}
-            </p>
-            {% if user.is_staff and user.profile.roles.first.role == 'Программист' %}
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Файл конфигурации:</span>
-                {% if product.products.last.file_config %}
-                <a style="color: #abbaff;" href="{{ product.products.last.file_config.url }}" download="">Скачать</a>
-                {% else %}
-                <strong class="file-error">еще не готов!</strong>
-                {% endif %}
-            </p>
-            {% else %}
-            <p class="flex product-date-detail">
-                <span class="flex product-title-date">Файл конфигурации:</span>
-                <span style="color: #ff9c9c;" href="#">Недостаточно прав</span>
-            </p>
-            {% endif %}
-        </div>
-    </div>
-    <hr>
-    <div class="flex justify-content-between align-items-center">
-        <div class="flex roduct-box-detail">
-            <p class="flex product-date-detail">
-                <strong class="">{{ product.note }}</strong>
-            </p>
-        </div>
-        <div class="btn-block">
-            {% if user.profile.roles.first.role == 'Программист' %}
-            <a class="btn btn-update" href="{% url 'product:product_update' product.slug %}">Редактировать</a>
-            {% endif %}
         </div>
     </div>
 </div>
