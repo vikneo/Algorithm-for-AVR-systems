@@ -25,8 +25,16 @@ marquee {
     font-size: 20px;
 }
 
-h2.h2 {
+h2.h2, .h2-link {
+    font-size: 20px;
     color: var(--h2-clr);
+}
+
+.h2-link:hover {
+    padding: 0 8px;
+    color: white;
+    background: #0719f1;
+
 }
 
 .contaner {
@@ -93,7 +101,7 @@ li, .li-paginate {
 }
 
 .left-sidebar {
-    width: 16%;
+    width: 19%;
     padding-left: 5px;
     font-size: 11px;
 }
