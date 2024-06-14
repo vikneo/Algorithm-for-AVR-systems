@@ -275,6 +275,7 @@ class OrderListView(MenuMixin, ListView):
     model = Order
     template_name = "orders/order_list.html"
     context_object_name = "orders"
+    paginate_by = 20
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
