@@ -2,11 +2,11 @@ from django.db import models
 from django.urls import reverse
 
 
-def path_to_file_instuction(instance, filename):
+def path_to_file_instuction(instance: 'Instruction', filename: str) -> str:
     """
     Функция генерируетт путь для сохранения файла с инструкцией
     """
-    return 
+    return f"instructions/{instance.title}/{filename}"
 
 
 class Brand(models.Model):
@@ -19,8 +19,8 @@ class Brand(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
     
-    # def get_absolute_url(self):
-    #     return reverse("brand_detail", kwargs={'slug': self.kwargs['slug']})
+    def get_absolute_url(self):
+        return reverse("brand_detail", kwargs={'slug': self.kwargs['slug']})
     
     class Meta:
         db_table = 'brands'
@@ -39,6 +39,12 @@ class Instruction(models.Model):
     """
     brand = models.ForeignKey(Brand, verbose_name='Производитель', on_delete=models.CASCADE)
     title = models.CharField(max_length=100, verbose_name='Название', db_index=True)
+
+    def __str__(self) -> str:
+        return self.title
+    
+    def get_absolute_url(self):
+        return reverse('instruction_detail', kwargs={'slug': self.kwargs['slug']})
 
 
 class FileInstruction(models.Model):
