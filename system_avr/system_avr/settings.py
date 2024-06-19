@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
     "firmwares.apps.FirmwaresConfig",
+    'instructions.apps.InstructionsConfig',
     "django_mptt_admin",
     "import_export",
 ]
