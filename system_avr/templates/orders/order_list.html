@@ -67,12 +67,10 @@
             <td>
                 <form action="#" method="post">
                     {% csrf_token %}
-                    {% if order.reestr %}
-                    {% with product=order.id_product|get_id_product %}
-                    <a href="{% url 'product:product_detail' product.slug %}" type="submit">
+                    {% if order.reestr and order.slug %}
+                    <a href="{% url 'product:product_detail' order.slug %}" type="submit">
                         <span class="btn-add to-reestr">Добавлено</span>
                     </a>
-                    {% endwith %}
                     {% else %}
                     {% if user.profile.roles.first.role == 'Программист' %}
                     <a id="addedLink" href="{% url 'product:order' order.pk %}" type="submit"
