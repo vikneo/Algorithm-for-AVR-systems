@@ -318,6 +318,7 @@ class AddedOrderToReestr(MenuMixin, UpdateView):
                     id_product=form.cleaned_data.get("id_product"),
                     subject=subject[0],
                     name=form.cleaned_data.get("name"),
+                    slug=form.cleaned_data.get("slug"),
                     status=3,
                     author=1,
                     date_order=datetime.today(),
