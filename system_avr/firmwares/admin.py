@@ -67,6 +67,7 @@ class AdminOrder(admin.ModelAdmin):
     
     """
     list_display = ['user', 'id_product', 'get_client', 'get_subject', 'name', 'created_at', 'file_schema']
+    prepopulated_fields = {'slug': ('name',)}
     list_filter = ['id_product']
     list_display_links = ['user', 'id_product']
     search_fields = ['id_product']
@@ -134,7 +135,6 @@ class AdminProduct(ImportExportModelAdmin, admin.ModelAdmin):
     ]
     list_per_page = 40
     list_display = ['get_id_product', 'get_client', 'get_subject', 'get_name', 'status', 'relay', 'archive']
-    prepopulated_fields = {'slug': ('name',)}
     list_filter = ['id_product']
     search_fields = ['id_product', 'name',]
     save_on_top = True
