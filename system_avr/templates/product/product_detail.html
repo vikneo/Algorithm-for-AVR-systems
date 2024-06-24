@@ -44,7 +44,7 @@
                 </p>
                 <p class="flex product-date-detail">
                     <span class="flex product-title-date">Объект:</span>
-                    {{ product.subject }}
+                    {{ product.subject|truncatechars:25 }}
                 </p>
                 <p class="flex product-date-detail">
                     <span class="flex product-title-date">Дата заявки:</span>
