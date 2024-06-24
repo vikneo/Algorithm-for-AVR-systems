@@ -132,6 +132,14 @@ class AddOrderToReestrForm(forms.ModelForm):
             },
         ),
     )
+    slug = forms.CharField(
+        label='URL',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-input',
+            },
+        ),
+    )
     note = forms.CharField(
         label='Примечание',
         widget=forms.Textarea(
@@ -170,6 +178,7 @@ class AddOrderToReestrForm(forms.ModelForm):
             'client',
             'subject',
             'name',
+            'slug',
             'relay',
             'note',
             'reestr',
