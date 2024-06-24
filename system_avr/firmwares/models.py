@@ -221,6 +221,7 @@ class Order(models.Model):
     Модель для заказов систем АВР
     """
     user = models.CharField(max_length=180, verbose_name='Автор заявки')
+    slug = models.SlugField(max_length=100, verbose_name='URL', unique=True)
     id_product = models.IntegerField(verbose_name='ID Продукта', db_index=True)
     client = models.CharField(max_length=100, verbose_name='Клиент')
     subject = models.CharField(max_length=100, verbose_name='Объект')
