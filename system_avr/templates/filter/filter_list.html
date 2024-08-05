@@ -1,6 +1,21 @@
-{% extends "base/base.html"}
-{% load static %}
+<!-- {% load static %} -->
 
 {% block filter %}
-    Здесь будет фильтр
+<div class="flex header-menu-nav header-sort">
+    <ul class="flex">
+        <li class="flex li-paginate li-menu justify-content-center align-items-center">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="Filter()">Сортировать по</button>
+                <div id="filterSet" class="dropdown-content">
+                    <a class="filter-link" style="min-width: 283px;" href="#">Убыванию даты</a>
+                    <a class="filter-link" style="min-width: 283px;" href="#">Возрастанию даты</a>
+                    <a class="filter-link" style="min-width: 283px;" href="#">Алфавиту в прямом порядке</a>
+                    <a class="filter-link" style="min-width: 283px;" href="#">Алфавиту в обратном порядке</a>
+                    <a class="filter-link" style="min-width: 283px;" href="#">ID - от большего</a>
+                    <a class="filter-link" style="min-width: 283px;" href="#">ID - от меньшего</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 {% endblock %}
