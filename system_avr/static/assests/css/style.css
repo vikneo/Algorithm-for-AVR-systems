@@ -39,7 +39,7 @@ h2.h2, .h2-link {
 
 .contaner {
     margin: 0 auto;
-    /* margin-bottom: 50px; */
+    margin-bottom: 50px;
     /* padding-top: 40px; */
     max-width: 100%;
     flex-direction: column;
@@ -172,7 +172,6 @@ li, .li-paginate {
 }
 
 .nav {
-    /* margin-top: 35px; */
     outline: 3px solid #494956;
     justify-content: center;
     flex-direction: column;
