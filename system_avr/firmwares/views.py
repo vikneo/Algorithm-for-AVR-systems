@@ -139,6 +139,10 @@ class ProductListView(MenuMixin, ListView):
         return context
 
     def get_queryset(self) -> QuerySet[Any]:
+        filter = self.request.GET.get('filter')
+        if filter:
+            return Product.objects.all().order_by(filter)
+        
         return Product.objects.all().order_by("-created_at")
 
 
