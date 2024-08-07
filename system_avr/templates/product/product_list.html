@@ -17,6 +17,7 @@
 <!-- <marquee direction="right"><img src="../../static/assests/icon/Qw5v.gif" /></marquee> -->
 
 <div class="center-sidebar">
+    {% include 'filter/filter_list.html' %}
     {% if products %}
     <div class="flex section">
         {% for product in products %}
