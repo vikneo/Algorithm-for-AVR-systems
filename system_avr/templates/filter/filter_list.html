@@ -4,16 +4,22 @@
 <div class="flex header-menu-nav header-sort">
     <ul class="flex">
         <form method="get" id="filter" name="form">
-        <li class="flex li-paginate li-menu justify-content-center align-items-center">
-            <div class="dropdown">
-                <button class="dropbtn" onclick="Filter()">Сортировать по</button>
+            <li class="flex li-paginate li-menu justify-content-center align-items-center">
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="Filter()">Сортировать по</button>
                     <div id="filterSet" class="dropdown-content">
-                        <button type="submit" name="filter" value="created_at" class="filter-link" style="min-width: 283px;">Убыванию даты</button>
-                        <button type="submit" name="filter" value="-created_at" class="filter-link" style="min-width: 283px;">Возрастанию даты</button>
-                        <button type="submit" name="filter" value="name" class="filter-link" style="min-width: 283px;">Алфавиту в прямом порядке</button>
-                        <button type="submit" name="filter" value="-name" class="filter-link" style="min-width: 283px;">Алфавиту в обратном порядке</button>
-                        <button type="submit" name="filter" value="-id_product" class="filter-link" style="min-width: 283px;">ID - от большего</button>
-                        <button type="submit" name="filter" value="id_product" class="filter-link" style="min-width: 283px;">ID - от меньшего</button>
+                        <button type="submit" name="filter" value="created_at" class="filter-link"
+                            style="min-width: 283px;">Убыванию даты</button>
+                        <button type="submit" name="filter" value="-created_at" class="filter-link"
+                            style="min-width: 283px;">Возрастанию даты</button>
+                        <button type="submit" name="filter" value="name" class="filter-link"
+                            style="min-width: 283px;">Алфавиту в прямом порядке</button>
+                        <button type="submit" name="filter" value="-name" class="filter-link"
+                            style="min-width: 283px;">Алфавиту в обратном порядке</button>
+                        <button type="submit" name="filter" value="-id_product" class="filter-link"
+                            style="min-width: 283px;">ID - от большего</button>
+                        <button type="submit" name="filter" value="id_product" class="filter-link"
+                            style="min-width: 283px;">ID - от меньшего</button>
                     </div>
                 </div>
             </li>
