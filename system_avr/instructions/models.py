@@ -11,7 +11,7 @@ def path_to_file_instuction(instance: 'Instruction', filename: str) -> str:
 
 class Brand(models.Model):
     """
-    Клас описывает наименование производителей
+    Класс описывает наименование производителей
     """
     name = models.CharField(max_length=80, verbose_name="Произвоодитель")
     slug = models.SlugField(max_length=80, verbose_name='URL')
@@ -49,7 +49,7 @@ class Instruction(models.Model):
 
 class FileInstruction(models.Model):
     """
-    Клас с файлами для модели "Instruction"
+    Класс с файлами для модели "Instruction"
     """
 
     instruction = models.OneToOneField(Instruction, verbose_name="Название", on_delete=models.CASCADE)
